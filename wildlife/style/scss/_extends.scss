@@ -1,0 +1,13 @@
+%flex-between-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+%logo-h1 {
+  font-family: $roboto-font;
+  font-size: 32px;
+  font-weight: normal;
+  line-height: 60px;
+  text-transform: uppercase;
+}

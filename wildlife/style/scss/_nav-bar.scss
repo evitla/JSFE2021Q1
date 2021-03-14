@@ -1,0 +1,25 @@
+nav {
+  @extend %flex-between-center;
+  width: 40%;
+  color: $white-color;
+}
+
+.nav-links {
+  @extend %flex-between-center;
+  width: 100%;
+
+  li {
+    list-style: none;
+    &:hover:not(:last-child) {
+      transform: scale(1.2);
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  a {
+    color: $white-color;
+    font-family: $open-sans-font;
+    font-size: 23px;
+    text-decoration: none;
+  }
+}
