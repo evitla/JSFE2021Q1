@@ -1,0 +1,25 @@
+@import './scss/variables';
+@import './scss/extends';
+@import './scss/buttons';
+@import './scss/nav-bar';
+@import './scss/header';
+@import './scss/main';
+@import './scss/footer';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 1200px * 100% / 1440px;
+}
+
+@media screen and (max-width: 1200px) {
+  nav { width: 45%; }
+}
+
+@media screen and (max-width: 1024px) {
+  nav { width: 50%; }
+}

@@ -1,0 +1,26 @@
+footer {
+  background: url("../assets/footer-img.jpg") no-repeat center;
+  background-size: cover;
+  height: 46.3vh;
+}
+
+.footer-wrapper {
+  @extend %flex-between-center;
+  height: 100%;
+}
+
+.logo h2 {
+  @extend %logo-h1;
+}
+
+.footer-nav { 
+  width: 40%;
+  margin-left: 15px;
+}
+
+.social-network-nav { width: 20%; }
+
+.footer-nav-links li:hover {
+  transform: scale(1.2);
+  transition: all 0.2s ease-in-out;
+}
