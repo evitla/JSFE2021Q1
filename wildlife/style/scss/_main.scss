@@ -15,6 +15,7 @@ h2 {
   h2 {
     letter-spacing: 2px;
     color: $orange-color;
+    font-weight: normal;
   }
 
   p {
@@ -33,12 +34,14 @@ h2 {
   h2 {
     color: $dark-color;
     margin-bottom: 20px;
+    font-weight: normal;
   }
 
   h3 {
     font-size: 24px;
     line-height: 36px;
     color: $gray-color;
+    font-weight: normal;
   }
 }
 
@@ -69,6 +72,7 @@ figcaption {
     font-size: 22px;
     line-height: 36px;
     margin-bottom: 10px;
+    font-weight: normal;
   }
 
   p {
@@ -86,6 +90,7 @@ figcaption {
     line-height: 40.5px;
     color: $dark-color;
     margin-bottom: 59px;
+    font-weight: normal;
   }
 }
 
