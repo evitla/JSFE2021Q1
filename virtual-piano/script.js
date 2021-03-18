@@ -14,8 +14,21 @@ const playNote = event => {
   target.classList.add("piano-key-active-pseudo");
 }
 
+const releaseKey = event => {
+  const target = event.target;
+
+  target.classList.remove("piano-key-active");
+  target.classList.remove("piano-key-active-pseudo");
+}
+
 piano.onmousedown = event => {
   if (event.target.classList.contains("piano-key")) {
     playNote(event);
+  }
+}
+
+piano.onmouseup = event => {
+  if (event.target.classList.contains("piano-key")) {
+    releaseKey(event);
   }
 }
