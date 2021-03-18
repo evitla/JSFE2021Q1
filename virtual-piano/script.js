@@ -32,3 +32,6 @@ piano.onmouseup = event => {
     releaseKey(event);
   }
 }
+
+document.addEventListener("keydown", playNote);
+document.addEventListener("keyup", releaseKey);
