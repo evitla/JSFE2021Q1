@@ -1,9 +1,13 @@
 const piano = document.querySelector(".piano");
 const pianoKeys = document.querySelectorAll(".piano-key");
 
-const playNote = event => {  
-  const letter = event.target.dataset.letter;
-  const target = event.target;
+const playNote = event => {
+  if (event.repeat) return;
+  const isMouse = !event.key;
+  const letter = event.target.dataset.letter || event.key.toUpperCase();
+  const target = (isMouse) 
+                    ? event.target
+                    : document.querySelector(`.piano-key[data-letter="${letter}"`);
   const note = document.querySelector(`audio[data-letter="${letter}"`);
   
   if (!note) return;
@@ -11,7 +15,7 @@ const playNote = event => {
   note.play();
 
   target.classList.add("piano-key-active");
-  target.classList.add("piano-key-active-pseudo");
+  if (isMouse)  target.classList.add("piano-key-active-pseudo");
 }
 
 const releaseKey = event => {
