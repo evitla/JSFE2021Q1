@@ -19,7 +19,13 @@ const playNote = event => {
 }
 
 const releaseKey = event => {
-  const target = event.target;
+  const isMouse = !event.key;
+  const letter = event.target.dataset.letter || event.key.toUpperCase();
+  const target = (isMouse) 
+                    ? event.target
+                    : document.querySelector(`.piano-key[data-letter="${letter}"`);
+
+  if (!target) return;
 
   target.classList.remove("piano-key-active");
   target.classList.remove("piano-key-active-pseudo");
