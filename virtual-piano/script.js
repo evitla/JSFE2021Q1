@@ -34,7 +34,14 @@ const btnClick = () => {
 
 btnContainer.onclick = btnClick;
 
-const playNote = event => {
+const playNote = src => {
+  const audio = new Audio();
+  audio.src = src;
+  audio.currentTime = 0;
+  audio.play();
+}
+
+const pressKey = event => {
   if (event.repeat) return;
 
   const isMouse = !event.key;
@@ -42,11 +49,10 @@ const playNote = event => {
   const target = (isMouse) 
                     ? event.target
                     : document.querySelector(`.piano-key[data-letter="${letter}"`);
-  const note = document.querySelector(`audio[data-letter="${letter}"`);
-  
-  if (!note) return;
-  note.currentTime = 0;
-  note.play();
+
+  if (!target) return;
+  const src = `./assets/audio/${target.dataset.note}.mp3`;
+  playNote(src);
 
   target.classList.add("piano-key-active");
   if (isMouse)  target.classList.add("piano-key-active-pseudo");
@@ -67,21 +73,21 @@ const releaseKey = event => {
 
 const startMouseOver = () => {
   pianoKeys.forEach(key => {
-    key.addEventListener("mouseover", playNote);
+    key.addEventListener("mouseover", pressKey);
     key.addEventListener("mouseout", releaseKey);
   })
 }
 
 const stopMouseOver = () => {
   pianoKeys.forEach(key => {
-    key.removeEventListener("mouseover", playNote);
+    key.removeEventListener("mouseover", pressKey);
     key.removeEventListener("mouseout", releaseKey);
   })
 }
 
 piano.onmousedown = event => {
   if (event.target.classList.contains("piano-key")) {
-    playNote(event);
+    pressKey(event);
   }
   startMouseOver();
 }
@@ -92,6 +98,6 @@ piano.onmouseup = event => {
   }
 }
 
-document.addEventListener("keydown", playNote);
+document.addEventListener("keydown", pressKey);
 document.addEventListener("keyup", releaseKey);
 document.addEventListener("mouseup", stopMouseOver);
