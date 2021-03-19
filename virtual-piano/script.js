@@ -45,7 +45,7 @@ const pressKey = event => {
   if (event.repeat) return;
 
   const isMouse = !event.key;
-  const letter = event.target.dataset.letter || event.key.toUpperCase();
+  const letter = event.target.dataset.letter || event.code.slice(-1);
   const target = (isMouse) 
                     ? event.target
                     : document.querySelector(`.piano-key[data-letter="${letter}"`);
@@ -60,7 +60,7 @@ const pressKey = event => {
 
 const releaseKey = event => {
   const isMouse = !event.key;
-  const letter = event.target.dataset.letter || event.key.toUpperCase();
+  const letter = event.target.dataset.letter || event.code.slice(-1);
   const target = (isMouse) 
                     ? event.target
                     : document.querySelector(`.piano-key[data-letter="${letter}"`);
