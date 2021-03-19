@@ -2,6 +2,17 @@ const piano = document.querySelector(".piano");
 const pianoKeys = document.querySelectorAll(".piano-key");
 const btnContainer = document.querySelector(".btn-container");
 const buttons = document.querySelectorAll(".btn");
+const fullScreenBtn = document.querySelector(".fullscreen");
+
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+}
+
+fullScreenBtn.onclick = toggleFullscreen;
 
 const btnClick = () => {
   buttons.forEach(btn => {
