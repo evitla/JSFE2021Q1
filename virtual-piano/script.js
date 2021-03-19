@@ -1,5 +1,27 @@
 const piano = document.querySelector(".piano");
 const pianoKeys = document.querySelectorAll(".piano-key");
+const btnContainer = document.querySelector(".btn-container");
+const buttons = document.querySelectorAll(".btn");
+
+const btnClick = () => {
+  buttons.forEach(btn => {
+    if (btn.classList.contains("btn-active")) {
+      btn.classList.remove("btn-active");
+    } else {
+      btn.classList.add("btn-active");
+    }
+  })
+
+  pianoKeys.forEach(key => {
+    if (key.classList.contains("piano-key-letter")) {
+      key.classList.remove("piano-key-letter");
+    } else {
+      key.classList.add("piano-key-letter");
+    }
+  })
+}
+
+btnContainer.onclick = btnClick;
 
 const playNote = event => {
   if (event.repeat) return;
@@ -47,10 +69,10 @@ const stopMouseOver = () => {
 }
 
 piano.onmousedown = event => {
-    if (event.target.classList.contains("piano-key")) {
-      playNote(event);
-    }
-    startMouseOver();
+  if (event.target.classList.contains("piano-key")) {
+    playNote(event);
+  }
+  startMouseOver();
 }
 
 piano.onmouseup = event => {
