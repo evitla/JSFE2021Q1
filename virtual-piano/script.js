@@ -3,6 +3,7 @@ const pianoKeys = document.querySelectorAll(".piano-key");
 
 const playNote = event => {
   if (event.repeat) return;
+
   const isMouse = !event.key;
   const letter = event.target.dataset.letter || event.key.toUpperCase();
   const target = (isMouse) 
@@ -31,10 +32,25 @@ const releaseKey = event => {
   target.classList.remove("piano-key-active-pseudo");
 }
 
+const startMouseOver = () => {
+  pianoKeys.forEach(key => {
+    key.addEventListener("mouseover", playNote);
+    key.addEventListener("mouseout", releaseKey);
+  })
+}
+
+const stopMouseOver = () => {
+  pianoKeys.forEach(key => {
+    key.removeEventListener("mouseover", playNote);
+    key.removeEventListener("mouseout", releaseKey);
+  })
+}
+
 piano.onmousedown = event => {
-  if (event.target.classList.contains("piano-key")) {
-    playNote(event);
-  }
+    if (event.target.classList.contains("piano-key")) {
+      playNote(event);
+    }
+    startMouseOver();
 }
 
 piano.onmouseup = event => {
@@ -45,3 +61,4 @@ piano.onmouseup = event => {
 
 document.addEventListener("keydown", playNote);
 document.addEventListener("keyup", releaseKey);
+document.addEventListener("mouseup", stopMouseOver);
