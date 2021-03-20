@@ -14,20 +14,22 @@ function toggleFullscreen() {
 
 fullScreenBtn.onclick = toggleFullscreen;
 
-const btnClick = () => {
+const btnClick = (event) => {
+  const currBtnClass = event.target.classList[1];
+
   buttons.forEach(btn => {
-    if (btn.classList.contains("btn-active")) {
-      btn.classList.remove("btn-active");
-    } else {
+    if (btn.classList.contains(currBtnClass)) {
       btn.classList.add("btn-active");
+    } else {
+      btn.classList.remove("btn-active");
     }
   })
 
   pianoKeys.forEach(key => {
-    if (key.classList.contains("piano-key-letter")) {
-      key.classList.remove("piano-key-letter");
-    } else {
+    if (currBtnClass == "btn-letters") {
       key.classList.add("piano-key-letter");
+    } else {
+      key.classList.remove("piano-key-letter");
     }
   })
 }
