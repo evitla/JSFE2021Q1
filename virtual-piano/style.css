@@ -121,6 +121,11 @@ body {
 	pointer-events: auto;
 	transform-origin: center top;
 }
+
+.piano-key.sharp:hover {
+	background-color: #283036;
+}
+
 .piano-key.piano-key-active,
 .piano-key.sharp.piano-key-active {
 	box-shadow:
