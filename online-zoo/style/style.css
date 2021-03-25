@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.wrapper {
+  width: 83.33333%;
+  margin: 0 auto;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header-wrapper, .nav-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-wrapper {
+  background-color: #ffffff;
+}
+
+.logo {
+  width: 60px;
+}
+
+.logo::before {
+  content: "";
+  position: absolute;
+  background-color: #ffffff;
+  width: 100vw;
+  height: 26px;
+  z-index: 1;
+  left: 0;
+  top: 0;
+}
+
+.logo__title {
+  position: relative;
+  text-transform: lowercase;
+  color: #333333;
+  font-size: 36px;
+  font-weight: 900;
+  width: 99%;
+  margin-top: -45px;
+}
+
+.logo__title::after {
+  position: absolute;
+  content: "Online";
+  font-size: 18px;
+  letter-spacing: 1.3px;
+  bottom: -13px;
+  left: 0;
+}
+
+.navbar {
+  width: 50%;
+}
+
+.nav-links {
+  margin: 40px 0;
+}
+
+.nav-links__item {
+  font-weight: 500;
+}
+
+.nav-links__item_active {
+  padding-left: 1px;
+  padding-right: 4px;
+  -webkit-box-shadow: 0 2px #333333;
+          box-shadow: 0 2px #333333;
+  font-weight: 900;
+}
+
+.nav-links__link {
+  color: #333333;
+  font-size: 16px;
+}
+
+.toggle-btn {
+  width: 54px;
+}
+
+.theme-toggle {
+  display: none;
+}
+
+.theme-label {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 30px;
+  border-radius: 190px;
+  background: #f2f2f2;
+  cursor: pointer;
+}
+
+.theme-label::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  height: 20px;
+  width: 20px;
+  border-radius: 100%;
+  background: #ffffff;
+  -webkit-box-shadow: 2px 4px 15px rgba(5, 12, 70, 0.15);
+          box-shadow: 2px 4px 15px rgba(5, 12, 70, 0.15);
+}
+
+.theme-toggle:checked + .theme-label::before {
+  left: calc(100% - 25px);
+  -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+  background: #1b1b1b;
+}
+
+.theme-toggle:checked + .theme-label {
+  -webkit-box-shadow: inset 0 0 0 18px #4f4f4f;
+          box-shadow: inset 0 0 0 18px #4f4f4f;
+}
+/*# sourceMappingURL=style.css.map */

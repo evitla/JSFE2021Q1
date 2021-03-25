@@ -1,0 +1,59 @@
+.header-wrapper {
+  @extend %flex-between-center;
+  background-color: $primary-light-color;
+}
+
+.logo { width: 60px; }
+
+.logo {
+  &::before {
+    content: "";
+    position: absolute;
+    background-color: $primary-light-color;
+    width: 100vw;
+    height: 26px;
+    z-index: 1;
+    left: 0;
+    top: 0;
+  }
+}
+
+.logo__title {
+  position: relative;
+  text-transform: lowercase;
+  color: $primary-dark-color;
+  font-size: 36px;
+  font-weight: 900;
+  width: 99%;
+  margin-top: -45px;
+
+  &::after {
+    position: absolute;
+    content: "Online";
+    font-size: 18px;
+    letter-spacing: 1.3px;
+    bottom: -13px;
+    left: 0;
+  }
+}
+
+.navbar { width: 50%; }
+
+.nav-links {
+  @extend %flex-between-center;
+  margin: 40px 0;
+}
+
+.nav-links__item { font-weight: 500; }
+
+.nav-links__item_active {
+  padding-left: 1px;
+  padding-right: 4px;
+  box-shadow: 0 2px $primary-dark-color;
+  font-weight: 900;
+}
+
+.nav-links__link {
+  color: $primary-dark-color;
+  font-size: 16px;
+}

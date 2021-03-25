@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  font-family: $primary-font;
+}
+
+.wrapper {
+  width: 1600px / 1920px * 100%;
+  margin: 0 auto;
+}
+
+li { list-style: none; }
+
+a { text-decoration: none; }
