@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 
 $primary-font: 'Roboto', sans-serif;
-$primary-dark-color: #333333;
-$primary-light-color: #ffffff;
+
+html[data-theme='light'] {
+  --primary-text-color: #333333;
+  --primary-bg-color: #ffffff;
+}
+
+html[data-theme='dark'] {
+  --primary-text-color: #ffffff;
+  --primary-bg-color: #333333;
+}
