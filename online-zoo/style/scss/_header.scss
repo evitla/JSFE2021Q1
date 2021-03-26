@@ -25,19 +25,19 @@
   font-size: 36px;
   font-weight: 900;
   width: 99%;
-  margin-top: -45px;
+  margin-top: -70px;
 
   &::after {
     position: absolute;
     content: "Online";
     font-size: 18px;
-    letter-spacing: 1.3px;
+    letter-spacing: 1.6px;
     bottom: -13px;
     left: 0;
   }
 }
 
-.navbar { width: 50%; }
+.navbar { width: 35%; }
 
 .nav-links {
   @extend %flex-between-center;
@@ -59,6 +59,7 @@
 }
 
 .nav-links__link_active {
+  pointer-events: none;
   cursor: default;
   padding-left: 1px;
   padding-right: 4px;

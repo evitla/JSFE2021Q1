@@ -9,6 +9,13 @@ html[data-theme='dark'] {
   --primary-bg-color: #333333;
 }
 
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   font-family: "Roboto", sans-serif;
@@ -16,7 +23,7 @@ body {
 }
 
 .wrapper {
-  width: 83.33333%;
+  max-width: 84.375%;
   margin: 0 auto;
 }
 
@@ -76,20 +83,20 @@ html.transition *::after {
   font-size: 36px;
   font-weight: 900;
   width: 99%;
-  margin-top: -45px;
+  margin-top: -70px;
 }
 
 .logo__title::after {
   position: absolute;
   content: "Online";
   font-size: 18px;
-  letter-spacing: 1.3px;
+  letter-spacing: 1.6px;
   bottom: -13px;
   left: 0;
 }
 
 .navbar {
-  width: 50%;
+  width: 35%;
 }
 
 .nav-links {
@@ -115,6 +122,7 @@ html.transition *::after {
 }
 
 .nav-links__link_active {
+  pointer-events: none;
   cursor: default;
   padding-left: 1px;
   padding-right: 4px;
