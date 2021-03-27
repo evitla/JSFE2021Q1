@@ -1,3 +1,5 @@
+button { cursor: pointer; }
+
 .toggle-btn { width: 54px; }
 
 .theme-toggle { display: none; }
@@ -48,5 +50,32 @@
     transition: .4s ease-in-out;
     background: #333333;
     box-shadow: -2px 0 10px #8d8d8d;
+  }
+}
+
+.btn {
+  margin-top: 37px;
+  width: 245px;
+  height: 55px;
+  background: linear-gradient(106.89deg, #4bd8b5 -14.32%, #49d6df 100.68%);
+  border: none;
+  border-radius: 3px;
+}
+
+.btn-text {
+  @extend %flex-between-center;
+  justify-content: center;
+  padding-top: 3px;
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 21.1px;
+  font-weight: 900;
+  color: #ffffff;
+
+  &::before {
+    content: url("../../assets/icons/watch-icon.svg");
+    width: 32px;
+    height: 32px;
+    margin-right: 5px;
   }
 }

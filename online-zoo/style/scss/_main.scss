@@ -1,0 +1,29 @@
+.watch {
+  position: relative;
+  background: url("../../assets/images/main-bg.png") no-repeat center;
+  background-size: cover;
+  height: calc(100vh - 84px);
+  overflow-x: hidden;
+}
+
+.watch-wrapper {
+  display: grid;
+  grid-template-columns: minmax(210px, 12%) 1fr;
+}
+
+.watch__nav-links {
+  position: absolute;
+  bottom: 105px;
+  flex-direction: column;
+  margin: 0;
+  height: 110px;
+}
+
+.watch__title {
+  margin-top: 205px;
+  color: #fefefe;
+  font-weight: 900;
+  font-size: 5.563rem;
+  line-height: 104.3px;
+  max-width: 793px;
+}
