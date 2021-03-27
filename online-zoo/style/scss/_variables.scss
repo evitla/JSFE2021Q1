@@ -4,12 +4,14 @@ $primary-font: 'Roboto', sans-serif;
 
 html[data-theme='light'] {
   --primary-text-color: #333333;
-  --secondary-text-color: #f2f2f2;
+  --secondary-text-color: #4f4f4f;
   --primary-bg-color: #ffffff;
+  --secondary-bg-color: #f2f2f2;
 }
 
 html[data-theme='dark'] {
-  --primary-text-color: #ffffff;
-  --secondary-text-color: #4f4f4f;
+  --primary-text-color: #fefefe;
+  --secondary-text-color: #f2f2f2;
   --primary-bg-color: #333333;
+  --secondary-bg-color: #4f4f4f;
 }

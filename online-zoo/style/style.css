@@ -1,14 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
 html[data-theme='light'] {
   --primary-text-color: #333333;
-  --secondary-text-color: #f2f2f2;
+  --secondary-text-color: #4f4f4f;
   --primary-bg-color: #ffffff;
+  --secondary-bg-color: #f2f2f2;
 }
 
 html[data-theme='dark'] {
-  --primary-text-color: #ffffff;
-  --secondary-text-color: #4f4f4f;
+  --primary-text-color: #fefefe;
+  --secondary-text-color: #f2f2f2;
   --primary-bg-color: #333333;
+  --secondary-bg-color: #4f4f4f;
 }
 
 * {
@@ -25,8 +27,8 @@ body {
 }
 
 .wrapper {
-  max-width: 84.375%;
-  margin: 0 auto;
+  max-width: 1200px;
+  margin: 100px auto;
 }
 
 li {
@@ -47,7 +49,7 @@ html.transition *::after {
           transition-delay: 0 !important;
 }
 
-.header-wrapper, .nav-links, .btn-text, .watch__carousel, .caption__btn {
+.header-wrapper, .nav-links, .btn-text, .how__footer-wrapper, .watch__carousel, .caption__btn, .how__carousel-slides {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -60,7 +62,9 @@ html.transition *::after {
 }
 
 .header-wrapper {
+  max-width: 1620px;
   background-color: var(--primary-bg-color);
+  margin: 0 auto;
 }
 
 .logo {
@@ -206,7 +210,6 @@ button {
 }
 
 .btn {
-  margin-top: 37px;
   width: 245px;
   height: 55px;
   background: linear-gradient(106.89deg, #4bd8b5 -14.32%, #49d6df 100.68%);
@@ -237,11 +240,12 @@ button {
   position: relative;
   background: url("../../assets/images/main-bg.png") no-repeat center;
   background-size: cover;
-  height: calc(100vh - 84px);
+  min-height: 940px;
   overflow-x: hidden;
 }
 
 .watch-wrapper {
+  max-width: 1620px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: minmax(210px, 12%) 1fr;
@@ -250,7 +254,7 @@ button {
 
 .watch__nav-links {
   position: absolute;
-  bottom: 105px;
+  bottom: 110px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -260,7 +264,7 @@ button {
 }
 
 .watch__title {
-  margin-top: 205px;
+  margin: 105px 0 37px;
   color: #fefefe;
   font-weight: 900;
   font-size: 5.563rem;
@@ -268,12 +272,71 @@ button {
   max-width: 793px;
 }
 
+.how-wrapper {
+  max-width: 790px;
+  text-align: center;
+}
+
+.how__title {
+  color: var(--primary-text-color);
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 56.25px;
+  text-align: left;
+}
+
+.how_paragraph {
+  margin: 30px auto;
+  color: var(--secondary-text-color);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16.4px;
+  text-align: left;
+}
+
+.how__footer {
+  height: 413px;
+  background: var(--secondary-bg-color);
+}
+
+.how__footer-wrapper {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  height: 100%;
+  padding-top: 100px;
+}
+
+.how__footer-info {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 380px;
+          flex: 0 1 380px;
+  text-align: center;
+}
+
+.how__footer-caption h4 {
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 23px;
+  color: var(--primary-text-color);
+  margin: 15px 0;
+}
+
+.how__footer-caption p {
+  text-align: left;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--secondary-text-color);
+}
+
 .watch__carousel {
   position: absolute;
   width: 80%;
   top: 406px;
   right: 0;
-  left: 975px;
+  left: 50.78125%;
   z-index: 0;
 }
 
@@ -404,5 +467,60 @@ button {
   content: url("../../assets/icons/donate-icon.svg");
   margin-top: 8px;
   margin-right: 0;
+}
+
+.how__carousel-slides {
+  overflow: hidden;
+}
+
+.how__carousel-slide img {
+  max-width: 790px;
+}
+
+.how__pagination {
+  position: relative;
+  text-align: center;
+  margin: 25px 0 50px;
+}
+
+.how__pagination::after {
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  content: "";
+  height: 5px;
+  background: rgba(189, 189, 189, 0.57);
+  width: 245px;
+  left: calc(50% - 245px / 2);
+  bottom: -20px;
+  z-index: 0;
+}
+
+.how__pagination::before {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  left: calc(50% - 245px / 2);
+  bottom: -21.5px;
+  content: "";
+  height: 10px;
+  max-width: calc(245px / 4);
+  width: 100%;
+  background: var(--primary-text-color);
+  z-index: 1;
+}
+
+.how__page {
+  color: var(--primary-text-color);
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 900;
+}
+
+.how__all-pages {
+  color: #828282;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 900;
 }
 /*# sourceMappingURL=style.css.map */

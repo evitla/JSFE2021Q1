@@ -2,28 +2,87 @@
   position: relative;
   background: url("../../assets/images/main-bg.png") no-repeat center;
   background-size: cover;
-  height: calc(100vh - 84px);
+  min-height: 940px;
   overflow-x: hidden;
 }
 
 .watch-wrapper {
+  max-width: 1620px;
   display: grid;
   grid-template-columns: minmax(210px, 12%) 1fr;
 }
 
 .watch__nav-links {
   position: absolute;
-  bottom: 105px;
+  bottom: 110px;
   flex-direction: column;
   margin: 0;
   height: 110px;
 }
 
 .watch__title {
-  margin-top: 205px;
+  margin: 105px 0 37px;
   color: #fefefe;
   font-weight: 900;
   font-size: 5.563rem;
   line-height: 104.3px;
   max-width: 793px;
+}
+
+.how-wrapper {
+  max-width: 790px;
+  text-align: center;
+}
+
+.how__title {
+  // margin-top: 100px;
+  color: var(--primary-text-color);
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 56.25px;
+  text-align: left;
+}
+
+.how_paragraph {
+  margin: 30px auto;
+  color: var(--secondary-text-color);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16.4px;
+  text-align: left;
+}
+
+.how__footer {
+  height: 413px;
+  background: var(--secondary-bg-color);
+}
+
+.how__footer-wrapper {
+  @extend %flex-between-center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  height: 100%;
+  padding-top: 100px;
+}
+
+.how__footer-info {
+  flex: 0 1 380px;
+  text-align: center;
+}
+
+.how__footer-caption {
+  h4 {
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 23px;
+    color: var(--primary-text-color);
+    margin: 15px 0;
+  }
+
+  p {
+    text-align: left;
+    font-size: 14px;
+    line-height: 16px;
+    color: var(--secondary-text-color);
+  }
 }

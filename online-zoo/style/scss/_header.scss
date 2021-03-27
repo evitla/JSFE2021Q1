@@ -1,6 +1,8 @@
 .header-wrapper {
+  max-width: 1620px;
   @extend %flex-between-center;
   background-color: var(--primary-bg-color);
+  margin: 0 auto;
 }
 
 .logo { width: 60px; }
