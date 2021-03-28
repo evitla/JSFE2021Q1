@@ -49,7 +49,7 @@ html.transition *::after {
           transition-delay: 0 !important;
 }
 
-.header-wrapper, .nav-links, .btn-text, .how__footer-wrapper, .pay__scheme, .watch__carousel, .caption__btn, .how__carousel-slides, .pets__carousel, .pets__carousel-slides, .testimonials__carousel, .testimonials__carousel-slides {
+.header-wrapper, .nav-links, .btn-text, .how__footer-wrapper, .pay__scheme, .tooltip, .watch__carousel, .caption__btn, .how__carousel-slides, .pets__carousel, .pets__carousel-slides, .testimonials__carousel, .testimonials__carousel-slides {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -397,6 +397,95 @@ button {
 .testimonials-wrapper {
   max-width: 1300px;
   text-align: center;
+}
+
+.map {
+  background: var(--secondary-bg-color);
+}
+
+.map-wrapper {
+  padding: 100px 0;
+  text-align: center;
+}
+
+.map__img {
+  position: relative;
+  margin: 60px auto 35px;
+}
+
+.map-marker {
+  position: absolute;
+}
+
+.map-marker-1 {
+  top: 78px;
+  left: 120px;
+}
+
+.map-marker-2 {
+  top: 107px;
+  left: 243px;
+}
+
+.map-marker-3 {
+  top: 191px;
+  left: 570px;
+}
+
+.map-marker-4 {
+  top: 95px;
+  left: 893px;
+}
+
+.map__round-img {
+  position: absolute;
+  width: 43px;
+  top: 12px;
+  left: 12px;
+}
+
+.tooltip {
+  visibility: hidden;
+  position: absolute;
+  height: 149px;
+  left: -402px;
+  top: 72px;
+  -webkit-box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.15);
+          box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.15);
+  border-radius: 8px;
+  padding: 48px 55px 44px 44px;
+  background: var(--primary-bg-color);
+}
+
+.tooltip img {
+  width: 65px;
+  margin-right: 20px;
+}
+
+.tooltip__text {
+  width: 100%;
+}
+
+.tooltip__text .caption__title {
+  font-size: 18px;
+  text-align: left;
+  margin-bottom: 7px;
+}
+
+.tooltip__text .paragraph {
+  margin-bottom: 5px;
+}
+
+.paragraph strong {
+  color: var(--primary-text-color);
+}
+
+.map-marker:hover .tooltip {
+  visibility: visible;
+}
+
+.map-marker:hover .map-marker-svg path {
+  fill: #eb5757;
 }
 
 .watch__carousel {
