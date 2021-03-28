@@ -29,18 +29,35 @@
   max-width: 793px;
 }
 
+.paragraph {
+  text-align: left;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--secondary-text-color);
+}
+
 .how-wrapper {
   max-width: 790px;
   text-align: center;
 }
 
-.how__title {
+.section__title {
   color: var(--primary-text-color);
   font-weight: 900;
   font-size: 48px;
   line-height: 56.25px;
-  text-align: left;
+  text-align: center;
 }
+
+.caption__title {
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 23px;
+  color: var(--primary-text-color);
+  text-align: center;
+}
+
+.how__title { text-align: left; }
 
 .how_paragraph {
   margin: 30px auto;
@@ -51,9 +68,7 @@
   text-align: left;
 }
 
-.how__footer {
-  background: var(--secondary-bg-color);
-}
+.how__footer { background: var(--secondary-bg-color); }
 
 .how__footer-wrapper {
   @extend %flex-between-center;
@@ -68,32 +83,40 @@
   text-align: center;
 }
 
-.how__footer-caption {
-  h4 {
-    font-weight: 900;
-    font-size: 20px;
-    line-height: 23px;
-    color: var(--primary-text-color);
-    margin: 15px 0;
-  }
-
-  p {
-    text-align: left;
-    font-size: 14px;
-    line-height: 16px;
-    color: var(--secondary-text-color);
-  }
-}
+.how__footer-caption .caption__title { margin: 15px 0; }
 
 .pets-wrapper {
   max-width: 1300px;
   text-align: center;
 }
 
-.pets__title {
-  font-weight: 900;
-  font-size: 48px;
-  line-height: 56px;
-  color: var(--primary-text-color);
-  margin-bottom: 35px;
+.pay { background: var(--secondary-bg-color); }
+
+.pay-wrapper {
+  padding: 100px 0;
+  text-align: center;
+
+  .paragraph {
+    text-align: center;
+    margin-top: 30px;
+  }
+}
+
+.pay__scheme {
+  @extend %flex-between-center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 92px 0 60px;
+}
+
+.pay__info {
+  position: relative;
+  flex: 0 1 245px;
+}
+
+.pay__info-caption {
+  position: absolute;
+  bottom: 60px;
+  left: 55px;
+  max-width: 135px;
 }

@@ -87,3 +87,5 @@ button { cursor: pointer; }
   font-size: 17px;
   &::before { content: none; }
 }
+
+.donate-btn-text::before { content: none; }
