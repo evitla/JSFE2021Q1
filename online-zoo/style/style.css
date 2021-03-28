@@ -49,7 +49,7 @@ html.transition *::after {
           transition-delay: 0 !important;
 }
 
-.header-wrapper, .nav-links, .btn-text, .how__footer-wrapper, .pay__scheme, .watch__carousel, .caption__btn, .how__carousel-slides, .pets__carousel, .pets__carousel-slides {
+.header-wrapper, .nav-links, .btn-text, .how__footer-wrapper, .pay__scheme, .watch__carousel, .caption__btn, .how__carousel-slides, .pets__carousel, .pets__carousel-slides, .testimonials__carousel, .testimonials__carousel-slides {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -394,6 +394,11 @@ button {
   max-width: 135px;
 }
 
+.testimonials-wrapper {
+  max-width: 1300px;
+  text-align: center;
+}
+
 .watch__carousel {
   position: absolute;
   width: 80%;
@@ -412,7 +417,6 @@ button {
 }
 
 .carousel__slide {
-  display: table;
   text-align: center;
 }
 
@@ -623,7 +627,8 @@ button {
   margin-right: 30px;
 }
 
-.next-btn-svg {
+:is(.prev-btn-svg-toggled,
+.next-btn-svg-toggled) path {
   fill: var(--primary-text-color);
 }
 
@@ -634,5 +639,46 @@ button {
 
 .pets__pagination::after {
   bottom: -15px;
+}
+
+.testimonials__carousel {
+  overflow: hidden;
+  margin-top: 52px;
+}
+
+.testimonials__carousel-slide {
+  margin: 11px 17px 19px 13px;
+}
+
+.testimonials__carousel-slide-wrapper {
+  text-align: center;
+  width: 585px;
+  height: 310px;
+  -webkit-box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.1);
+          box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.1);
+  border-radius: 5px;
+}
+
+.testimonials__carousel-slide-wrapper img {
+  margin-top: 47px;
+}
+
+.testimonials__carousel-slide-wrapper .caption__title {
+  text-transform: capitalize;
+  margin-top: 10px;
+}
+
+.testimonials__carousel-slide-wrapper .paragraph {
+  margin: 17px 72px 0 72px;
+}
+
+.testimonials__pagination::before {
+  max-width: calc(245px / 8);
+  left: calc(50% - 245px / (2 + 0.65));
+  bottom: -22.5px;
+}
+
+.testimonials__pagination::after {
+  bottom: -20px;
 }
 /*# sourceMappingURL=style.css.map */
