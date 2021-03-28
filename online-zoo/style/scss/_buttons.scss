@@ -67,8 +67,9 @@ button { cursor: pointer; }
   padding-top: 3px;
   text-transform: uppercase;
   font-size: 18px;
-  line-height: 21.1px;
+  line-height: 21px;
   font-weight: 900;
+  font-style: normal;
   color: #ffffff;
 
   &::before {
@@ -77,4 +78,12 @@ button { cursor: pointer; }
     height: 32px;
     margin-right: 5px;
   }
+}
+
+.choose-btn-text {
+  white-space: nowrap;
+  padding: 17px;
+  padding-top: 19px;
+  font-size: 17px;
+  &::before { content: none; }
 }

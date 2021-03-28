@@ -35,7 +35,6 @@
 }
 
 .how__title {
-  // margin-top: 100px;
   color: var(--primary-text-color);
   font-weight: 900;
   font-size: 48px;
@@ -53,7 +52,6 @@
 }
 
 .how__footer {
-  height: 413px;
   background: var(--secondary-bg-color);
 }
 
@@ -62,7 +60,7 @@
   align-items: flex-start;
   flex-wrap: wrap;
   height: 100%;
-  padding-top: 100px;
+  padding: 100px 0;
 }
 
 .how__footer-info {
@@ -85,4 +83,17 @@
     line-height: 16px;
     color: var(--secondary-text-color);
   }
+}
+
+.pets-wrapper {
+  max-width: 1300px;
+  text-align: center;
+}
+
+.pets__title {
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 56px;
+  color: var(--primary-text-color);
+  margin-bottom: 35px;
 }
