@@ -89,3 +89,21 @@ button { cursor: pointer; }
 }
 
 .donate-btn-text::before { content: none; }
+
+.contact__send {
+  position: absolute;
+  background: transparent;
+  border: none;
+  color: #fefefe;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 20px 15px;
+  right: 0;
+
+  &::after {
+    content: url("../../assets/images/right-arrow.svg");
+    margin-left: 24px;
+  }
+}
+
+.footer-btn { width: 279px; }

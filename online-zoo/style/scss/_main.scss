@@ -129,6 +129,7 @@
 .map { background: var(--secondary-bg-color); }
 
 .map-wrapper {
+  margin-bottom: 0px;
   padding: 100px 0;
   text-align: center;
 }
@@ -200,6 +201,8 @@
 .paragraph strong { color: var(--primary-text-color); }
 
 .map-marker:hover {
+  cursor: pointer;
+
   .tooltip { visibility: visible; }
   
   .map-marker-svg path { fill: #eb5757; }
