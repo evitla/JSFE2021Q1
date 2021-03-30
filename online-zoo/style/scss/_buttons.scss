@@ -53,42 +53,50 @@ button { cursor: pointer; }
   }
 }
 
-.btn {
+.primary-btn {
   width: 245px;
   height: 55px;
   background: linear-gradient(106.89deg, #4bd8b5 -14.32%, #49d6df 100.68%);
   border: none;
   border-radius: 3px;
-}
-
-.btn-text {
-  @extend %flex-between-center;
-  justify-content: center;
-  padding-top: 3px;
   text-transform: uppercase;
   font-size: 18px;
-  line-height: 21px;
   font-weight: 900;
-  font-style: normal;
+  color: #ffffff;
+  margin: 0 auto;
+}
+
+.caption__btn { @extend %flex-between-center; }
+
+.secondary-btn {
+  @extend %flex-between-center;
+  background: transparent;
+  border: none;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-top: 14px;
+}
+
+.with-icon {
+  @extend %flex-between-center;
+  padding: 18px 35px 16px;
+}
+
+.watch__btn { margin: 0; }
+
+.secondary__watch-btn {
+  color: #4bd8b5;
+  margin-right: 5px;
+
+  &::before { content: url("../../assets/icons/watch-icon-2.svg"); }
+}
+
+.secondary__donate-btn {
   color: #ffffff;
 
-  &::before {
-    content: url("../../assets/icons/watch-icon.svg");
-    width: 32px;
-    height: 32px;
-    margin-right: 5px;
-  }
+  &::before { content: url("../../assets/icons/donate-icon.svg"); }
 }
-
-.choose-btn-text {
-  white-space: nowrap;
-  padding: 17px;
-  padding-top: 19px;
-  font-size: 17px;
-  &::before { content: none; }
-}
-
-.donate-btn-text::before { content: none; }
 
 .contact__send {
   position: absolute;
@@ -106,4 +114,7 @@ button { cursor: pointer; }
   }
 }
 
-.footer-btn { width: 279px; }
+.footer__btn {
+  width: 279px;
+  margin: 0;
+}
