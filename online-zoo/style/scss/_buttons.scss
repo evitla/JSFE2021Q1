@@ -89,13 +89,19 @@ button { cursor: pointer; }
   color: #4bd8b5;
   margin-right: 5px;
 
-  &::before { content: url("../../assets/icons/watch-icon-2.svg"); }
+  &::before {
+    content: url("../../assets/icons/watch-icon-2.svg");
+    margin-right: 2px;
+  }
 }
 
 .secondary__donate-btn {
   color: #ffffff;
 
-  &::before { content: url("../../assets/icons/donate-icon.svg"); }
+  &::before {
+    content: url("../../assets/icons/donate-icon.svg");
+    margin-right: 2px;
+  }
 }
 
 .contact__send {
