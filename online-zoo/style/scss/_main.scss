@@ -4,29 +4,29 @@
   background-size: cover;
   min-height: 940px;
   overflow-x: hidden;
-}
 
-.watch-wrapper {
-  max-width: 1620px;
-  display: grid;
-  grid-template-columns: minmax(210px, 12%) 1fr;
-}
+  &-wrapper {
+    max-width: 1620px;
+    display: grid;
+    grid-template-columns: minmax(210px, 12%) 1fr;
+  }
 
-.watch__nav-links {
-  position: absolute;
-  bottom: 110px;
-  flex-direction: column;
-  margin: 0;
-  height: 110px;
-}
+  &__nav-links {
+    position: absolute;
+    bottom: 110px;
+    flex-direction: column;
+    margin: 0;
+    height: 110px;
+  }
 
-.watch__title {
-  margin: 105px 0 37px;
-  color: #fefefe;
-  font-weight: 900;
-  font-size: 5.563rem;
-  line-height: 104.3px;
-  max-width: 793px;
+  &__title {
+    margin: 105px 0 37px;
+    color: #{map-get($colors-neutral, 200)};
+    font-weight: 900;
+    font-size: 5.563rem;
+    line-height: 104.3px;
+    max-width: 793px;
+  }
 }
 
 .paragraph {
@@ -57,68 +57,75 @@
   text-align: center;
 }
 
-.how__title { text-align: left; }
+.how {
+  &__title { text-align: left; }
 
-.how_paragraph {
-  margin: 30px auto;
-  color: var(--secondary-text-color);
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 16.4px;
-  text-align: left;
+  &_paragraph {
+    margin: 30px auto;
+    color: var(--secondary-text-color);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16.4px;
+    text-align: left;
+  }
+
+  &__footer {
+    background: var(--secondary-bg-color);
+
+    &-wrapper {
+      @extend %flex-between-center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      height: 100%;
+      padding: 100px 0;
+    }
+
+    &-info {
+      flex: 0 1 380px;
+      text-align: center;
+    }
+
+    &-caption-title { margin: 15px 0; }
+  }
+
 }
-
-.how__footer { background: var(--secondary-bg-color); }
-
-.how__footer-wrapper {
-  @extend %flex-between-center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  height: 100%;
-  padding: 100px 0;
-}
-
-.how__footer-info {
-  flex: 0 1 380px;
-  text-align: center;
-}
-
-.how__footer-caption .caption__title { margin: 15px 0; }
 
 .pets-wrapper {
   max-width: 1300px;
   text-align: center;
 }
 
-.pay { background: var(--secondary-bg-color); }
+.pay {
+  background: var(--secondary-bg-color);
 
-.pay-wrapper {
-  padding: 100px 0;
-  text-align: center;
-
-  .paragraph {
+  &-wrapper {
+    padding: 100px 0;
     text-align: center;
-    margin-top: 30px;
+  
+    .paragraph {
+      text-align: center;
+      margin-top: 30px;
+    }
   }
-}
 
-.pay__scheme {
-  @extend %flex-between-center;
-  flex-wrap: wrap;
-  width: 100%;
-  margin: 92px 0 60px;
-}
+  &__scheme {
+    @extend %flex-between-center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 92px 0 60px;
+  }
 
-.pay__info {
-  position: relative;
-  flex: 0 1 245px;
-}
+  &__info {
+    position: relative;
+    flex: 0 1 245px;
 
-.pay__info-caption {
-  position: absolute;
-  bottom: 60px;
-  left: 55px;
-  max-width: 135px;
+    &-caption {
+      position: absolute;
+      bottom: 60px;
+      left: 55px;
+      max-width: 135px;
+    }
+  }
 }
 
 .testimonials-wrapper {
@@ -126,46 +133,37 @@
   text-align: center;
 }
 
-.map { background: var(--secondary-bg-color); }
+.map {
+  background: var(--secondary-bg-color);
 
-.map-wrapper {
-  margin-bottom: 0px;
-  padding: 100px 0;
-  text-align: center;
+  &-wrapper {
+    margin-bottom: 0px;
+    padding: 100px 0;
+    text-align: center;
+  }
+
+  &__img {
+    position: relative;
+    margin: 60px auto 35px;
+  }
+
+  &-marker { position: absolute; }
+
+  &__round-img {
+    position: absolute;
+    width: 43px;
+    top: 12px;
+    left: 12px;
+  }
 }
 
-.map__img {
-  position: relative;
-  margin: 60px auto 35px;
-}
+@for $i from 1 through length($marker-positions) {
+  $positions: nth($marker-positions, $i);
 
-.map-marker { position: absolute; }
-
-.map-marker-1 {
-  top: 78px;
-  left: 120px;
-}
-
-.map-marker-2 {
-  top: 107px;
-  left: 243px;
-}
-
-.map-marker-3 {
-  top: 191px;
-  left: 570px;
-}
-
-.map-marker-4 {
-  top: 95px;
-  left: 893px;
-}
-
-.map__round-img {
-  position: absolute;
-  width: 43px;
-  top: 12px;
-  left: 12px;
+  .map-marker-#{$i} {
+    top: map-get($positions, "top");
+    left: map-get($positions, "left");
+  }
 }
 
 .tooltip {

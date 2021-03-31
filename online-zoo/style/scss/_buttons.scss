@@ -10,7 +10,7 @@ button { cursor: pointer; }
   width: 100%;
   height: 30px;
   border-radius: 190px;
-  background: #f2f2f2;
+  background: #{map-get($colors-neutral, 400)};
   cursor: pointer;
 
   &::before {
@@ -29,26 +29,26 @@ button { cursor: pointer; }
   &:hover::before {
     transform: translateX(2px);
     transition: .4s ease-in-out;
-    background: #fcfcfc;
+    background: #{map-get($colors-neutral, 300)};
     box-shadow: 2px 0 10px #9b9b9b;
   }
 }
 
 .theme-toggle:checked + .theme-label {
   box-shadow: inset 0 0 0 18px #4f4f4f;
-  background: #1b1b1b;
+  background: #{map-get($colors-neutral, 900)};
 
   &::before {
     left: calc(100% - 25px);
     box-shadow: 0 3px 3px rgba(0,0,0,.3);
-    background: #1b1b1b;
+    background: #{map-get($colors-neutral, 900)};
     transition: .4s ease-in-out;
   }
 
   &:hover::before {
     transform: translateX(-2px);
     transition: .4s ease-in-out;
-    background: #333333;
+    background: #{map-get($colors-neutral, 800)};
     box-shadow: -2px 0 10px #8d8d8d;
   }
 }
@@ -62,7 +62,7 @@ button { cursor: pointer; }
   text-transform: uppercase;
   font-size: 18px;
   font-weight: 900;
-  color: #ffffff;
+  color: #{map-get($colors-neutral, 100)};
   margin: 0 auto;
 }
 
@@ -96,7 +96,7 @@ button { cursor: pointer; }
 }
 
 .secondary__donate-btn {
-  color: #ffffff;
+  color: #{map-get($colors-neutral, 100)};
 
   &::before {
     content: url("../../assets/icons/donate-icon.svg");
@@ -108,7 +108,7 @@ button { cursor: pointer; }
   position: absolute;
   background: transparent;
   border: none;
-  color: #fefefe;
+  color: #{map-get($colors-neutral, 200)};
   font-size: 14px;
   font-weight: 500;
   margin: 20px 15px;

@@ -1,4 +1,4 @@
-.footer { background: #333333; }
+.footer { background: #{map-get($colors-neutral, 800)}; }
 
 .footer-wrapper {
   max-width: 1620px;
@@ -6,7 +6,7 @@
   padding-top: 100px;
   @extend %flex-between-center;
   align-items: flex-start;
-  border-bottom: 0.5px solid #fefefe;
+  border-bottom: 0.5px solid #{map-get($colors-neutral, 200)};
 }
 
 .footer__left-side { width: 100%; }
@@ -17,12 +17,12 @@
 }
 
 .footer__logo {
-  color: #ffffff;
+  color: #{map-get($colors-neutral, 100)};
   margin-top: -10px;
 }
 
 .contact__title {
-  color: #ffffff;
+  color: #{map-get($colors-neutral, 100)};
   text-align: left;
   margin-bottom: 30px;
 }
@@ -37,12 +37,12 @@
     height: 26px;
     font-size: 14px;
     line-height: 16px;
-    color: #e0e0e0;
+    color: #{map-get($colors-neutral, 500)};
     background: none;
     padding-bottom: 10px;
     margin-bottom: 20px;
     border: none;
-    border-bottom: 1px solid #bdbdbd;
+    border-bottom: 1px solid #{map-get($colors-neutral, 600)};
 
     &::placeholder { color: inherit; }
     &:focus { outline: none; }
@@ -61,7 +61,7 @@
     width: 0;
     position: absolute;
     bottom: 20px;
-    background: #f2f2f2;
+    background: #{map-get($colors-neutral, 400)};
     transition: .5s ease all;
     left: 0%;
   }
@@ -70,13 +70,13 @@
 .contact__textarea {
   width: 383px;
   height: 124px;
-  border: 1px solid #bdbdbd;
+  border: 1px solid #{map-get($colors-neutral, 600)};
   border-radius: 3px;
 
   legend {
     margin-left: 5px;
     padding: 0 5px 0px 3px;
-    color: #bdbdbd;
+    color: #{map-get($colors-neutral, 600)};
     font-size: 12px;
     line-height: 14px;
   }
@@ -86,7 +86,7 @@
     height: 100%;
     font-size: 14px;
     line-height: 16px;
-    color: #e0e0e0;
+    color: #{map-get($colors-neutral, 500)};
     background: none;
     border: none;
     padding: 5px;
@@ -107,7 +107,7 @@
   label {
     position: relative;
     cursor: pointer;
-    color: #bdbdbd;
+    color: #{map-get($colors-neutral, 600)};
     font-size: 12px;
     padding-left: 19px;
 
@@ -117,7 +117,7 @@
       left: 0;
       bottom: 0;
       background-color: transparent;
-      border: 1px solid #bdbdbd;
+      border: 1px solid #{map-get($colors-neutral, 600)};
       border-radius: 1px;
       width: 13px;
       height: 13px;
@@ -135,7 +135,7 @@
   left: 5px;
   width: 3px;
   height: 8px;
-  border: solid #bdbdbd;
+  border: solid #{map-get($colors-neutral, 600)};
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
@@ -150,12 +150,12 @@
   }
 
   .nav-links__link {
-    color: #fefefe;
+    color: #{map-get($colors-neutral, 200)};
   }
 }
 
 .address__title {
-  color: #fefefe;
+  color: #{map-get($colors-neutral, 200)};
   font-weight: 700;
   font-size: 14px;
   text-transform: uppercase;
@@ -164,10 +164,10 @@
 
 .address {
   .paragraph {
-    color: #fefefe;
+    color: #{map-get($colors-neutral, 200)};
     margin-bottom: 5px;
   }
-  a { color: #fefefe; }
+  a { color: #{map-get($colors-neutral, 200)}; }
 }
 
 .footer__social {
@@ -182,7 +182,7 @@
 
   p {
     font-size: 12px;
-    color: #bdbdbd;
+    color: #{map-get($colors-neutral, 600)};
     margin-bottom: 5px;
   }
 }

@@ -377,7 +377,7 @@ button {
   text-align: center;
 }
 
-.how__footer-caption .caption__title {
+.how__footer-caption-title {
   margin: 15px 0;
 }
 
@@ -445,6 +445,13 @@ button {
   position: absolute;
 }
 
+.map__round-img {
+  position: absolute;
+  width: 43px;
+  top: 12px;
+  left: 12px;
+}
+
 .map-marker-1 {
   top: 78px;
   left: 120px;
@@ -463,13 +470,6 @@ button {
 .map-marker-4 {
   top: 95px;
   left: 893px;
-}
-
-.map__round-img {
-  position: absolute;
-  width: 43px;
-  top: 12px;
-  left: 12px;
 }
 
 .tooltip {

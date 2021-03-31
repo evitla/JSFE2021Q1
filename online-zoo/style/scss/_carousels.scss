@@ -28,7 +28,7 @@
   bottom: -70px;
   left: 12%;
 
-  .page { color: #fefefe; }
+  .page { color: #{map-get($colors-neutral, 200)}; }
 }
 
 .page {
@@ -38,7 +38,7 @@
 }
 
 .all-pages {
-  color: #828282;
+  color: #{map-get($colors-neutral, 700)};
   font-size: 14px;
   font-weight: 900;
 }
@@ -74,8 +74,8 @@
 }
 
 .watch__carousel-range {
-  &::-webkit-slider-thumb { background: #fefefe; }
-  &::-moz-range-thumb { background: #fefefe; }
+  &::-webkit-slider-thumb { background: #{map-get($colors-neutral, 200)}; }
+  &::-moz-range-thumb { background: #{map-get($colors-neutral, 200)}; }
 }
 
 .carousel__slide {
@@ -107,7 +107,7 @@
 
   .paragraph {
     max-width: 194px;
-    color: #ffffff;
+    color: #{map-get($colors-neutral, 100)};
   }
 }
 
