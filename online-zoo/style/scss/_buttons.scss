@@ -56,7 +56,7 @@ button { cursor: pointer; }
 .primary-btn {
   width: 245px;
   height: 55px;
-  background: linear-gradient(106.89deg, #4bd8b5 -14.32%, #49d6df 100.68%);
+  background: map-get($colors-neutral, "gradient");
   border: none;
   border-radius: 3px;
   text-transform: uppercase;
@@ -123,4 +123,9 @@ button { cursor: pointer; }
 .footer__btn {
   width: 279px;
   margin: 0;
+}
+
+.zoo__btn {
+  width: 194px;
+  margin-top: 35px;
 }

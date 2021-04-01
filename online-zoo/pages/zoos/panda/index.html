@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../style/style.css">
+  <title>Online Zoo</title>
+</head>
+<body>
+  <header class="zoo__header">
+    <div class="wrapper header-wrapper">
+      <div class="logo">
+        <a class="logo__link" href="#">
+          <h1 class="logo__title">Online Zoo</h1>
+        </a>
+      </div>
+      <nav class="navbar">
+        <ul class="nav-links">
+          <li class="nav-links__item">
+            <a class="nav-links__link" href="#">About</a>
+          </li>
+          <li class="nav-links__item">
+            <a class="nav-links__link nav-links__link_active" href="#">Zoos</a>
+          </li>
+          <li class="nav-links__item">
+            <a class="nav-links__link" href="#">Map</a>
+          </li>
+          <li class="nav-links__item">
+            <a class="nav-links__link" href="#">Contact Us</a>
+          </li>
+          <li class="nav-links__item">
+            <a class="nav-links__link" href="#">Design</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="toggle-btn">
+        <input type="checkbox" id="theme-toggle" class="theme-toggle">
+        <label for="theme-toggle" class="theme-label" data-off="off" data-on="on"></label>
+      </div>
+    </div>
+  </header>
+  <main class="zoo__main">
+    <aside class="zoo__sidebar">
+      <div class="zoo__sidebar-carousel">
+        <svg class="up-arrow" width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0)">
+            <path d="M11.5001 4.94404C11.9123 4.94404 12.3244 5.10143 12.6387 5.41555L22.5282 15.3051C23.1573 15.9342 23.1573
+                16.9542 22.5282 17.5831C21.8993 18.2119 20.8796 18.2119 20.2504 17.5831L11.5001 8.8322L2.74967 17.5827C2.12057
+                18.2116 1.1009 18.2116 0.472107 17.5827C-0.157299 16.9539 -0.157299 15.9339 0.472107 15.3048L10.3614 5.41524C10.6759
+                5.10107 11.088 4.94404 11.5001 4.94404Z" fill="#828282"/>
+          </g>
+          <defs>
+            <clipPath id="clip0"><rect width="23" height="23" fill="white" transform="translate(23 23) rotate(-180)"/></clipPath>
+          </defs>
+        </svg>
+        <div class="zoo__sidebar-carousel-slides">
+          <figure class="zoo__sidebar-carousel-slide zoo__sidebar-carousel-slide_active">
+            <a href="#"><img src="../../../assets/images/round-img-2.png" alt=""></a>
+          </figure>
+          <figure class="zoo__sidebar-carousel-slide">
+            <a href="#"><img src="../../../assets/images/round-img-4.png" alt=""></a>
+          </figure>
+          <figure class="zoo__sidebar-carousel-slide">
+            <a href="#"><img src="../../../assets/images/round-img-3.png" alt=""></a>
+          </figure>
+          <figure class="zoo__sidebar-carousel-slide">
+            <a href="#"><img src="../../../assets/images/round-img-1.png" alt=""></a>
+          </figure>
+          <figure class="zoo__sidebar-carousel-slide">
+            <a href="#"><img src="../../../assets/images/round-img-5.png" alt=""></a>
+          </figure>
+          <figure class="zoo__sidebar-carousel-slide">
+            <a href="#"><img src="../../../assets/images/round-img-6.png" alt=""></a>
+          </figure>
+          <figure class="zoo__sidebar-carousel-slide">
+            <a href="#"><img src="../../../assets/images/round-img-7.png" alt=""></a>
+          </figure>
+          <figure class="zoo__sidebar-carousel-slide">
+            <a href="#"><img src="../../../assets/images/round-img-8.png" alt=""></a>
+          </figure>
+        </div>
+        <svg class="down-arrow" width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0)">
+            <path d="M11.4999 18.056C11.0877 18.056 10.6756 17.8986 10.3613 17.5845L0.471825 7.69487C-0.157275 7.06577 -0.157275
+            6.04579 0.471825 5.41695C1.10067 4.7881 2.12045 4.7881 2.7496 5.41695L11.4999 14.1678L20.2503 5.41725C20.8794 4.78841
+            21.8991 4.78841 22.5279 5.41725C23.1573 6.0461 23.1573 7.06608 22.5279 7.69518L12.6386 17.5848C12.3241 17.8989 11.912
+            18.056 11.4999 18.056Z" fill="#333333"/>
+          </g>
+          <defs>
+            <clipPath id="clip0"><rect width="23" height="23" fill="white"/></clipPath>
+          </defs>
+        </svg>
+      </div>
+    </aside>
+    <section class="zoo">
+      <div class="wrapper zoo__wrapper">
+        <h2 class="section__title zoo__title">The Beijing Zoo</h2>
+        <div class="zoo__content">
+          <div class="zoo__videos">
+            <iframe class="zoo__video" width="100%" height="442px" src="https://www.youtube.com/embed/Fu3EX-N1How"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+            <div class="zoo__carousel">
+              <div class="zoo__carousel-plug"></div>
+              <iframe class="zoo__carousel-slide" width="246px" height="137px" src="https://www.youtube.com/embed/Fu3EX-N1How"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+              </iframe>
+              <iframe class="zoo__carousel-slide" width="246px" height="137px" src="https://www.youtube.com/embed/Fu3EX-N1How"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+              </iframe>
+              <iframe class="zoo__carousel-slide" width="246px" height="137px" src="https://www.youtube.com/embed/Fu3EX-N1How"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+              </iframe>
+              <div class="zoo__carousel-dots">
+                <a href="#" class="zoo__carousel-indicator"></a>
+                <a href="#" class="zoo__carousel-dot"></a>
+                <a href="#" class="zoo__carousel-dot"></a>
+                <a href="#" class="zoo__carousel-dot"></a>
+              </div>
+            </div>
+          </div>
+          <div class="zoo__info">
+            <h4 class="zoo__info-title">Population:</h4>
+            <p class="paragraph">About 1,590 individuals</p>
+            <h4 class="zoo__info-title">Habitat:</h4>
+            <p class="paragraph">Temperate forests high in the mountains of southwest China</p>
+            <h4 class="zoo__info-title">Diet:</h4>
+            <p class="paragraph">
+              A panda's daily diet consists almost entirely of the leaves, stems and shoots of various bamboo species.
+              Bamboo contains very little nutritional value so pandas must eat 12-38kg every day to meet their energy needs.
+            </p>
+            <button class="primary-btn zoo__btn" type="submit">Feed</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="wrapper footer-wrapper">
+      <div class="footer__left-side">
+        <a href="">
+          <h2 class="logo__title footer__logo">zoo</h2>
+        </a>
+        <div class="contact-us">
+          <h4 class="caption__title contact__title">Contact us</h4>
+          <form>
+            <label>
+              <input type="text" placeholder="Name" required>
+              <span class="highlight"></span>
+            </label>
+            <label>
+              <input type="email" placeholder="Email" required>
+              <span class="highlight"></span>
+            </label>
+            <fieldset class="contact__textarea">
+              <legend>Please enter your message</legend>
+              <label>
+                <textarea maxlength="280" required></textarea>
+              </label>
+            </fieldset>
+            <div class="contact__checkbox">
+              <input type="checkbox" id="agree" required>
+              <label for="agree">I agree to the processing of Personal Data</label>
+            </div>
+            <button class="contact__send" type="submit">SEND</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer__right-side">
+        <nav class="navbar footer__navbar">
+          <ul class="nav-links">
+            <li class="nav-links__item">
+              <a class="nav-links__link" href="#">About</a>
+            </li>
+            <li class="nav-links__item">
+              <a class="nav-links__link nav-links__link_active" href="#">Zop</a>
+            </li>
+            <li class="nav-links__item">
+              <a class="nav-links__link" href="#">Map</a>
+            </li>
+            <li class="nav-links__item">
+              <a class="nav-links__link" href="#">Design</a>
+            </li>
+          </ul>
+          <button class="primary-btn footer__btn" type="submit">Donate for volunteers</button>
+        </nav>
+        <div class="address">
+          <h5 class="address__title">Zoo online centre</h5>
+          <p class="paragraph">132, Address District, Street</p>
+          <p class="paragraph">Open Daily 10:00 am - 5:00 pm</p>
+          <p>&nbsp;</p>
+          <p class="paragraph"> T<a href="tel:7021633433">(702) 163-3433</a></p>
+          <p class="paragraph"><a href="mailto:zoo.online@gmail.com">zoo.online@gmail.com</a></p>
+        </div>
+        <nav class="navbar footer__social">
+          <ul class="nav-links">
+            <li><a href="https://www.instagram.com/" target="_blank"><img src="../../../assets/icons/instagram.svg" alt="Instagram icon"></a></li>
+            <li><a href="https://twitter.com/" target="_blank"><img src="../../../assets/icons/twitter.svg" alt="Twitter icon"></a></li>
+            <li><a href="https://vk.com/" target="_blank"><img src="../../../assets/icons/vk.svg" alt="VK icon"></a></li>
+            <li><a href="https://www.youtube.com/" target="_blank"><img src="../../../assets/icons/youtube.svg" alt="Youtube icon"></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="copyrights">
+      <p>&copy;Noora Sagnayeva</p>
+      <p>&copy;RSSchool and &copy;Yem Digital - 2021</p>
+    </div>
+  </footer>
+
+  <script src="../../script.js"></script>
+</body>
+</html>
