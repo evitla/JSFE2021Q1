@@ -296,3 +296,23 @@
   top: 56px;
   height: 597px;
 }
+
+.map__main {
+  background: var(--tertiary-bg-color);
+  
+  .map__img { margin-top: 80px; }
+}
+
+.map__wrapper {
+  margin: 0 auto;
+  padding: 60px 0 100px;
+}
+
+.map__paragraph { margin: 20px 209px 54px; }
+
+.map-marker_pointer {
+  position: absolute;
+
+  .map-marker-svg path:hover,
+  .map__round-img:hover { cursor: pointer; }
+}

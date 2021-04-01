@@ -225,6 +225,7 @@
 
     &_active {
       position: relative;
+      margin: 4px -20px;
 
       img {
         width: 137px + 14px;
@@ -248,3 +249,15 @@
 }
 
 .down-arrow path { fill: var(--primary-text-color); }
+
+.map__carousel {
+  position: sticky;
+  flex-direction: row;
+
+  &-slides {
+    flex-direction: row;
+    margin: 0 31px;
+    padding: 3px;
+    height: auto;
+  }
+}

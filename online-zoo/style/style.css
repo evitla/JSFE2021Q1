@@ -638,6 +638,32 @@ button {
   height: 597px;
 }
 
+.map__main {
+  background: var(--tertiary-bg-color);
+}
+
+.map__main .map__img {
+  margin-top: 80px;
+}
+
+.map__wrapper {
+  margin: 0 auto;
+  padding: 60px 0 100px;
+}
+
+.map__paragraph {
+  margin: 20px 209px 54px;
+}
+
+.map-marker_pointer {
+  position: absolute;
+}
+
+.map-marker_pointer .map-marker-svg path:hover,
+.map-marker_pointer .map__round-img:hover {
+  cursor: pointer;
+}
+
 .watch__carousel {
   position: absolute;
   width: 80%;
@@ -896,6 +922,7 @@ button {
 
 .zoo__sidebar-carousel-slide_active {
   position: relative;
+  margin: 4px -20px;
 }
 
 .zoo__sidebar-carousel-slide_active img {
@@ -918,6 +945,25 @@ button {
 
 .down-arrow path {
   fill: var(--primary-text-color);
+}
+
+.map__carousel {
+  position: -webkit-sticky;
+  position: sticky;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.map__carousel-slides {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: 0 31px;
+  padding: 3px;
+  height: auto;
 }
 
 .footer {
