@@ -1107,6 +1107,7 @@ button {
   background: none;
   border: none;
   padding: 5px;
+  resize: none;
 }
 
 .contact__textarea textarea:focus {
