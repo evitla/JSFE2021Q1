@@ -91,7 +91,7 @@ button { cursor: pointer; }
   margin-right: 5px;
 
   &::before {
-    content: url("../../assets/icons/watch-icon-2.svg");
+    content: url("../assets/icons/watch-icon-2.svg");
     margin-right: 2px;
   }
 }
@@ -100,7 +100,7 @@ button { cursor: pointer; }
   color: #{map-get($colors-neutral, 100)};
 
   &::before {
-    content: url("../../assets/icons/donate-icon.svg");
+    content: url("../assets/icons/donate-icon.svg");
     margin-right: 2px;
   }
 }
@@ -116,7 +116,7 @@ button { cursor: pointer; }
   right: 0;
 
   &::after {
-    content: url("../../assets/images/send-right-arrow.svg");
+    content: url("../assets/images/send-right-arrow.svg");
     margin-left: 24px;
   }
 }
