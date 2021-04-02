@@ -279,7 +279,7 @@ button {
 }
 
 .contact__send::after {
-  content: url("../../assets/images/right-arrow.svg");
+  content: url("../../assets/images/send-right-arrow.svg");
   margin-left: 24px;
 }
 
@@ -748,10 +748,6 @@ button {
   background: #fefefe;
 }
 
-.carousel__slide {
-  text-align: center;
-}
-
 .carousel__slide img {
   max-width: 140px;
   width: 100%;
@@ -760,6 +756,18 @@ button {
 .carousel__slide figcaption {
   position: absolute;
   opacity: 0;
+  bottom: 20px;
+  display: block;
+  padding: 0 21px 34px 22px;
+}
+
+.carousel__slide figcaption .paragraph {
+  max-width: 194px;
+  color: #ffffff;
+}
+
+.carousel__slide img:hover {
+  cursor: pointer;
 }
 
 .carousel__slide_active {
@@ -773,14 +781,6 @@ button {
 
 .carousel__slide_active figcaption {
   opacity: 1;
-  bottom: 20px;
-  display: block;
-  padding: 0 21px 34px 22px;
-}
-
-.carousel__slide_active figcaption .paragraph {
-  max-width: 194px;
-  color: #ffffff;
 }
 
 .how__carousel-slides {
@@ -808,39 +808,50 @@ button {
   margin: auto 15px;
 }
 
-.pets__carousel-slides .carousel__slide_active {
-  padding: 0;
+.pets__carousel-slide {
+  position: relative;
+  margin-right: 30px;
 }
 
-.pets__carousel-slides .carousel__slide_active::after {
-  content: none;
-}
-
-.pets__carousel-slides .carousel__slide_active::before {
-  content: none;
-}
-
-.pets__carousel-slides .carousel__slide_active figcaption {
-  bottom: 10px;
-  padding-right: 62px;
-}
-
-.pets__carousel-slides .carousel__slide_active figcaption::after {
-  content: none;
-}
-
-.pets__carousel-slides .carousel__slide_active figcaption::before {
-  content: none;
+.pets__carousel-slide::after {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: calc(100% - 5px);
+  border-radius: 5px;
+  -webkit-transition: background 1s ease-out .1s;
+  transition: background 1s ease-out .1s;
 }
 
 .pets__carousel-slide img {
   max-width: 278px;
   width: 278px;
-  margin-right: 30px;
 }
 
-:is(.prev-btn-svg-toggled,
-.next-btn-svg-toggled) path {
+.pets__carousel-slide figcaption {
+  z-index: 1;
+  bottom: -110px;
+  -webkit-transition: all 1s ease-out .1s;
+  transition: all 1s ease-out .1s;
+}
+
+.pets__carousel-slide:hover figcaption {
+  opacity: 1;
+  bottom: 0;
+}
+
+.pets__carousel-slide:hover::after {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+:is(.prev-btn-svg, .next-btn-svg):hover {
+  cursor: pointer;
+}
+
+:is(.prev-btn-svg, .next-btn-svg):hover path {
   fill: var(--primary-text-color);
 }
 
@@ -941,10 +952,6 @@ button {
   width: 157px;
   height: 157px;
   z-index: -1;
-}
-
-.down-arrow path {
-  fill: var(--primary-text-color);
 }
 
 .map__carousel {
