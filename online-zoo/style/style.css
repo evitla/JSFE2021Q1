@@ -233,6 +233,7 @@ button {
   font-weight: 900;
   color: #ffffff;
   margin: 0 auto;
+  padding: 18px 18px 16px;
 }
 
 .secondary-btn {
@@ -290,6 +291,7 @@ button {
 .footer__btn {
   width: 279px;
   margin: 0;
+  padding: 0;
 }
 
 .zoo__btn {
@@ -402,6 +404,7 @@ button {
 .pets-wrapper {
   max-width: 1300px;
   text-align: center;
+  margin-bottom: 120px;
 }
 
 .pay {
@@ -859,6 +862,10 @@ button {
   fill: var(--primary-text-color);
 }
 
+.pets__pagination {
+  margin-bottom: 50px;
+}
+
 .pets__pagination::before {
   max-width: calc(245px / 8);
   bottom: -17.5px;
@@ -1171,6 +1178,10 @@ button {
   font-size: 14px;
   text-transform: uppercase;
   margin: 54px 0 35px;
+}
+
+.address {
+  font-style: normal;
 }
 
 .address .paragraph {

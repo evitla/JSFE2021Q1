@@ -167,6 +167,8 @@
 }
 
 .address {
+  font-style: normal;
+
   .paragraph {
     color: #{map-get($colors-neutral, 200)};
     margin-bottom: 5px;

@@ -177,6 +177,8 @@
 }
 
 .pets__pagination {
+  margin-bottom: 50px;
+
   &::before {
     max-width: calc(245px / 8);
     bottom: -17.5px;
