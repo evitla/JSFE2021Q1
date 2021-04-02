@@ -8,29 +8,31 @@
   <title>Online Zoo</title>
 </head>
 <body>
-  <header class="zoo__header">
+  <header class="zoo__header" id="eagle">
     <div class="wrapper header-wrapper">
       <div class="logo">
-        <a class="logo__link" href="#">
+        <a class="logo__link" href="../../../pages/landing/index.html">
           <h1 class="logo__title">Online Zoo</h1>
         </a>
       </div>
       <nav class="navbar">
         <ul class="nav-links">
           <li class="nav-links__item">
-            <a class="nav-links__link" href="#">About</a>
+            <a class="nav-links__link" href="../../../pages/landing/index.html">About</a>
           </li>
           <li class="nav-links__item">
-            <a class="nav-links__link nav-links__link_active" href="#">Zoos</a>
+            <a class="nav-links__link nav-links__link_active" href="#eagle">Zoos</a>
           </li>
           <li class="nav-links__item">
-            <a class="nav-links__link" href="#">Map</a>
+            <a class="nav-links__link" href="../../../pages/map/index.html">Map</a>
           </li>
           <li class="nav-links__item">
-            <a class="nav-links__link" href="#">Contact Us</a>
+            <a class="nav-links__link" href="#contact-us">Contact Us</a>
           </li>
           <li class="nav-links__item">
-            <a class="nav-links__link" href="#">Design</a>
+            <a class="nav-links__link" href="https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp" target="_blank">
+              Design
+            </a>
           </li>
         </ul>
       </nav>
@@ -56,16 +58,16 @@
         </svg>
         <div class="zoo__sidebar-carousel-slides">
           <figure class="zoo__sidebar-carousel-slide" title="Panda">
-            <a href="#"><img src="../../../assets/images/round-img-2.png" alt=""></a>
+            <a href="../panda/index.html"><img src="../../../assets/images/round-img-2.png" alt=""></a>
           </figure>
           <figure class="zoo__sidebar-carousel-slide zoo__sidebar-carousel-slide_active" title="Eagle">
             <img src="../../../assets/images/round-img-4.png" alt="">
           </figure>
           <figure class="zoo__sidebar-carousel-slide" title="Alligator">
-            <a href="#"><img src="../../../assets/images/round-img-3.png" alt=""></a>
+            <a href="../alligator/index.html"><img src="../../../assets/images/round-img-3.png" alt=""></a>
           </figure>
           <figure class="zoo__sidebar-carousel-slide" title="Gorilla">
-            <a href="#"><img src="../../../assets/images/round-img-1.png" alt=""></a>
+            <a href="../gorilla/index.html"><img src="../../../assets/images/round-img-1.png" alt=""></a>
           </figure>
           <figure class="zoo__sidebar-carousel-slide" title="Tiger">
             <a href="#"><img src="../../../assets/images/round-img-5.png" alt=""></a>
@@ -138,7 +140,7 @@
               Main live prey consists of medium sized mammals and birds such as rabbits, hares, grouse
               and ptarmigan. The diet of coastal birds includes gulls and other seabirds.
             </p>
-            <a href="#" class="primary-btn zoo__btn">Feed</a>
+            <button class="primary-btn zoo__btn">Feed</button>
           </div>
         </div>
       </div>
@@ -147,10 +149,12 @@
   <footer class="footer">
     <div class="wrapper footer-wrapper">
       <div class="footer__left-side">
-        <a href="">
-          <h2 class="logo__title footer__logo">zoo</h2>
-        </a>
-        <div class="contact-us">
+        <div class="footer__logo">
+          <a href="#eagle">
+            <h2 class="logo__title">zoo</h2>
+          </a>
+        </div>
+        <div class="contact-us" id="contact-us">
           <h4 class="caption__title contact__title">Contact us</h4>
           <form>
             <label>
@@ -179,19 +183,21 @@
         <nav class="navbar footer__navbar">
           <ul class="nav-links">
             <li class="nav-links__item">
-              <a class="nav-links__link" href="#">About</a>
+              <a class="nav-links__link" href="../../../pages/landing/index.html">About</a>
             </li>
             <li class="nav-links__item">
-              <a class="nav-links__link" href="#">Zoos</a>
+              <a class="nav-links__link" href="#eagle">Zoos</a>
             </li>
             <li class="nav-links__item">
-              <a class="nav-links__link" href="#">Map</a>
+              <a class="nav-links__link" href="../../../pages/map/index.html">Map</a>
             </li>
             <li class="nav-links__item">
-              <a class="nav-links__link" href="#">Design</a>
+              <a class="nav-links__link" href="https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp" target="_blank">
+                Design
+              </a>
             </li>
           </ul>
-          <a href="#" class="primary-btn footer__btn">Donate for volunteers</a>
+          <button class="primary-btn footer__btn">Donate for volunteers</button>
         </nav>
         <div class="address">
           <h5 class="address__title">Zoo online centre</h5>

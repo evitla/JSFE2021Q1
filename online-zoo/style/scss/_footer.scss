@@ -17,8 +17,12 @@
 }
 
 .footer__logo {
-  color: #{map-get($colors-neutral, 100)};
-  margin-top: -10px;
+  width: 60px;
+
+  .logo__title {
+    color: #{map-get($colors-neutral, 100)};
+    margin-top: -10px;
+  }
 }
 
 .contact__title {

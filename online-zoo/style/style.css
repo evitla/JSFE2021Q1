@@ -24,6 +24,10 @@ html[data-theme='dark'] {
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: "Roboto", sans-serif;
@@ -997,6 +1001,10 @@ button {
 }
 
 .footer__logo {
+  width: 60px;
+}
+
+.footer__logo .logo__title {
   color: #ffffff;
   margin-top: -10px;
 }
