@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: $primary-font;
+  background: var(--primary-bg-color);
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 100px auto;
+}
+
+li { list-style: none; }
+
+a { text-decoration: none; }
+
+html.transition,
+html.transition *,
+html.transition *::before, 
+html.transition *::after {
+  transition: all .6s !important;
+  transition-delay: 0 !important;
+}

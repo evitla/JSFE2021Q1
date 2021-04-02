@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
+$primary-font: 'Roboto', sans-serif;
+
+$colors: (
+  "light-theme": (
+    100: #ffffff,
+    200: #fbfbfb,
+    300: #fefefe,
+    400: #f2f2f2,
+    500: #4f4f4f,
+    600: #333333
+  ),
+  "dark-theme": (
+    100: #fefefe,
+    200: #f2f2f2,
+    300: #4f4f4f,
+    400: #3c3c3c,
+    500: #333333
+  ),
+  "neutral": (
+    100: #ffffff,
+    200: #fefefe,
+    300: #fcfcfc,
+    400: #f2f2f2,
+    500: #e0e0e0,
+    600: #bdbdbd,
+    700: #828282,
+    800: #333333,
+    900: #1b1b1b,
+    "gradient": linear-gradient(106.89deg, #4bd8b5 -14.32%, #49d6df 100.68%)
+  )
+);
+
+$colors-light-theme: map-get($colors, "light-theme");
+$colors-dark-theme: map-get($colors, "dark-theme");
+$colors-neutral: map-get($colors, "neutral");
+
+html[data-theme='light'] {
+  --primary-text-color: #{map-get($colors-light-theme, 600)};
+  --secondary-text-color: #{map-get($colors-light-theme, 500)};
+  --primary-bg-color: #{map-get($colors-light-theme, 100)};
+  --secondary-bg-color: #{map-get($colors-light-theme, 400)};
+  --card-bg-color: #{map-get($colors-light-theme, 300)};
+  --tertiary-bg-color: #{map-get($colors-light-theme, 200)};
+}
+
+html[data-theme='dark'] {
+  --primary-text-color: #{map-get($colors-dark-theme, 100)};
+  --secondary-text-color: #{map-get($colors-dark-theme, 200)};
+  --primary-bg-color: #{map-get($colors-dark-theme, 500)};
+  --secondary-bg-color: #{map-get($colors-dark-theme, 300)};
+  --card-bg-color: #{map-get($colors-dark-theme, 400)};
+  --tertiary-bg-color: #{map-get($colors-dark-theme, 300)};
+}
+
+$marker-positions:
+  (top: 78px, left: 120px),
+  (top: 107px, left: 243px),
+  (top: 191px, left: 570px),
+  (top: 95px, left: 893px);

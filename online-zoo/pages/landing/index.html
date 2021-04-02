@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../style/style.css">
+  <title>Online Zoo</title>
+</head>
+<body>
+  <header id="landing">
+    <div class="wrapper header-wrapper">
+      <div class="logo">
+        <a class="logo__link" href="../../pages/landing/index.html">
+          <h1 class="logo__title">Online Zoo</h1>
+        </a>
+      </div>
+      <nav class="navbar">
+        <ul class="nav-links">
+          <li class="nav-links__item">
+            <a class="nav-links__link nav-links__link_active" href="#">About</a>
+          </li>
+          <li class="nav-links__item">
+            <a class="nav-links__link" href="../../pages/zoos/panda/index.html">Zoos</a>
+          </li>
+          <li class="nav-links__item">
+            <a class="nav-links__link" href="../../pages/map/index.html">Map</a>
+          </li>
+          <li class="nav-links__item">
+            <a class="nav-links__link" href="#contact-us">Contact Us</a>
+          </li>
+          <li class="nav-links__item">
+            <a class="nav-links__link" href="https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp" target="_blank">
+              Design
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="toggle-btn">
+        <input type="checkbox" id="theme-toggle" class="theme-toggle">
+        <label for="theme-toggle" class="theme-label" data-off="off" data-on="on"></label>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <article class="watch">
+      <div class="wrapper watch-wrapper">
+        <nav>
+          <ul class="nav-links watch__nav-links">
+            <li><a href="https://www.instagram.com/" target="_blank"><img src="../../assets/icons/instagram.svg" alt="Instagram icon"></a></li>
+            <li><a href="https://twitter.com/" target="_blank"><img src="../../assets/icons/twitter.svg" alt="Twitter icon"></a></li>
+            <li><a href="https://www.youtube.com/" target="_blank"><img src="../../assets/icons/youtube.svg" alt="Youtube icon"></a></li>
+            <li><a href="https://vk.com/" target="_blank"><img src="../../assets/icons/vk.svg" alt="VK icon"></a></li>
+          </ul>
+        </nav>
+        <section>
+          <h2 class="watch__title">Watch your favorite animal online</h2>
+          <a href="../../pages/zoos/panda/index.html" class="primary-btn with-icon watch__btn">
+            <img src="../../assets/icons/watch-icon.svg" alt="">Watch online
+          </a>
+          <div class="watch__carousel">
+            <figure class="carousel__slide" data-number="1">
+              <img src="../../assets/images/slide-img-1.png" alt="">
+            </figure>
+            <figure class="carousel__slide carousel__slide_active" data-number="2">
+              <figcaption>
+                <p class="paragraph">Panda’s name is Bei Bei. He is 2 years old. Bei Bei is from China. He loves bamboos.</p>
+                <div class="caption__btn">
+                  <a href="../../pages/zoos/panda/index.html" class="secondary-btn secondary__watch-btn">
+                    Watch online
+                  </a>
+                  <button class="secondary-btn secondary__donate-btn">Donate</button>
+                </div>
+              </figcaption>
+              <img src="../../assets/images/slide-img-2.png" alt="">
+            </figure>
+            <figure class="carousel__slide" data-number="3">
+              <img src="../../assets/images/slide-img-3.png" alt="">
+            </figure>
+            <figure class="carousel__slide" data-number="4">
+              <img src="../../assets/images/slide-img-4.png" alt="">
+            </figure>
+            <figure class="carousel__slide" data-number="5">
+              <img src="../../assets/images/slide-img-5.png" alt="">
+            </figure>
+            <figure class="carousel__slide" data-number="6">
+              <img src="../../assets/images/slide-img-6.png" alt="">
+            </figure>
+            <figure class="carousel__slide" data-number="7">
+              <img src="../../assets/images/slide-img-7.png" alt="">
+            </figure>
+            <figure class="carousel__slide" data-number="8">
+              <img src="../../assets/images/slide-img-8.png" alt="">
+            </figure>
+            <div class="pagination watch__pagination">
+              <span class="page">02/</span><span class="all-pages">08</span>
+              <input type="range" min="1" max="8" value="2" class="input-range watch__carousel-range">
+            </div>
+          </div>
+        </section>
+      </div>
+    </article>
+    <article class="how">
+      <div class="wrapper how-wrapper">
+        <section>
+          <h3 class="section__title how__title">How it works?</h3>
+          <p class="how_paragraph">
+            As a voice for wildlife, we are devastated by the impact of the 2020 Australian 
+            bushfires on precious species and their habitat, and we are determined to assist 
+            in all aspects, including providing veterinary support and raising much-needed 
+            emergency funds. Zoo Online saves wildlife and inspires everyone to make conservation 
+            a priority in their lives. Animals have the right to a pain-free and happy life. They 
+            have equal claim to the resources of this planet, and deserve a life of dignity and compassion.
+            As a voice for wildlife, we are devastated by the impact of the 2020 Australian bushfires on 
+            precious species and their habitat.
+          </p>
+          <div class="how__carousel">
+            <div class="how__carousel-slides">
+              <figure class="how__carousel-slide">
+                <img src="../../assets/images/how-slide-img-1.png" alt="">
+              </figure>
+              <figure class="how__carousel-slide">
+                <img src="../../assets/images/how-slide-img-2.png" alt="">
+              </figure>
+              <figure class="how__carousel-slide">
+                <img src="../../assets/images/how-slide-img-3.png" alt="">
+              </figure>
+              <figure class="how__carousel-slide">
+                <img src="../../assets/images/how-slide-img-4.png" alt="">
+              </figure>
+            </div>
+            <div class="pagination">
+              <span class="page">01/</span><span class="all-pages">04</span>
+              <input type="range" min="1" max="4" value="1" class="input-range how__carousel-range">
+            </div>
+          </div>
+          <a href="../../pages/zoos/panda/index.html" class="primary-btn with-icon">
+            <img src="../../assets/icons/watch-icon.svg" alt="">Watch online
+          </a>
+        </section>
+      </div>
+      <footer class="how__footer">
+        <div class="wrapper how__footer-wrapper">
+          <figure class="how__footer-info">
+            <img src="../../assets/icons/info-icon-1.svg" alt="">
+            <figcaption>
+              <h4 class="caption__title how__footer-caption-title">What inspires us?</h4>
+              <p class="paragraph">
+                As a voice for wildlife, we are devastated by the impact of the 2020 Australian bushfires 
+                on precious species and their habitat, and we are determined to assist in all aspects, including 
+                providing veterinary support and raising much-needed emergency funds.
+              </p>
+            </figcaption>
+          </figure>
+          <figure class="how__footer-info">
+            <img src="../../assets/icons/info-icon-2.svg" alt="">
+            <figcaption class="how__footer-caption">
+              <h4 class="caption__title how__footer-caption-title">Our mission</h4>
+              <p class="paragraph">
+                Zoo Online saves wildlife and inspires everyone to make conservation a priority in their lives. 
+              </p>
+            </figcaption>
+          </figure>
+          <figure class="how__footer-info">
+            <img src="../../assets/icons/info-icon-3.svg" alt="">
+            <figcaption class="how__footer-caption">
+              <h4 class="caption__title how__footer-caption-title">What we believe in?</h4>
+              <p class="paragraph">
+                Animals have the right to a pain-free and happy life. They have equal claim to the resources of 
+                this planet, and deserve a life of dignity and compassion.
+              </p>
+            </figcaption>
+          </figure>
+        </div>
+      </footer>
+    </article>
+    <section class="pets">
+      <div class="wrapper pets-wrapper">
+        <h3 class="section__title">Pets in Zoo</h3>
+        <div class="pets__carousel">
+          <svg class="prev-btn-svg" width="60" height="60" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.6663 16.1706L20.0167 29.5207C20.3255 29.8298 20.7376 30 21.1772 30C21.6167
+                30 22.0289 29.8298 22.3376 29.5207L23.3208 28.5378C23.9605 27.8973 23.9605 26.8564 23.3208 26.2169L12.1102
+                15.0062L23.3332 3.78314C23.642 3.47412 23.8125 3.06217 23.8125 2.6229C23.8125 2.18315 23.642 1.7712 23.3332
+                1.46194L22.3501 0.479263C22.0411 0.17024 21.6291 0 21.1896 0C20.7501 0 20.3379 0.17024 20.0291 0.479263L6.6663
+                13.8416C6.35679 14.1516 6.18679 14.5655 6.18777 15.0055C6.18679 15.4472 6.35679 15.8608 6.6663 16.1706Z"
+                fill="#828282"/>
+          </svg>
+          <div class="pets__carousel-slides">
+            <figure class="carousel__slide pets__carousel-slide" data-number="1">
+              <figcaption>
+                <p class="paragraph">Panda’s name is Bei Bei. He is 2 years old. Bei Bei is from China. He loves bamboos.</p>
+                <div class="caption__btn">
+                  <a href="../../pages/zoos/panda/index.html" class="secondary-btn secondary__watch-btn">
+                    Watch online
+                  </a>
+                  <button class="secondary-btn secondary__donate-btn">Donate</button>
+                </div>
+              </figcaption>
+              <img src="../../assets/images/slide-img-2.png" alt="">
+            </figure>
+            <figure class="carousel__slide pets__carousel-slide" data-number="2">
+              <figcaption>
+                <p class="paragraph">Panda’s name is Bei Bei. He is 2 years old. Bei Bei is from China. He loves bamboos.</p>
+                <div class="caption__btn">
+                  <a href="../../pages/zoos/eagle/index.html" class="secondary-btn secondary__watch-btn">
+                    Watch online
+                  </a>
+                  <button class="secondary-btn secondary__donate-btn">Donate</button>
+                </div>
+              </figcaption>
+              <img src="../../assets/images/slide-img-1.png" alt="">
+            </figure>
+            <figure class="carousel__slide pets__carousel-slide" data-number="3">
+              <figcaption>
+                <p class="paragraph">Panda’s name is Bei Bei. He is 2 years old. Bei Bei is from China. He loves bamboos.</p>
+                <div class="caption__btn">
+                  <a href="../../pages/zoos/gorilla/index.html" class="secondary-btn secondary__watch-btn">
+                    Watch online
+                  </a>
+                  <button class="secondary-btn secondary__donate-btn">Donate</button>
+                </div>
+              </figcaption>
+              <img src="../../assets/images/slide-img-3-1.png" alt="">
+            </figure>
+            <figure class="carousel__slide pets__carousel-slide" data-number="4">
+              <figcaption>
+                <p class="paragraph">Panda’s name is Bei Bei. He is 2 years old. Bei Bei is from China. He loves bamboos.</p>
+                <div class="caption__btn">
+                  <a href="../../pages/zoos/alligator/index.html" class="secondary-btn secondary__watch-btn">
+                    Watch online
+                  </a>
+                  <button class="secondary-btn secondary__donate-btn">Donate</button>
+                </div>
+              </figcaption>
+              <img src="../../assets/images/slide-img-4.png" alt="">
+            </figure>
+            <figure class="carousel__slide pets__carousel-slide" data-number="5">
+              <figcaption>
+                <p class="paragraph">Panda’s name is Bei Bei. He is 2 years old. Bei Bei is from China. He loves bamboos.</p>
+                <div class="caption__btn">
+                  <a href="#" class="secondary-btn secondary__watch-btn">
+                    Watch online
+                  </a>
+                  <button class="secondary-btn secondary__donate-btn">Donate</button>
+                </div>
+              </figcaption>
+              <img src="../../assets/images/slide-img-5.png" alt="">
+            </figure>
+            <figure class="carousel__slide pets__carousel-slide" data-number="6">
+              <figcaption>
+                <p class="paragraph">Panda’s name is Bei Bei. He is 2 years old. Bei Bei is from China. He loves bamboos.</p>
+                <div class="caption__btn">
+                  <a href="#" class="secondary-btn secondary__watch-btn">
+                    Watch online
+                  </a>
+                  <button class="secondary-btn secondary__donate-btn">Donate</button>
+                </div>
+              </figcaption>
+              <img src="../../assets/images/slide-img-6.png" alt="">
+            </figure>
+            <figure class="carousel__slide pets__carousel-slide" data-number="7">
+              <figcaption>
+                <p class="paragraph">Panda’s name is Bei Bei. He is 2 years old. Bei Bei is from China. He loves bamboos.</p>
+                <div class="caption__btn">
+                  <a href="#" class="secondary-btn secondary__watch-btn">
+                    Watch online
+                  </a>
+                  <button class="secondary-btn secondary__donate-btn">Donate</button>
+                </div>
+              </figcaption>
+              <img src="../../assets/images/slide-img-7.png" alt="">
+            </figure>
+            <figure class="carousel__slide pets__carousel-slide" data-number="8">
+              <figcaption>
+                <p class="paragraph">Panda’s name is Bei Bei. He is 2 years old. Bei Bei is from China. He loves bamboos.</p>
+                <div class="caption__btn">
+                  <a href="#" class="secondary-btn secondary__watch-btn">
+                    Watch online
+                  </a>
+                  <button class="secondary-btn secondary__donate-btn">Donate</button>
+                </div>
+              </figcaption>
+              <img src="../../assets/images/slide-img-8.png" alt="">
+            </figure>
+          </div>
+          <svg class="next-btn-svg" width="60" height="60" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23.3337 13.8294L9.98332 0.479264C9.67454 0.170243 9.26235 0 8.82284 0C8.38334
+                0 7.97114 0.170243 7.66237 0.479264L6.6792 1.46218C6.03945 2.10267 6.03945 3.14363 6.6792 3.78314L17.8898
+                14.9938L6.66676 26.2169C6.35799 26.5259 6.1875 26.9378 6.1875 27.3771C6.1875 27.8168 6.35799 28.2288 6.66676
+                28.5381L7.64993 29.5207C7.95895 29.8298 8.3709 30 8.81041 30C9.24991 30 9.66211 29.8298 9.97088 29.5207L23.3337
+                16.1584C23.6432 15.8484 23.8132 15.4345 23.8122 14.9945C23.8132 14.5528 23.6432 14.1392 23.3337 13.8294Z"
+                fill="#828282"/>
+          </svg>
+        </div>
+        <div class="pagination pets__pagination">
+          <span class="page">01/</span><span class="all-pages">08</span>
+          <input type="range" min="1" max="8" value="1" class="input-range">
+        </div>
+        <a href="../../pages/map/index.html" class="primary-btn">Choose your favorite</a>
+      </div>
+    </section>
+    <section class="pay">
+      <div class="wrapper pay-wrapper">
+        <h3 class="section__title">Pay and feed</h3>
+        <p class="paragraph">
+          The opportunity to easily and naturally (but as often as possible) donate to the needs of animals that you like.
+        </p>
+        <div class="pay__scheme">
+          <figure class="pay__info">
+            <img src="../../assets/icons/pay-info-icon-1.svg" alt="">
+            <figcaption class="pay__info-caption">
+              <h4 class="caption__title">You pay with a VISA card</h4>
+            </figcaption>
+          </figure>
+          <img src="../../assets/images/right-arrow-grad.svg" alt="">
+          <figure class="pay__info">
+            <img src="../../assets/icons/pay-info-icon-2.svg" alt="">
+            <figcaption class="pay__info-caption">
+              <h4 class="caption__title">Payment goes to the Zoo</h4>
+            </figcaption>
+          </figure>
+          <img src="../../assets/images/right-arrow-grad.svg" alt="">
+          <figure class="pay__info">
+            <img src="../../assets/icons/pay-info-icon-3.svg" alt="">
+            <figcaption class="pay__info-caption">
+              <h4 class="caption__title">Panda gets the bamboo</h4>
+            </figcaption>
+          </figure>
+        </div>
+        <button class="primary-btn">Donate</button>
+      </div>
+    </section>
+    <section class="testimonials">
+      <div class="wrapper testimonials-wrapper">
+        <h3 class="section__title">Testimonials</h3>
+        <div class="testimonials__carousel">
+          <svg class="prev-btn-svg" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.6663 16.1706L20.0167 29.5207C20.3255 29.8298 20.7376 30 21.1772 30C21.6167
+                30 22.0289 29.8298 22.3376 29.5207L23.3208 28.5378C23.9605 27.8973 23.9605 26.8564 23.3208 26.2169L12.1102
+                15.0062L23.3332 3.78314C23.642 3.47412 23.8125 3.06217 23.8125 2.6229C23.8125 2.18315 23.642 1.7712 23.3332
+                1.46194L22.3501 0.479263C22.0411 0.17024 21.6291 0 21.1896 0C20.7501 0 20.3379 0.17024 20.0291 0.479263L6.6663
+                13.8416C6.35679 14.1516 6.18679 14.5655 6.18777 15.0055C6.18679 15.4472 6.35679 15.8608 6.6663 16.1706Z"
+                fill="#828282"/>
+          </svg>
+          <div class="testimonials__carousel-slides">
+            <div class="testimonials__carousel-slide">
+              <div class="testimonials__carousel-slide-wrapper">
+                <img src="../../assets/icons/user-icon-1-dark.png" alt="">
+                <h4 class="caption__title">Nastya Sidorova</h4>
+                <p class="paragraph">
+                  As a voice for wildlife, we are devastated by the impact of the 2020 Australian bushfires on precious species and their habitat.
+                </p>
+              </div>
+            </div>
+            <div class="testimonials__carousel-slide">
+              <div class="testimonials__carousel-slide-wrapper">
+                <img src="../../assets/icons/user-icon-2.png" alt="">
+                <h4 class="caption__title">Vlad Kim</h4>
+                <p class="paragraph">
+                  As a voice for wildlife, we are devastated by the impact of the 2020 Australian bushfires on precious species and their habitat.
+                </p>
+              </div>
+            </div>
+          </div>
+          <svg class="next-btn-svg" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23.3337 13.8294L9.98332 0.479264C9.67454 0.170243 9.26235 0 8.82284 0C8.38334 0 7.97114 0.170243 7.66237 
+            0.479264L6.6792 1.46218C6.03945 2.10267 6.03945 3.14363 6.6792 3.78314L17.8898 14.9938L6.66676 26.2169C6.35799 
+            26.5259 6.1875 26.9378 6.1875 27.3771C6.1875 27.8168 6.35799 28.2288 6.66676 28.5381L7.64993 29.5207C7.95895 29.8298 
+            8.3709 30 8.81041 30C9.24991 30 9.66211 29.8298 9.97088 29.5207L23.3337 16.1584C23.6432 15.8484 23.8132 15.4345 23.8122 
+            14.9945C23.8132 14.5528 23.6432 14.1392 23.3337 13.8294Z" fill="#828282"/>
+          </svg>
+        </div>
+        <div class="pagination testimonials__pagination">
+          <span class="page">02/</span><span class="all-pages">08</span>
+          <input type="range" min="1" max="8" value="2" class="input-range">
+        </div>
+        <button class="primary-btn">Leave feedback</button>
+      </div>
+    </section>
+    <section class="map">
+      <div class="wrapper map-wrapper">
+        <h3 class="section__title">Map</h3>
+        <div class="map__img">
+          <img id="map-img" src="../../assets/images/map-light.svg" alt="">
+          <div class="map-marker map-marker-1">
+            <svg class="map-marker-svg" width="67" height="94" viewBox="0 0 67 94" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M33.6913 0.150391C15.4582 0.150391 0.625 14.9853 0.625 33.2206C0.625 50.8607 30.8554 91.051 32.1431 92.7551C32.5049
+                93.2415 33.0846 93.5254 33.6915 93.5254C34.2983 93.5254 34.878 93.2415 35.2398 92.7551C36.5274 91.051 66.7579 50.8609 66.7579
+                33.2206C66.7576 14.9853 51.9244 0.150391 33.6913 0.150391ZM33.6913 50.7285C24.0398 50.7285 16.1856 42.8733 16.1856 33.2206C16.1856
+                23.568 24.0398 15.7128 33.6913 15.7128C43.3428 15.7128 51.197 23.568 51.197 33.2206C51.197 42.8733 43.3428 50.7285 33.6913 50.7285Z"
+                fill="url(#paint0_linear)"/>
+              <defs>
+                <linearGradient id="paint0_linear" x1="-11.7233" y1="0.15039" x2="83.0362" y2="20.5233" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#4bd8B5"/>
+                  <stop offset="1" stop-color="#49d6df"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <img class="map__round-img" src="../../assets/images/round-img-4.png" alt="">
+            <div class="tooltip">
+              <img src="../../assets/images/round-img-4-2.png" alt="">
+              <div class="tooltip__text">
+                <h4 class="caption__title">West End Bald Eagle</h4>
+                <p class="paragraph"><strong>Region:</strong> on an island near Los Angeles</p>
+                <p class="paragraph"><strong>Population:</strong> more than 270 pairs in 2013</p>
+              </div>
+            </div>
+          </div>
+          <div class="map-marker map-marker-2">
+            <svg class="map-marker-svg" width="67" height="94" viewBox="0 0 67 94" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M33.6913 0.150391C15.4582 0.150391 0.625 14.9853 0.625 33.2206C0.625 50.8607 30.8554 91.051 32.1431 92.7551C32.5049
+                93.2415 33.0846 93.5254 33.6915 93.5254C34.2983 93.5254 34.878 93.2415 35.2398 92.7551C36.5274 91.051 66.7579 50.8609 66.7579
+                33.2206C66.7576 14.9853 51.9244 0.150391 33.6913 0.150391ZM33.6913 50.7285C24.0398 50.7285 16.1856 42.8733 16.1856 33.2206C16.1856
+                23.568 24.0398 15.7128 33.6913 15.7128C43.3428 15.7128 51.197 23.568 51.197 33.2206C51.197 42.8733 43.3428 50.7285 33.6913 50.7285Z"
+                fill="url(#paint0_linear)"/>
+              <defs>
+                <linearGradient id="paint0_linear" x1="-11.7233" y1="0.15039" x2="83.0362" y2="20.5233" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#4bd8B5"/>
+                  <stop offset="1" stop-color="#49d6df"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <img class="map__round-img" src="../../assets/images/round-img-3.png" alt="">
+            <div class="tooltip">
+              <img src="../../assets/images/round-img-3.png" alt="">
+              <div class="tooltip__text">
+                <h4 class="caption__title">Alligator and Spoonbill Swamp</h4>
+                <p class="paragraph"><strong>Region:</strong> in rivers, ponds, lakes and swamps </p>
+                <p class="paragraph"><strong>Population:</strong> roughly 1.25 million </p>
+              </div>
+            </div>
+          </div>
+          <div class="map-marker map-marker-3">
+            <svg class="map-marker-svg" width="67" height="94" viewBox="0 0 67 94" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M33.6913 0.150391C15.4582 0.150391 0.625 14.9853 0.625 33.2206C0.625 50.8607 30.8554 91.051 32.1431 92.7551C32.5049
+                93.2415 33.0846 93.5254 33.6915 93.5254C34.2983 93.5254 34.878 93.2415 35.2398 92.7551C36.5274 91.051 66.7579 50.8609 66.7579
+                33.2206C66.7576 14.9853 51.9244 0.150391 33.6913 0.150391ZM33.6913 50.7285C24.0398 50.7285 16.1856 42.8733 16.1856 33.2206C16.1856
+                23.568 24.0398 15.7128 33.6913 15.7128C43.3428 15.7128 51.197 23.568 51.197 33.2206C51.197 42.8733 43.3428 50.7285 33.6913 50.7285Z"
+                fill="url(#paint0_linear)"/>
+              <defs>
+                <linearGradient id="paint0_linear" x1="-11.7233" y1="0.15039" x2="83.0362" y2="20.5233" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#4bd8B5"/>
+                  <stop offset="1" stop-color="#49d6df"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <img class="map__round-img" src="../../assets/images/round-img-1.png" alt="">
+            <div class="tooltip">
+              <img src="../../assets/images/round-img-1.png" alt="">
+              <div class="tooltip__text">
+                <h4 class="caption__title">GRACE Gorilla Forest Corridor</h4>
+                <p class="paragraph"><strong>Region:</strong> primarily in tropical forest</p>
+                <p class="paragraph"><strong>Population:</strong> over 100,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="map-marker map-marker-4">
+            <svg class="map-marker-svg" width="67" height="94" viewBox="0 0 67 94" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M33.6913 0.150391C15.4582 0.150391 0.625 14.9853 0.625 33.2206C0.625 50.8607 30.8554 91.051 32.1431 92.7551C32.5049
+                93.2415 33.0846 93.5254 33.6915 93.5254C34.2983 93.5254 34.878 93.2415 35.2398 92.7551C36.5274 91.051 66.7579 50.8609 66.7579
+                33.2206C66.7576 14.9853 51.9244 0.150391 33.6913 0.150391ZM33.6913 50.7285C24.0398 50.7285 16.1856 42.8733 16.1856 33.2206C16.1856
+                23.568 24.0398 15.7128 33.6913 15.7128C43.3428 15.7128 51.197 23.568 51.197 33.2206C51.197 42.8733 43.3428 50.7285 33.6913 50.7285Z"
+                fill="url(#paint0_linear)"/>
+              <defs>
+                <linearGradient id="paint0_linear" x1="-11.7233" y1="0.15039" x2="83.0362" y2="20.5233" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#4bd8B5"/>
+                  <stop offset="1" stop-color="#49d6df"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <img class="map__round-img" src="../../assets/images/round-img-2.png" alt="">
+            <div class="tooltip">
+              <img src="../../assets/images/round-img-2.png" alt="">
+              <div class="tooltip__text">
+                <h4 class="caption__title">The Beijing Zoo</h4>
+                <p class="paragraph"><strong>Region:</strong> in the mountains of southwest China</p>
+                <p class="paragraph"><strong>Population:</strong> about 1,590 individuals</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="../../pages/zoos/panda/index.html" class="primary-btn with-icon">
+          <img src="../../assets/icons/watch-icon.svg" alt="">Watch online
+        </a>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="wrapper footer-wrapper">
+      <div class="footer__left-side">
+        <div class="footer__logo">
+          <a href="#landing">
+            <h2 class="logo__title">zoo</h2>
+          </a>
+        </div>
+        <div class="contact-us" id="contact-us">
+          <h4 class="caption__title contact__title">Contact us</h4>
+          <form>
+            <label>
+              <input type="text" placeholder="Name" required>
+              <span class="highlight"></span>
+            </label>
+            <label>
+              <input type="email" placeholder="Email" required>
+              <span class="highlight"></span>
+            </label>
+            <fieldset class="contact__textarea">
+              <legend>Please enter your message</legend>
+              <label>
+                <textarea maxlength="280" required></textarea>
+              </label>
+            </fieldset>
+            <div class="contact__checkbox">
+              <input type="checkbox" id="agree" required>
+              <label for="agree">I agree to the processing of Personal Data</label>
+            </div>
+            <button class="contact__send" type="submit">SEND</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer__right-side">
+        <nav class="navbar footer__navbar">
+          <ul class="nav-links">
+            <li class="nav-links__item">
+              <a class="nav-links__link" href="#landing">About</a>
+            </li>
+            <li class="nav-links__item">
+              <a class="nav-links__link" href="../../pages/zoos/panda/index.html">Zoos</a>
+            </li>
+            <li class="nav-links__item">
+              <a class="nav-links__link" href="../../pages/map/index.html">Map</a>
+            </li>
+            <li class="nav-links__item">
+              <a class="nav-links__link" href="https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp" target="_blank">
+                Design
+              </a>
+            </li>
+          </ul>
+          <button class="primary-btn footer__btn">Donate for volunteers</button>
+        </nav>
+        <h5 class="address__title">Zoo online centre</h5>
+        <address class="address">
+          <p class="paragraph">132, Address District, Street</p>
+          <p class="paragraph">Open Daily 10:00 am - 5:00 pm</p>
+          <p>&nbsp;</p>
+          <p class="paragraph"> T<a href="tel:7021633433">(702) 163-3433</a></p>
+          <p class="paragraph"><a href="mailto:zoo.online@gmail.com">zoo.online@gmail.com</a></p>
+        </address>
+        <nav class="navbar footer__social">
+          <ul class="nav-links">
+            <li><a href="https://www.instagram.com/" target="_blank"><img src="../../assets/icons/instagram.svg" alt="Instagram icon"></a></li>
+            <li><a href="https://twitter.com/" target="_blank"><img src="../../assets/icons/twitter.svg" alt="Twitter icon"></a></li>
+            <li><a href="https://vk.com/" target="_blank"><img src="../../assets/icons/vk.svg" alt="VK icon"></a></li>
+            <li><a href="https://www.youtube.com/" target="_blank"><img src="../../assets/icons/youtube.svg" alt="Youtube icon"></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="copyrights">
+      <p title="Online Zoo">&copy;Noora Sagnayeva</p>
+      <p><span title="Rolling Scopes School">&copy;RSSchool</span> and <span title="Yem Digital">&copy;Yem Digital - 2021</span></p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>
