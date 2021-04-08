@@ -229,6 +229,7 @@ button {
   border: none;
   border-radius: 3px;
   text-transform: uppercase;
+  font-family: inherit;
   font-size: 18px;
   font-weight: 900;
   color: #ffffff;
@@ -239,6 +240,7 @@ button {
 .secondary-btn {
   background: transparent;
   border: none;
+  font-family: inherit;
   font-size: 12px;
   font-weight: 500;
   text-transform: uppercase;
@@ -277,6 +279,7 @@ button {
   background: transparent;
   border: none;
   color: #fefefe;
+  font-family: inherit;
   font-size: 14px;
   font-weight: 500;
   margin: 20px 15px;
@@ -291,7 +294,6 @@ button {
 .footer__btn {
   width: 279px;
   margin: 0;
-  padding: 0;
 }
 
 .zoo__btn {
