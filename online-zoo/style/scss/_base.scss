@@ -13,7 +13,7 @@ body {
 }
 
 .wrapper {
-  max-width: 1200px;
+  width: clamp(1200 / 1920 * 100%, 600 / 640 * 100%, 900px);
   margin: 100px auto;
 }
 
