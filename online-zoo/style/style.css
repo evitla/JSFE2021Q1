@@ -39,6 +39,12 @@ body {
   margin: 100px auto;
 }
 
+@media (max-width: 640px) {
+  .wrapper {
+    margin: clamp(50px, 15.625vw, 100px) auto;
+  }
+}
+
 li {
   list-style: none;
 }
@@ -57,7 +63,7 @@ html.transition *::after {
           transition-delay: 0 !important;
 }
 
-.header-wrapper, .nav-links, .btn-burger-container, .caption__btn, .secondary-btn, .with-icon, .how__footer-wrapper, .pay__scheme, .tooltip, .zoo__content, .zoo__carousel, .zoo__carousel-dots, .watch__carousel, .how__carousel-slides, .pets__carousel, .pets__carousel-slides, .testimonials__carousel, .testimonials__carousel-slides, .zoo__sidebar-carousel, .zoo__sidebar-carousel-slides, .footer-wrapper, .footer__navbar {
+.header-wrapper, .nav-links, .btn-burger-container, .caption__btn, .secondary-btn, .with-icon, .how__footer-wrapper, .pay__scheme, .tooltip, .zoo__content, .zoo__carousel, .zoo__carousel-dots, .how__carousel-slides, .pets__carousel, .pets__carousel-slides, .testimonials__carousel, .testimonials__carousel-slides, .zoo__sidebar-carousel, .zoo__sidebar-carousel-slides, .footer-wrapper, .footer__navbar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -276,14 +282,26 @@ button {
   padding: 18px 18px 16px;
 }
 
+@media (max-width: 639px) {
+  .caption__btn {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
+
 .secondary-btn {
   background: transparent;
   border: none;
   font-family: inherit;
-  font-size: 12px;
+  font-size: calc(min(9.2 / 320 * 100vw, 12px));
   font-weight: 500;
   text-transform: uppercase;
-  margin-top: 14px;
+  margin-top: calc(min(6 / 320 * 100vw, 14px));
 }
 
 .with-icon {
@@ -344,36 +362,80 @@ button {
   position: relative;
   background: url("../assets/images/main-bg.png") no-repeat center;
   background-size: cover;
-  min-height: 940px;
+  height: clamp(926px, 48.95833vw, 940px);
   overflow-x: hidden;
 }
 
+@media (max-width: 640px) {
+  .watch {
+    height: calc(max(936 / 640 * 100vw, 750px));
+  }
+}
+
+@media (max-width: 320px) {
+  .watch {
+    height: 669px;
+  }
+}
+
 .watch-wrapper {
-  max-width: 1620px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: minmax(210px, 12%) 1fr;
-      grid-template-columns: minmax(210px, 12%) 1fr;
 }
 
 .watch__nav-links {
   position: absolute;
-  bottom: 110px;
+  bottom: clamp(72px, 5.72917vw, 110px);
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 0;
   height: 110px;
 }
 
+@media (min-width: 1920px) {
+  .watch__nav-links {
+    left: 152px;
+  }
+}
+
+@media (max-width: 640px) {
+  .watch__nav-links {
+    bottom: 100px;
+  }
+}
+
+@media (max-width: 639px) {
+  .watch__nav-links {
+    display: none;
+  }
+}
+
 .watch__title {
-  margin: 105px 0 37px;
+  margin: clamp(22px, 3.1%, 105px) 0 37px;
   color: #fefefe;
   font-weight: 900;
-  font-size: 5.563rem;
-  line-height: 104.3px;
+  font-size: clamp(64px, 7.41667vw, 89px);
   max-width: 793px;
+}
+
+@media (min-width: 1920px) {
+  .watch__title {
+    margin-top: 105px;
+  }
+}
+
+@media (max-width: 640px) {
+  .watch__title {
+    font-size: clamp(48px, 10vw, 64px);
+    margin-bottom: 4.6875vw;
+  }
+}
+
+@media (max-width: 320px) {
+  .watch__title {
+    margin-top: 42px;
+  }
 }
 
 .paragraph {
@@ -714,32 +776,87 @@ button {
 
 .watch__carousel {
   position: absolute;
-  width: 80%;
-  top: 406px;
-  right: 0;
-  left: 50.78125%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[8];
+      grid-template-columns: repeat(8, 1fr);
+  gap: 0 clamp(9px, 4.6875vw, 30px);
+  place-items: center;
+  top: clamp(365px, 63.75vw, 432px);
+  left: 50.78125vw;
   z-index: 0;
+}
+
+@media (min-width: 1920px) {
+  .watch__carousel {
+    top: 406px;
+    gap: 0 46px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .watch__carousel {
+    left: clamp(122px, 30vw, 900px);
+  }
+}
+
+@media (max-width: 640px) {
+  .watch__carousel {
+    left: calc(max(24px, 122 / 640 * 100vw));
+  }
+}
+
+@media (max-width: 320px) {
+  .watch__carousel {
+    left: 24px;
+    gap: 0 9px;
+  }
 }
 
 .watch__carousel::after {
   position: absolute;
   content: url("../assets/images/h-line.svg");
-  left: -9%;
+  left: -135px;
   width: 100%;
   z-index: -1;
 }
 
+@media (max-width: 640px) {
+  .watch__carousel::after {
+    left: calc(min(-21px, -71 / 640 * 100vw));
+  }
+}
+
+@media (max-width: 320px) {
+  .watch__carousel::after {
+    left: -21px;
+    bottom: calc(50% + 5px);
+  }
+}
+
 .pagination {
   width: 100%;
-  max-width: 245px;
+  max-width: calc(min(140 / 320 * 100vw, 245px));
   text-align: center;
   margin: 30px auto;
 }
 
 .watch__pagination {
   position: absolute;
-  bottom: -70px;
-  left: 12%;
+  bottom: clamp(-75px, -11.71875vw, -65px);
+  left: clamp(131px, 32.8125vw, 210px);
+}
+
+@media (min-width: 1920px) {
+  .watch__pagination {
+    left: calc(10vw - 8px);
+  }
+}
+
+@media (max-width: 320px) {
+  .watch__pagination {
+    left: 122px;
+  }
 }
 
 .watch__pagination .page {
@@ -772,7 +889,7 @@ button {
 .input-range::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  max-width: 30.625px;
+  max-width: calc(min(140 / 320 * 100vw, 245px) / 8);
   width: 100%;
   height: 10px;
   background: var(--primary-text-color);
@@ -796,8 +913,19 @@ button {
   background: #fefefe;
 }
 
+.carousel__slide {
+  width: clamp(113px, 28.125vw, 180px);
+  padding-bottom: 20px;
+}
+
+@media (min-width: 1920px) {
+  .carousel__slide {
+    width: 140px;
+    padding-bottom: 0;
+  }
+}
+
 .carousel__slide img {
-  max-width: 140px;
   width: 100%;
 }
 
@@ -806,12 +934,19 @@ button {
   opacity: 0;
   bottom: 20px;
   display: block;
-  padding: 0 21px 34px 22px;
+  padding: 0 calc(min(11 / 320 * 100vw, 21px)) calc(min(17 / 320 * 100vw, 34px));
+}
+
+@media (max-width: 320px) {
+  .carousel__slide figcaption {
+    padding: 0 8px 11px;
+  }
 }
 
 .carousel__slide figcaption .paragraph {
-  max-width: 194px;
+  max-width: calc(min(128 / 320 * 100vw, 194px));
   color: #ffffff;
+  font-size: calc(min(12 / 320 * 100vw, 14px));
 }
 
 .carousel__slide img:hover {
@@ -821,10 +956,7 @@ button {
 .carousel__slide_active {
   position: relative;
   padding-bottom: 20px;
-}
-
-.carousel__slide_active img {
-  max-width: 245px;
+  width: calc(min(140 / 320 * 100vw, 245px));
 }
 
 .carousel__slide_active figcaption {

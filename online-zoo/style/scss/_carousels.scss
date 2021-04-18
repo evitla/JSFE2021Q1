@@ -1,32 +1,58 @@
 .watch__carousel {
   position: absolute;
-  @extend %flex-between-center;
-  width: 80%;
-  top: 406px;
-  right: 0;
-  left: 975px / 1920px * 100%;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 0 clamp(9px, 30 / 640 * 100vw, 30px);
+  place-items: center;
+  top: clamp(365px, 408 / 640 * 100vw, 432px);
+  left: 975px / 1920px * 100vw;
   z-index: 0;
+
+  @media (min-width: 1920px) {
+    top: 406px;
+    gap: 0 46px;
+  }
+
+  @media (max-width: 1199px) { left: clamp(122px, 30vw, 900px); }
+  
+  @media (max-width: 640px) { left: calc(max(24px, 122 / 640 * 100vw)); }
+  
+  @media (max-width: 320px) {
+    left: 24px;
+    gap: 0 9px;
+  }
 
   &::after {
     position: absolute;
     content: url("../assets/images/h-line.svg");
-    left: -9%;
+    left: -135px;
     width: 100%;
     z-index: -1;
+
+    @media (max-width: 640px) { left: calc(min(-21px, -71 / 640 * 100vw)); }
+
+    @media(max-width: 320px) {
+      left: -21px;
+      bottom: calc(50% + 5px);
+    }
   }
 }
 
 .pagination {
   width: 100%;
-  max-width: 245px;
+  max-width: calc(min(140 / 320 * 100vw, 245px));
   text-align: center;
   margin: 30px auto;
 }
 
 .watch__pagination {
   position: absolute;
-  bottom: -70px;
-  left: 12%;
+  bottom: clamp(-75px, -75 / 640 * 100vw, -65px);
+  left: clamp(131px, 210 / 640 * 100vw, 210px);
+
+  @media (min-width: 1920px) { left: calc(10vw - 8px); }
+
+  @media (max-width: 320px) { left: 122px; }
 
   .page { color: #{map-get($colors-neutral, 200)}; }
 }
@@ -56,7 +82,7 @@
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    max-width: (245px / 8);
+    max-width: calc(min(140 / 320 * 100vw, 245px) / 8);
     width: 100%;
     height: 10px;
     background: var(--primary-text-color);
@@ -79,21 +105,30 @@
 }
 
 .carousel__slide {
-  img {
-    max-width: 140px;
-    width: 100%;
+  width: clamp(113px, 180 / 640 * 100vw, 180px);
+  padding-bottom: 20px;
+  
+  @media (min-width: 1920px) {
+    width: 140px;
+    padding-bottom: 0;
   }
+
+  img { width: 100%; }
 
   figcaption {
     position: absolute;
     opacity: 0;
     bottom: 20px;
     display: block;
-    padding: 0 21px 34px 22px;
+    padding: 0 calc(min(11 / 320 * 100vw, 21px))
+               calc(min(17 / 320 * 100vw, 34px));
+
+    @media (max-width: 320px) { padding: 0 8px 11px; }
     
     .paragraph {
-      max-width: 194px;
+      max-width: calc(min(128 / 320 * 100vw, 194px));
       color: #{map-get($colors-neutral, 100)};
+      font-size: calc(min(12 / 320 * 100vw, 14px));
     }
   }
 
@@ -103,8 +138,7 @@
 .carousel__slide_active {
   position: relative;
   padding-bottom: 20px;
-
-  img { max-width: 245px; }
+  width: calc(min(140 / 320 * 100vw, 245px));
 }
 
 .carousel__slide_active figcaption { opacity: 1; }
