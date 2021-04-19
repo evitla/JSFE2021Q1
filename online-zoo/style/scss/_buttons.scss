@@ -68,17 +68,24 @@ button { cursor: pointer; }
   padding: 18px 18px 16px;
 }
 
-.caption__btn { @extend %flex-between-center; }
+.caption__btn {
+  @extend %flex-between-center;
+  
+  @media (max-width: 639px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 
 .secondary-btn {
   @extend %flex-between-center;
   background: transparent;
   border: none;
   font-family: inherit;
-  font-size: 12px;
+  font-size: calc(min(9.2 / 320 * 100vw, 12px));
   font-weight: 500;
   text-transform: uppercase;
-  margin-top: 14px;
+  margin-top: calc(min(6 / 320 * 100vw, 14px));
 }
 
 .with-icon {

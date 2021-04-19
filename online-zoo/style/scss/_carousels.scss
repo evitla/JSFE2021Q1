@@ -1,18 +1,40 @@
 .watch__carousel {
   position: absolute;
-  @extend %flex-between-center;
-  width: 80%;
-  top: 406px;
-  right: 0;
-  left: 975px / 1920px * 100%;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: clamp(9px, 30 / 640 * 100vw, 30px);
+  place-items: center;
+  top: clamp(365px, 408 / 640 * 100vw, 432px);
+  left: 975px / 1920px * 100vw;
   z-index: 0;
+
+  @media (min-width: 1920px) {
+    top: 406px;
+    gap: 46px;
+  }
+
+  @media (max-width: 1199px) { left: clamp(122px, 30vw, 900px); }
+  
+  @media (max-width: 640px) { left: calc(max(24px, 122 / 640 * 100vw)); }
+  
+  @media (max-width: 320px) {
+    left: 24px;
+    gap: 9px;
+  }
 
   &::after {
     position: absolute;
     content: url("../assets/images/h-line.svg");
-    left: -9%;
+    left: -135px;
     width: 100%;
     z-index: -1;
+
+    @media (max-width: 640px) { left: calc(min(-21px, -71 / 640 * 100vw)); }
+
+    @media(max-width: 320px) {
+      left: -21px;
+      bottom: calc(50% + 5px);
+    }
   }
 }
 
@@ -20,13 +42,18 @@
   width: 100%;
   max-width: 245px;
   text-align: center;
-  margin: 30px auto;
+  margin: clamp(20px, 30 / 640 * 100vw, 30px) auto;
 }
 
 .watch__pagination {
   position: absolute;
-  bottom: -70px;
-  left: 12%;
+  max-width: calc(min(140 / 320 * 100vw, 245px));
+  bottom: clamp(-75px, -75 / 640 * 100vw, -55px);
+  left: clamp(131px, 210 / 640 * 100vw, 210px);
+
+  @media (min-width: 1920px) { left: calc(10vw - 8px); }
+
+  @media (max-width: 320px) { left: 122px; }
 
   .page { color: #{map-get($colors-neutral, 200)}; }
 }
@@ -56,7 +83,7 @@
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    max-width: (245px / 8);
+    max-width: calc(245px / 8);
     width: 100%;
     height: 10px;
     background: var(--primary-text-color);
@@ -64,7 +91,7 @@
   }
 
   &::-moz-range-thumb {
-    max-width: (245px / 8);
+    max-width: calc(245px / 8);
     width: 100%;
     height: 10px;
     background: var(--primary-text-color);
@@ -74,26 +101,39 @@
 }
 
 .watch__carousel-range {
-  &::-webkit-slider-thumb { background: #{map-get($colors-neutral, 200)}; }
-  &::-moz-range-thumb { background: #{map-get($colors-neutral, 200)}; }
+  &::-webkit-slider-thumb {
+    max-width: calc(min(140 / 320 * 100vw, 245px) / 8);
+    background: #{map-get($colors-neutral, 200)};
+  }
+  &::-moz-range-thumb {
+    background: #{map-get($colors-neutral, 200)};
+    max-width: calc(min(140 / 320 * 100vw, 245px) / 8);
+  }
 }
 
 .carousel__slide {
-  img {
-    max-width: 140px;
-    width: 100%;
+  width: clamp(113px, 180 / 640 * 100vw, 180px);
+  
+  @media (min-width: 1920px) {
+    width: 140px;
   }
+
+  img { width: 100%; }
 
   figcaption {
     position: absolute;
     opacity: 0;
     bottom: 20px;
     display: block;
-    padding: 0 21px 34px 22px;
+    padding: 0 calc(min(11 / 320 * 100vw, 21px))
+               calc(min(17 / 320 * 100vw, 34px));
+
+    @media (max-width: 320px) { padding: 0 8px 11px; }
     
     .paragraph {
-      max-width: 194px;
+      max-width: calc(min(128 / 320 * 100vw, 194px));
       color: #{map-get($colors-neutral, 100)};
+      font-size: calc(min(12 / 320 * 100vw, 14px));
     }
   }
 
@@ -102,9 +142,8 @@
 
 .carousel__slide_active {
   position: relative;
+  width: calc(min(140 / 320 * 100vw, 245px));
   padding-bottom: 20px;
-
-  img { max-width: 245px; }
 }
 
 .carousel__slide_active figcaption { opacity: 1; }
@@ -114,8 +153,11 @@
   overflow: hidden;
 }
 
-.how__carousel-slide {
-  img { max-width: 790px; }
+.how__carousel-slide img {
+    max-width: clamp(600px, 746 / 1200 * 100vw, 790px);
+    height: 323px;
+    object-fit: cover;
+    object-position: center left;
 }
 
 .how__carousel-range {
@@ -126,17 +168,22 @@
 .pets__carousel {
   @extend %flex-between-center;
   margin-top: 35px;
+  gap: 15px;
 }
 
 .pets__carousel-slides {
-  @extend %flex-between-center;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: calc(max(20px, 30 / 1920 * 100vw));
+  place-items: center;
   overflow: hidden;
-  margin: auto 15px;
+
+  @media (max-width: 640px) { gap: calc(max(16px, 20 / 640 * 100vw)); }
 }
 
 .pets__carousel-slide {
   position: relative;
-  margin-right: 30px;
+  width: calc(max(210px, 278 / 1920 * 100vw));
 
   &::after {
     cursor: pointer;
@@ -148,11 +195,6 @@
     height: calc(100% - 5px);
     border-radius: 5px;
     transition: background 1s ease-out .1s;
-  }
-
-  img {
-    max-width: 278px;
-    width: 278px;
   }
 
   figcaption {
@@ -176,8 +218,12 @@
   path { fill: var(--primary-text-color); }
 }
 
+@media (max-width: 640px) {
+  :is(.prev-btn-svg, .next-btn-svg) { display: none; }
+}
+
 .pets__pagination {
-  margin-bottom: 50px;
+  margin-bottom: 48px;
 
   &::before {
     max-width: calc(245px / 8);
@@ -188,29 +234,52 @@
 
 .testimonials__carousel {
   @extend %flex-between-center;
-  overflow: hidden;
-  margin-top: 52px;
+  margin-top: calc(min(50px, 35 / 640 * 100vw));
+
+  @media (max-width: 640px) { margin-top: calc(min(35px, 25 / 320 * 100vw)); }
 }
 
-.testimonials__carousel-slides { @extend %flex-between-center; }
+.testimonials__carousel-slides {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  place-items: center;
+  overflow: hidden;
+  width: 100%;
+}
 
-.testimonials__carousel-slide { margin: 11px 17px 19px 13px; }
+.testimonials__carousel-slide {
+  margin: 11px 17px 19px 13px;
+  flex: 0 1 calc((641px - 100vw) * 999);
+  width: clamp(440px, 585 / 1920 * 100vw, 585px);
+
+  @media (max-width: 1199px) { width: calc(min(585px, 300 / 320 * 100vw)); }
+  
+  @media (max-width: 639px) { margin-left: 0; }
+}
 
 .testimonials__carousel-slide-wrapper {
   text-align: center;
-  width: 585px;
   height: 310px;
   box-shadow: 2px 4px 15px rgba(6,12,70,.1);
   border-radius: 5px;
+
+  @media (max-width: 320px) { height: 363px; }
 
   img { margin-top: 47px; }
 
   .caption__title {
     text-transform: capitalize;
     margin-top: 10px;
+    font-size: clamp(16px, 20 / 640 * 100vw, 20px);
+
+    @media (max-width: 639px) { margin-top: calc(max(40px, 20 / 640 * 100vw)); }
   }
 
-  .paragraph { margin: 17px 72px 0 72px; }
+  .paragraph {
+    margin: 17px 72px 0 72px;
+
+    @media (max-width: 639px) { margin: 17px 5px; }
+  }
 }
 
 .testimonials__pagination {
