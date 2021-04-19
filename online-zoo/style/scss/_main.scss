@@ -6,10 +6,8 @@
   overflow-x: hidden;
 
   @media (max-width: 640px) {
-    height: calc(max(936 / 640 * 100vw, 750px));
+    height: calc(max(936 / 640 * 100vw, 669px));
   }
-
-  @media (max-width: 320px) { height: 669px; }
 
   &-wrapper { display: grid; }
 
@@ -20,7 +18,6 @@
     height: 110px;
 
     @media (min-width: 1920px) { left: 152px; }
-    // @media (max-width: 1200px) { bottom: 72px; }
     @media (max-width: 640px) { bottom: 100px; }
     @media (max-width: 639px) { display: none; }
 
@@ -47,27 +44,25 @@
 .paragraph {
   text-align: left;
   font-size: 14px;
-  line-height: 16px;
   color: var(--secondary-text-color);
 }
 
 .how-wrapper {
-  max-width: 790px;
-  text-align: center;
+  max-width: clamp(600px, 746 / 1200 * 100vw, 790px);
+  
+  @media (max-width: 640px) { margin-bottom: calc(max(50px, 68 / 640 * 100vw)); }
 }
 
 .section__title {
   color: var(--primary-text-color);
   font-weight: 900;
-  font-size: 48px;
-  line-height: 56.25px;
+  font-size: clamp(36px, 48 / 640 * 100vw, 48px);
   text-align: center;
 }
 
 .caption__title {
   font-weight: 900;
   font-size: 20px;
-  line-height: 23px;
   color: var(--primary-text-color);
   text-align: center;
 }
@@ -77,11 +72,9 @@
 
   &_paragraph {
     margin: 30px auto;
+    margin-top: clamp(20px, 30 / 640 * 100vw, 30px);
     color: var(--secondary-text-color);
-    font-weight: 400;
     font-size: 14px;
-    line-height: 16.4px;
-    text-align: left;
   }
 
   &__footer {
@@ -90,19 +83,23 @@
     &-wrapper {
       @extend %flex-between-center;
       align-items: flex-start;
+      margin: 0 auto;
       flex-wrap: wrap;
-      height: 100%;
-      padding: 100px 0;
+      gap: calc(max(25px, 45 / 640 * 100vw))
+           calc(max(20px, 30 / 1920 * 100vw));
+      padding: calc(min(100px, 50 / 320 * 100vw)) 0;
+      padding-bottom: calc(max(100px, 132 / 1920 * 100vw));
+
+      @media (max-width: 640px) { max-width: calc(640px + 287px - 100vw); }
     }
 
     &-info {
-      flex: 0 1 380px;
+      flex: 1 calc((641px - 100vw) * 999);
       text-align: center;
     }
 
     &-caption-title { margin: 15px 0; }
   }
-
 }
 
 .pets-wrapper {

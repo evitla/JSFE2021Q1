@@ -368,13 +368,7 @@ button {
 
 @media (max-width: 640px) {
   .watch {
-    height: calc(max(936 / 640 * 100vw, 750px));
-  }
-}
-
-@media (max-width: 320px) {
-  .watch {
-    height: 669px;
+    height: calc(max(936 / 640 * 100vw, 669px));
   }
 }
 
@@ -441,27 +435,29 @@ button {
 .paragraph {
   text-align: left;
   font-size: 14px;
-  line-height: 16px;
   color: var(--secondary-text-color);
 }
 
 .how-wrapper {
-  max-width: 790px;
-  text-align: center;
+  max-width: clamp(600px, 62.16667vw, 790px);
+}
+
+@media (max-width: 640px) {
+  .how-wrapper {
+    margin-bottom: calc(max(50px, 68 / 640 * 100vw));
+  }
 }
 
 .section__title {
   color: var(--primary-text-color);
   font-weight: 900;
-  font-size: 48px;
-  line-height: 56.25px;
+  font-size: clamp(36px, 7.5vw, 48px);
   text-align: center;
 }
 
 .caption__title, .zoo__info-title {
   font-weight: 900;
   font-size: 20px;
-  line-height: 23px;
   color: var(--primary-text-color);
   text-align: center;
 }
@@ -472,11 +468,9 @@ button {
 
 .how_paragraph {
   margin: 30px auto;
+  margin-top: clamp(20px, 4.6875vw, 30px);
   color: var(--secondary-text-color);
-  font-weight: 400;
   font-size: 14px;
-  line-height: 16.4px;
-  text-align: left;
 }
 
 .how__footer {
@@ -487,16 +481,24 @@ button {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  margin: 0 auto;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  height: 100%;
-  padding: 100px 0;
+  gap: calc(max(25px, 45 / 640 * 100vw)) calc(max(20px, 30 / 1920 * 100vw));
+  padding: calc(min(100px, 50 / 320 * 100vw)) 0;
+  padding-bottom: calc(max(100px, 132 / 1920 * 100vw));
+}
+
+@media (max-width: 640px) {
+  .how__footer-wrapper {
+    max-width: calc(640px + 287px - 100vw);
+  }
 }
 
 .how__footer-info {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 1 380px;
-          flex: 0 1 380px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 calc((641px - 100vw) * 999);
+          flex: 1 calc((641px - 100vw) * 999);
   text-align: center;
 }
 
@@ -780,7 +782,7 @@ button {
   display: grid;
   -ms-grid-columns: (1fr)[8];
       grid-template-columns: repeat(8, 1fr);
-  gap: 0 clamp(9px, 4.6875vw, 30px);
+  gap: clamp(9px, 4.6875vw, 30px);
   place-items: center;
   top: clamp(365px, 63.75vw, 432px);
   left: 50.78125vw;
@@ -790,7 +792,7 @@ button {
 @media (min-width: 1920px) {
   .watch__carousel {
     top: 406px;
-    gap: 0 46px;
+    gap: 46px;
   }
 }
 
@@ -809,7 +811,7 @@ button {
 @media (max-width: 320px) {
   .watch__carousel {
     left: 24px;
-    gap: 0 9px;
+    gap: 9px;
   }
 }
 
@@ -836,14 +838,15 @@ button {
 
 .pagination {
   width: 100%;
-  max-width: calc(min(140 / 320 * 100vw, 245px));
+  max-width: 245px;
   text-align: center;
-  margin: 30px auto;
+  margin: clamp(20px, 4.6875vw, 30px) auto;
 }
 
 .watch__pagination {
   position: absolute;
-  bottom: clamp(-75px, -11.71875vw, -65px);
+  max-width: calc(min(140 / 320 * 100vw, 245px));
+  bottom: clamp(-75px, -11.71875vw, -55px);
   left: clamp(131px, 32.8125vw, 210px);
 }
 
@@ -897,7 +900,7 @@ button {
 }
 
 .input-range::-moz-range-thumb {
-  max-width: 30.625px;
+  max-width: calc(min(140 / 320 * 100vw, 245px) / 8);
   width: 100%;
   height: 10px;
   background: var(--primary-text-color);
@@ -968,7 +971,12 @@ button {
 }
 
 .how__carousel-slide img {
-  max-width: 790px;
+  max-width: clamp(600px, 62.16667vw, 790px);
+  height: 323px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center left;
+     object-position: center left;
 }
 
 .how__carousel-range::-webkit-slider-thumb {

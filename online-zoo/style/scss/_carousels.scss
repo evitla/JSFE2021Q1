@@ -2,7 +2,7 @@
   position: absolute;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  gap: 0 clamp(9px, 30 / 640 * 100vw, 30px);
+  gap: clamp(9px, 30 / 640 * 100vw, 30px);
   place-items: center;
   top: clamp(365px, 408 / 640 * 100vw, 432px);
   left: 975px / 1920px * 100vw;
@@ -10,7 +10,7 @@
 
   @media (min-width: 1920px) {
     top: 406px;
-    gap: 0 46px;
+    gap: 46px;
   }
 
   @media (max-width: 1199px) { left: clamp(122px, 30vw, 900px); }
@@ -19,7 +19,7 @@
   
   @media (max-width: 320px) {
     left: 24px;
-    gap: 0 9px;
+    gap: 9px;
   }
 
   &::after {
@@ -40,14 +40,15 @@
 
 .pagination {
   width: 100%;
-  max-width: calc(min(140 / 320 * 100vw, 245px));
+  max-width: 245px;
   text-align: center;
-  margin: 30px auto;
+  margin: clamp(20px, 30 / 640 * 100vw, 30px) auto;
 }
 
 .watch__pagination {
   position: absolute;
-  bottom: clamp(-75px, -75 / 640 * 100vw, -65px);
+  max-width: calc(min(140 / 320 * 100vw, 245px));
+  bottom: clamp(-75px, -75 / 640 * 100vw, -55px);
   left: clamp(131px, 210 / 640 * 100vw, 210px);
 
   @media (min-width: 1920px) { left: calc(10vw - 8px); }
@@ -90,7 +91,7 @@
   }
 
   &::-moz-range-thumb {
-    max-width: (245px / 8);
+    max-width: calc(min(140 / 320 * 100vw, 245px) / 8);
     width: 100%;
     height: 10px;
     background: var(--primary-text-color);
@@ -148,8 +149,11 @@
   overflow: hidden;
 }
 
-.how__carousel-slide {
-  img { max-width: 790px; }
+.how__carousel-slide img {
+    max-width: clamp(600px, 746 / 1200 * 100vw, 790px);
+    height: 323px;
+    object-fit: cover;
+    object-position: center left;
 }
 
 .how__carousel-range {
