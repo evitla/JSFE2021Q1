@@ -168,7 +168,7 @@
 }
 
 .testimonials-wrapper {
-  max-width: 1300px;
+  max-width: clamp(1300 / 1920 * 100%, 600 / 640 * 100%, 1000px);
   text-align: center;
 }
 
