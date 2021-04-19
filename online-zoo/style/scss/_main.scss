@@ -48,7 +48,7 @@
 }
 
 .how-wrapper {
-  max-width: clamp(600px, 746 / 1200 * 100vw, 790px);
+  width: clamp(600px, 746 / 1200 * 100vw, 790px);
   
   @media (max-width: 640px) { margin-bottom: calc(max(50px, 68 / 640 * 100vw)); }
 }
@@ -75,6 +75,10 @@
     margin-top: clamp(20px, 30 / 640 * 100vw, 30px);
     color: var(--secondary-text-color);
     font-size: 14px;
+    
+    @media (max-width: 1200px) and (min-width: 1199px) {
+      margin-bottom: 14px;
+    }
   }
 
   &__footer {
@@ -103,9 +107,9 @@
 }
 
 .pets-wrapper {
-  max-width: 1300px;
+  max-width: clamp(1300 / 1920 * 100%, 600 / 640 * 100%, 1000px);
   text-align: center;
-  margin-bottom: 120px;
+  margin-bottom: calc(min(116px, 66 / 320 * 100vw));
 }
 
 .pay {

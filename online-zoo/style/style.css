@@ -35,7 +35,7 @@ body {
 }
 
 .wrapper {
-  width: clamp(62.5%, 93.75%, 900px);
+  max-width: clamp(62.5%, 93.75%, 900px);
   margin: 100px auto;
 }
 
@@ -63,7 +63,7 @@ html.transition *::after {
           transition-delay: 0 !important;
 }
 
-.header-wrapper, .nav-links, .btn-burger-container, .caption__btn, .secondary-btn, .with-icon, .how__footer-wrapper, .pay__scheme, .tooltip, .zoo__content, .zoo__carousel, .zoo__carousel-dots, .how__carousel-slides, .pets__carousel, .pets__carousel-slides, .testimonials__carousel, .testimonials__carousel-slides, .zoo__sidebar-carousel, .zoo__sidebar-carousel-slides, .footer-wrapper, .footer__navbar {
+.header-wrapper, .nav-links, .btn-burger-container, .caption__btn, .secondary-btn, .with-icon, .how__footer-wrapper, .pay__scheme, .tooltip, .zoo__content, .zoo__carousel, .zoo__carousel-dots, .how__carousel-slides, .pets__carousel, .testimonials__carousel, .testimonials__carousel-slides, .zoo__sidebar-carousel, .zoo__sidebar-carousel-slides, .footer-wrapper, .footer__navbar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -83,7 +83,7 @@ html.transition *::after {
 
 @media (min-width: 1920px) {
   .header-wrapper {
-    width: 1620px;
+    max-width: 1620px;
   }
 }
 
@@ -439,7 +439,7 @@ button {
 }
 
 .how-wrapper {
-  max-width: clamp(600px, 62.16667vw, 790px);
+  width: clamp(600px, 62.16667vw, 790px);
 }
 
 @media (max-width: 640px) {
@@ -471,6 +471,12 @@ button {
   margin-top: clamp(20px, 4.6875vw, 30px);
   color: var(--secondary-text-color);
   font-size: 14px;
+}
+
+@media (max-width: 1200px) and (min-width: 1199px) {
+  .how_paragraph {
+    margin-bottom: 14px;
+  }
 }
 
 .how__footer {
@@ -507,9 +513,9 @@ button {
 }
 
 .pets-wrapper {
-  max-width: 1300px;
+  max-width: clamp(67.70833%, 93.75%, 1000px);
   text-align: center;
-  margin-bottom: 120px;
+  margin-bottom: calc(min(116px, 66 / 320 * 100vw));
 }
 
 .pay {
@@ -892,7 +898,7 @@ button {
 .input-range::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  max-width: calc(min(140 / 320 * 100vw, 245px) / 8);
+  max-width: calc(245px / 8);
   width: 100%;
   height: 10px;
   background: var(--primary-text-color);
@@ -900,7 +906,7 @@ button {
 }
 
 .input-range::-moz-range-thumb {
-  max-width: calc(min(140 / 320 * 100vw, 245px) / 8);
+  max-width: calc(245px / 8);
   width: 100%;
   height: 10px;
   background: var(--primary-text-color);
@@ -909,22 +915,22 @@ button {
 }
 
 .watch__carousel-range::-webkit-slider-thumb {
+  max-width: calc(min(140 / 320 * 100vw, 245px) / 8);
   background: #fefefe;
 }
 
 .watch__carousel-range::-moz-range-thumb {
   background: #fefefe;
+  max-width: calc(min(140 / 320 * 100vw, 245px) / 8);
 }
 
 .carousel__slide {
   width: clamp(113px, 28.125vw, 180px);
-  padding-bottom: 20px;
 }
 
 @media (min-width: 1920px) {
   .carousel__slide {
     width: 140px;
-    padding-bottom: 0;
   }
 }
 
@@ -958,8 +964,8 @@ button {
 
 .carousel__slide_active {
   position: relative;
-  padding-bottom: 20px;
   width: calc(min(140 / 320 * 100vw, 245px));
+  padding-bottom: 20px;
 }
 
 .carousel__slide_active figcaption {
@@ -989,16 +995,28 @@ button {
 
 .pets__carousel {
   margin-top: 35px;
+  gap: 15px;
 }
 
 .pets__carousel-slides {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[8];
+      grid-template-columns: repeat(8, 1fr);
+  gap: calc(max(20px, 30 / 1920 * 100vw));
+  place-items: center;
   overflow: hidden;
-  margin: auto 15px;
+}
+
+@media (max-width: 640px) {
+  .pets__carousel-slides {
+    gap: calc(max(16px, 20 / 640 * 100vw));
+  }
 }
 
 .pets__carousel-slide {
   position: relative;
-  margin-right: 30px;
+  width: calc(max(210px, 278 / 1920 * 100vw));
 }
 
 .pets__carousel-slide::after {
@@ -1012,11 +1030,6 @@ button {
   border-radius: 5px;
   -webkit-transition: background 1s ease-out .1s;
   transition: background 1s ease-out .1s;
-}
-
-.pets__carousel-slide img {
-  max-width: 278px;
-  width: 278px;
 }
 
 .pets__carousel-slide figcaption {
@@ -1043,8 +1056,14 @@ button {
   fill: var(--primary-text-color);
 }
 
+@media (max-width: 640px) {
+  :is(.prev-btn-svg, .next-btn-svg) {
+    display: none;
+  }
+}
+
 .pets__pagination {
-  margin-bottom: 50px;
+  margin-bottom: 48px;
 }
 
 .pets__pagination::before {

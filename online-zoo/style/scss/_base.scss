@@ -13,10 +13,11 @@ body {
 }
 
 .wrapper {
-  width: clamp(1200 / 1920 * 100%, 600 / 640 * 100%, 900px);
+  max-width: clamp(1200 / 1920 * 100%, 600 / 640 * 100%, 900px);
   margin: 100px auto;
 
   @media (max-width: 640px) { margin: clamp(50px, 100 / 640 * 100vw, 100px) auto; }
+  // @media (max-width: 640px) { margin: clamp(50px, 100 / 640 * 100vw, 100px) auto; }
 }
 
 li { list-style: none; }
