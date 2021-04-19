@@ -523,34 +523,71 @@ button {
 }
 
 .pay-wrapper {
-  padding: 100px 0;
+  padding: calc(min(100px, 50 / 320 * 100vw)) 0;
   text-align: center;
+}
+
+@media (min-width: 1201px) {
+  .pay-wrapper {
+    max-width: clamp(68.75%, 93.75%, 900px);
+  }
 }
 
 .pay-wrapper .paragraph {
   text-align: center;
-  margin-top: 30px;
+  margin-top: clamp(15px, 2.5vw, 30px);
+}
+
+@media (max-width: 320px) {
+  .pay-wrapper .paragraph {
+    display: none;
+  }
 }
 
 .pay__scheme {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  width: 100%;
-  margin: 92px 0 60px;
+  margin: clamp(30px, 7.8125vw, 50px) 0 clamp(40px, 7.8125vw, 50px);
+}
+
+@media (min-width: 1201px) {
+  .pay__scheme {
+    margin: clamp(50px, 4.79167vw, 92px) 0 clamp(50px, 3.125vw, 60px);
+  }
 }
 
 .pay__info {
   position: relative;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 1 245px;
-          flex: 0 1 245px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 calc((872px - 100vw) * 999);
+          flex: 1 calc((872px - 100vw) * 999);
 }
 
 .pay__info-caption {
   position: absolute;
   bottom: 60px;
-  left: 55px;
+  left: calc(50% - 135px / 2);
   max-width: 135px;
+}
+
+.pay__arrow {
+  width: clamp(40px, 4vw, 107px);
+  height: 95px;
+  background: url("../../assets/images/right-arrow-grad.svg") no-repeat right;
+}
+
+@media (min-width: 1920px) {
+  .pay__arrow {
+    width: 107px;
+  }
+}
+
+@media (max-width: 871px) {
+  .pay__arrow {
+    -webkit-transform: rotateZ(90deg);
+            transform: rotateZ(90deg);
+    margin: 0 auto;
+  }
 }
 
 .testimonials-wrapper {

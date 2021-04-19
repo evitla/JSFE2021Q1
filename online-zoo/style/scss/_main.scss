@@ -116,31 +116,53 @@
   background: var(--secondary-bg-color);
 
   &-wrapper {
-    padding: 100px 0;
+    padding: calc(min(100px, 50 / 320 * 100vw)) 0;
     text-align: center;
+
+    @media (min-width: 1201px) { max-width: clamp(1320 / 1920 * 100%, 600 / 640 * 100%, 900px); }
   
     .paragraph {
       text-align: center;
-      margin-top: 30px;
+      margin-top: clamp(15px, 30 / 1200 * 100vw, 30px);
+
+      @media (max-width: 320px) { display: none; }
     }
   }
 
   &__scheme {
     @extend %flex-between-center;
     flex-wrap: wrap;
-    width: 100%;
-    margin: 92px 0 60px;
+    margin: clamp(30px, 50 / 640 * 100vw, 50px) 0
+            clamp(40px, 50 / 640 * 100vw, 50px);
+
+    @media (min-width: 1201px) {
+      margin: clamp(50px, 92 / 1920 * 100vw, 92px) 0
+              clamp(50px, 60 / 1920 * 100vw, 60px);
+    }
   }
 
   &__info {
     position: relative;
-    flex: 0 1 245px;
+    flex: 1 calc((872px - 100vw) * 999);
 
     &-caption {
       position: absolute;
       bottom: 60px;
-      left: 55px;
+      left: calc(50% - 135px / 2);
       max-width: 135px;
+    }
+  }
+
+  &__arrow {
+    width: clamp(40px, 48 / 1200 * 100vw, 107px);
+    height: 95px;
+    background: url("../../assets/images/right-arrow-grad.svg") no-repeat right;
+
+    @media (min-width: 1920px) { width: 107px; }
+
+    @media (max-width: 871px) {
+      transform: rotateZ(90deg);
+      margin: 0 auto;
     }
   }
 }
