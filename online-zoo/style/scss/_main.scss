@@ -178,32 +178,51 @@
   background: var(--secondary-bg-color);
 
   &-wrapper {
+    position: relative;
     margin-bottom: 0px;
-    padding: 100px 0;
+    padding: clamp(50px, 50 / 320 * 100vw, 100px) 0;
     text-align: center;
   }
 
   &__img {
-    position: relative;
-    margin: 60px auto 35px;
+    margin: clamp(30px, 50 / 640 * 100vw, 60px) auto
+            clamp(30px, 30 / 320 * 100vw, 35px);
   }
 
   &-marker { position: absolute; }
 
+  &-marker-svg {
+    width: clamp(34px, 34 / 320 * 100vw, 67px);
+    height: clamp(47px, 47 / 320 * 100vw, 94px);
+  }
+
   &__round-img {
     position: absolute;
-    width: 43px;
-    top: 12px;
-    left: 12px;
+    width: clamp(22px, 22 / 320 * 100vw, 43px);
+    top: clamp(6px, 6 / 320 * 100vw, 12px);
+    left: clamp(6px, 6 / 320 * 100vw, 12px);
   }
+}
+
+#map-img {
+  width: 100%;
+  height: clamp(290px, 436 / 1200 * 100vw, 498px);
+
+  @media (max-width: 639px) { height: 146 / 320 * 100vw; }
 }
 
 @for $i from 1 through length($marker-positions) {
   $positions: nth($marker-positions, $i);
+  $positions-639: nth($marker-positions-639, $i);
 
   .map-marker-#{$i} {
     top: map-get($positions, "top");
     left: map-get($positions, "left");
+
+    @media (max-width: 639px) {
+      top: map-get($positions-639, "top");
+      left: map-get($positions-639, "left");
+    }
   }
 }
 
