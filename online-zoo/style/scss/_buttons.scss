@@ -132,8 +132,24 @@ button { cursor: pointer; }
 }
 
 .footer__btn {
+  position: absolute;
   width: 279px;
-  margin: 0;
+  right: 0;
+  
+  @media (max-width: 1919px) {
+    left: -170px;
+    bottom: -85px;
+  }
+
+  @media (max-width: 1199px) {
+    left: -90px;
+    top: 0;
+  }
+
+  @media (max-width: 639px) {
+    left: -360px;
+    top: 825px;
+  }
 }
 
 .zoo__btn {

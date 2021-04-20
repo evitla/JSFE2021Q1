@@ -180,7 +180,8 @@
   &-wrapper {
     position: relative;
     margin-bottom: 0px;
-    padding: clamp(50px, 50 / 320 * 100vw, 100px) 0;
+    padding: clamp(50px, 50 / 320 * 100vw, 100px) 0
+             clamp(60px, 80 / 640 * 100vw, 100px);
     text-align: center;
   }
 
