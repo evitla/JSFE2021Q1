@@ -767,7 +767,7 @@ button {
 
 .zoo__main {
   background: var(--tertiary-bg-color);
-  padding: clamp(31px, 0.96875vw, 56px) 0;
+  padding: clamp(35px, 10.9375vw, 60px) 0;
   position: relative;
   display: -ms-grid;
   display: grid;
@@ -807,7 +807,7 @@ button {
 @media (max-width: 955px) {
   .zoo__content {
     padding-top: clamp(55px, 17.1875vw, 110px);
-    padding-bottom: clamp(29px, 7.65625vw, 49px);
+    padding-bottom: clamp(25px, 7.03125vw, 45px);
   }
 }
 
@@ -913,6 +913,15 @@ button {
   position: sticky;
   top: 56px;
   height: 597px;
+  width: clamp(84px, 9.16667vw, 157px);
+  left: clamp(7px, 1.33333vw, 26px);
+}
+
+@media (max-width: 639px) {
+  .zoo__sidebar {
+    width: clamp(61px, 19.0625vw, 84px);
+    left: clamp(5px, 1.5625vw, 7px);
+  }
 }
 
 .map__main {
@@ -1395,14 +1404,17 @@ button {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 100%;
-  height: 515px;
+  height: clamp(330px, 36.5vw, 515px);
   overflow: hidden;
-  margin: 20px auto;
-  gap: 0 27px;
+  margin: clamp(5px, 1.5625vw, 10px) auto;
+  gap: clamp(5px, 1.09375vw, 7px) 27px;
 }
 
-.zoo__sidebar-carousel-slide {
-  margin: 4px 0;
+@media (max-width: 639px) {
+  .zoo__sidebar-carousel-slides {
+    height: clamp(200px, 62.5vw, 330px);
+    gap: clamp(2px, 0.625vw, 5px) 27px;
+  }
 }
 
 .zoo__sidebar-carousel-slide img {
@@ -1430,6 +1442,40 @@ button {
   width: clamp(85px, 26.5625vw, 157px);
   height: clamp(85px, 26.5625vw, 157px);
   z-index: -1;
+}
+
+.zoo-pages__sidebar-carousel-slides .zoo__sidebar-carousel-slide img {
+  width: clamp(70px, 8vw, 108px);
+}
+
+@media (max-width: 639px) {
+  .zoo-pages__sidebar-carousel-slides .zoo__sidebar-carousel-slide img {
+    width: clamp(40px, 12.5vw, 70px);
+  }
+}
+
+.zoo-pages__sidebar-carousel-slides .zoo__sidebar-carousel-slide_active img {
+  width: clamp(78px, 8.66667vw, 151px);
+  border: clamp(3.5px, 0.41667vw, 7px) solid var(--tertiary-bg-color);
+  border-radius: 100%;
+}
+
+@media (max-width: 639px) {
+  .zoo-pages__sidebar-carousel-slides .zoo__sidebar-carousel-slide_active img {
+    width: clamp(55px, 17.1875vw, 78px);
+  }
+}
+
+.zoo-pages__sidebar-carousel-slides .zoo__sidebar-carousel-slide_active::before {
+  width: clamp(84px, 9.16667vw, 157px);
+  height: clamp(84px, 9.16667vw, 157px);
+}
+
+@media (max-width: 639px) {
+  .zoo-pages__sidebar-carousel-slides .zoo__sidebar-carousel-slide_active::before {
+    width: clamp(61px, 19.0625vw, 84px);
+    height: clamp(61px, 19.0625vw, 84px);
+  }
 }
 
 .map-prev-btn-svg,

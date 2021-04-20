@@ -270,7 +270,7 @@
 // =========================== ZOOS PAGES =========================== //
 .zoo__main {
   background: var(--tertiary-bg-color);
-  padding: clamp(31px, 31 / 320 * 10vw, 56px) 0;
+  padding: clamp(35px, 35 / 320 * 100vw, 60px) 0;
   position: relative;
   display: grid;
   grid-template-columns: minmax(75px, (210px / 1920px) * 100%) 1fr;
@@ -299,7 +299,7 @@
 
     @media (max-width: 955px) {
       padding-top: clamp(55px, 110 / 640 * 100vw, 110px);
-      padding-bottom: clamp(29px, 49 / 640 * 100vw, 49px);
+      padding-bottom: clamp(25px, 45 / 640 * 100vw, 45px);
     }
   }
 
@@ -387,6 +387,13 @@
   position: sticky;
   top: 56px;
   height: 597px;
+  width: clamp(84px, 110 / 1200 * 100vw, 157px);
+  left: clamp(7px, 16 / 1200 * 100vw, 26px);
+
+  @media (max-width: 639px) {
+    width: clamp(61px, 61 / 320 * 100vw, 84px);
+    left: clamp(5px, 5 / 320 * 100vw, 7px)
+  }
 }
 
 .map__main {
