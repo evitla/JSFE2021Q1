@@ -36,9 +36,16 @@
           </li>
         </ul>
       </nav>
-      <div class="toggle-btn">
-        <input type="checkbox" id="theme-toggle" class="theme-toggle">
-        <label for="theme-toggle" class="theme-label" data-off="off" data-on="on"></label>
+      <div class="btn-burger-container">
+        <div class="toggle-btn">
+          <input type="checkbox" id="theme-toggle" class="theme-toggle">
+          <label for="theme-toggle" class="theme-label" data-off="off" data-on="on"></label>
+        </div>
+        <div class="burger">
+          <div class="burger__line burger__line-1"></div>
+          <div class="burger__line burger__line-2"></div>
+          <div class="burger__line burger__line-3"></div>
+        </div>
       </div>
     </div>
   </header>
@@ -55,7 +62,7 @@
           devastated by the impact of the 2020 Australian bushfires on precious species and their habitat.
         </p>
         <div class="zoo__sidebar-carousel map__carousel">
-          <svg class="prev-btn-svg" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="prev-btn-svg map-prev-btn-svg" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M6.6663 16.1706L20.0167 29.5207C20.3255 29.8298 20.7376 30 21.1772 30C21.6167 30 22.0289
                 29.8298 22.3376 29.5207L23.3208 28.5378C23.9605 27.8973 23.9605 26.8564 23.3208 26.2169L12.1102
                 15.0062L23.3332 3.78314C23.642 3.47412 23.8125 3.06217 23.8125 2.6229C23.8125 2.18315 23.642 1.7712
@@ -89,7 +96,7 @@
               <a href="#"><img src="../../assets/images/round-img-8.png" alt=""></a>
             </figure>
           </div>
-          <svg class="next-btn-svg" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="next-btn-svg map-next-btn-svg" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M23.3337 13.8294L9.98332 0.479264C9.67454 0.170243 9.26235 0 8.82284 0C8.38334 0 7.97114
                 0.170243 7.66237 0.479264L6.6792 1.46218C6.03945 2.10267 6.03945 3.14363 6.6792 3.78314L17.8898
                 14.9938L6.66676 26.2169C6.35799 26.5259 6.1875 26.9378 6.1875 27.3771C6.1875 27.8168 6.35799 28.2288
@@ -102,9 +109,9 @@
           <span class="page">02/</span><span class="all-pages">08</span>
           <input type="range" min="1" max="8" value="2" class="input-range">
         </div>
-        <div class="map__img">
+        <div class="map__img map-page__img">
           <img id="map-img" src="../../assets/images/map-light.svg" alt="">
-          <div class="map-marker_pointer map-marker-1" title="Eagle">
+          <div class="map-marker_pointer map-page-marker-1" title="Eagle">
             <svg class="map-marker-svg" width="67" height="94" viewBox="0 0 67 94" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M33.6913 0.150391C15.4582 0.150391 0.625 14.9853 0.625 33.2206C0.625 50.8607 30.8554 91.051 32.1431 92.7551C32.5049
                 93.2415 33.0846 93.5254 33.6915 93.5254C34.2983 93.5254 34.878 93.2415 35.2398 92.7551C36.5274 91.051 66.7579 50.8609 66.7579
@@ -120,7 +127,7 @@
             </svg>
             <img class="map__round-img" src="../../assets/images/round-img-4.png" alt="">
           </div>
-          <div class="map-marker_pointer map-marker-2" title="Alligator">
+          <div class="map-marker_pointer map-page-marker-2" title="Alligator">
             <svg class="map-marker-svg" width="67" height="94" viewBox="0 0 67 94" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M33.6913 0.150391C15.4582 0.150391 0.625 14.9853 0.625 33.2206C0.625 50.8607 30.8554 91.051 32.1431 92.7551C32.5049
                 93.2415 33.0846 93.5254 33.6915 93.5254C34.2983 93.5254 34.878 93.2415 35.2398 92.7551C36.5274 91.051 66.7579 50.8609 66.7579
@@ -136,7 +143,7 @@
             </svg>
             <img class="map__round-img" src="../../assets/images/round-img-3.png" alt="">
           </div>
-          <div class="map-marker_pointer map-marker-3" title="Gorilla">
+          <div class="map-marker_pointer map-page-marker-3" title="Gorilla">
             <svg class="map-marker-svg" width="67" height="94" viewBox="0 0 67 94" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M33.6913 0.150391C15.4582 0.150391 0.625 14.9853 0.625 33.2206C0.625 50.8607 30.8554 91.051 32.1431 92.7551C32.5049
                 93.2415 33.0846 93.5254 33.6915 93.5254C34.2983 93.5254 34.878 93.2415 35.2398 92.7551C36.5274 91.051 66.7579 50.8609 66.7579
@@ -152,7 +159,7 @@
             </svg>
             <img class="map__round-img" src="../../assets/images/round-img-1.png" alt="">
           </div>
-          <div class="map-marker_pointer map-marker-4" title="Panda">
+          <div class="map-marker_pointer map-page-marker-4" title="Panda">
             <svg class="map-marker-svg" width="67" height="94" viewBox="0 0 67 94" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M33.6913 0.150391C15.4582 0.150391 0.625 14.9853 0.625 33.2206C0.625 50.8607 30.8554 91.051 32.1431 92.7551C32.5049
                 93.2415 33.0846 93.5254 33.6915 93.5254C34.2983 93.5254 34.878 93.2415 35.2398 92.7551C36.5274 91.051 66.7579 50.8609 66.7579
@@ -203,7 +210,7 @@
         </div>
       </div>
       <div class="footer__right-side">
-        <nav class="navbar footer__navbar">
+        <nav class="footer__navbar">
           <ul class="nav-links">
             <li class="nav-links__item">
               <a class="nav-links__link" href="../../pages/landing/">About</a>
@@ -222,22 +229,22 @@
           </ul>
           <button class="primary-btn footer__btn">Donate for volunteers</button>
         </nav>
-        <h5 class="address__title">Zoo online centre</h5>
         <address class="address">
+          <h5 class="address__title">Zoo online centre</h5>
           <p class="paragraph">132, Address District, Street</p>
           <p class="paragraph">Open Daily 10:00 am - 5:00 pm</p>
           <p>&nbsp;</p>
           <p class="paragraph"> T<a href="tel:7021633433">(702) 163-3433</a></p>
           <p class="paragraph"><a href="mailto:zoo.online@gmail.com">zoo.online@gmail.com</a></p>
+          <nav class="footer__social">
+            <ul class="nav-links">
+              <li><a href="https://www.instagram.com/" target="_blank"><img src="../../assets/icons/instagram.svg" alt="Instagram icon"></a></li>
+              <li><a href="https://twitter.com/" target="_blank"><img src="../../assets/icons/twitter.svg" alt="Twitter icon"></a></li>
+              <li><a href="https://vk.com/" target="_blank"><img src="../../assets/icons/vk.svg" alt="VK icon"></a></li>
+              <li><a href="https://www.youtube.com/" target="_blank"><img src="../../assets/icons/youtube.svg" alt="Youtube icon"></a></li>
+            </ul>
+          </nav>
         </address>
-        <nav class="navbar footer__social">
-          <ul class="nav-links">
-            <li><a href="https://www.instagram.com/" target="_blank"><img src="../../assets/icons/instagram.svg" alt="Instagram icon"></a></li>
-            <li><a href="https://twitter.com/" target="_blank"><img src="../../assets/icons/twitter.svg" alt="Twitter icon"></a></li>
-            <li><a href="https://vk.com/" target="_blank"><img src="../../assets/icons/vk.svg" alt="VK icon"></a></li>
-            <li><a href="https://www.youtube.com/" target="_blank"><img src="../../assets/icons/youtube.svg" alt="Youtube icon"></a></li>
-          </ul>
-        </nav>
       </div>
     </div>
     <div class="copyrights">
