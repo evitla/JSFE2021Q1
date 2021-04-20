@@ -153,6 +153,8 @@ button { cursor: pointer; }
 }
 
 .zoo__btn {
-  width: 194px;
-  margin-top: 35px;
+  width: calc(max(185px, 194 / 1920 * 100vw));
+  margin-top: clamp(20px, 20 / 1200 * 100vw, 35px);
+
+  @media (max-width: 640px) { margin-top: clamp(20px, 30 / 640 * 100vw, 30px); }
 }
