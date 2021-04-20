@@ -55,7 +55,38 @@ html[data-theme='dark'] {
 }
 
 $marker-positions:
-  (top: 78px, left: 120px),
-  (top: 107px, left: 243px),
-  (top: 191px, left: 570px),
-  (top: 95px, left: 893px);
+  (
+    top: clamp(213px, 270 / 1200 * 100vw, 290px),
+    left: clamp(39px, 83 / 1200 * 100vw, 121px)
+  ),
+  (
+    top: clamp(222px, 283 / 1200 * 100vw, 318px),
+    left: clamp(103px, 175 / 1200 * 100vw, 243px)
+  ),
+  (
+    top: clamp(275px, 370 / 1200 * 100vw, 405px),
+    left: clamp(268px, 420 / 1200 * 100vw, 572px)
+  ),
+  (
+    top: clamp(218px, 284 / 1200 * 100vw, 306px),
+    left: clamp(427px, 656 / 1200 * 100vw, 893px)
+  );
+
+
+$marker-positions-639:
+  (
+    top: clamp(124px, 213 / 640 * 100vw, 213px),
+    left: clamp(25px, 39 / 640 * 100vw, 39px)
+  ),
+  (
+    top: clamp(132px, 222 / 640 * 100vw, 222px),
+    left: clamp(51px, 103 / 640 * 100vw, 103px)
+  ),
+  (
+    top: clamp(158px, 275 / 640 * 100vw, 275px),
+    left: clamp(134px, 268 / 640 * 100vw, 268px)
+  ),
+  (
+    top: clamp(130px, 218 / 640 * 100vw, 218px),
+    left: clamp(216px, 427 / 640 * 100vw, 427px)
+  );
