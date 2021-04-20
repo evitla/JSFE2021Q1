@@ -270,38 +270,60 @@
 // =========================== ZOOS PAGES =========================== //
 .zoo__main {
   background: var(--tertiary-bg-color);
-  padding: 56px 0;
+  padding: clamp(31px, 31 / 320 * 10vw, 56px) 0;
   position: relative;
   display: grid;
   grid-template-columns: minmax(75px, (210px / 1920px) * 100%) 1fr;
 }
 
 .zoo {
-  &__wrapper { margin: 0 150px; }
+  &__wrapper {
+    margin: 0 clamp(20px, 50 / 1200 * 100vw, 50px);
+
+    @media (min-width: 1201px) { margin: 0 clamp(50px, 150 / 1920 * 100vw, 150px); }
+  }
 
   &__title {
     position: absolute;
-    top: 56px;
+    top: clamp(31px, 31 / 320 * 100vw, 56px);
+    font-size: clamp(24px, 24 / 320 * 100vw, 48px);
   }
 
   &__content {
-    @extend %flex-between-center;
+    display: flex;
+    justify-content: start;
     flex-wrap: wrap;
+    gap: clamp(60px, 60 / 320 * 100vw, 90px)
+         clamp(20px, 30 / 1920 * 100vw, 30px);
     padding: 90px 0;
+
+    @media (max-width: 955px) {
+      padding-top: clamp(55px, 110 / 640 * 100vw, 110px);
+      padding-bottom: clamp(29px, 49 / 640 * 100vw, 49px);
+    }
   }
 
-  &__videos {
-    flex: 1 1 497px;
-    height: 613px;
-    margin: 0px 30px 0 0;
+  &__video {
+    width: clamp(497px, 527 / 1200 * 100vw, 790px);
+    height: clamp(280px, 297 / 1200 * 100vw, 442px);
+
+    @media (max-width: 639px) {
+      width: clamp(205px, 205 / 320 * 100vw, 497px);
+      height: clamp(116px, 116 / 320 * 100vw, 280px);
+    }
   }
 
   &__info {
-    flex: 0 1 380px;
-    height: 613px;
-    margin-top: 0px;
+    flex: 0 1 253px;
 
-    .paragraph { margin-top: 6px; }
+    @media (min-width: 1920px) { flex: 0 1 380px; }
+
+    @media (max-width: 955px) { flex: 0 1 clamp(497px, 527 / 1200 * 100vw, 790px); }
+
+    .paragraph {
+      margin-top: 6px;
+      font-size: clamp(12px, 12 / 320 * 100vw, 14px);
+    }
   }
 
   &__carousel {
@@ -310,12 +332,22 @@
     flex-wrap: wrap;
     margin-top: 30px;
 
-    &-slide { flex: 0 1 246px; }
+    &-slide {
+      width: clamp(155px, 164 / 1200 * 100vw, 246px);
+      height: clamp(89px, 94 / 1200 * 100vw, 141px);
+
+      @media (max-width: 639px) {
+        width: clamp(98px, 98 / 320 * 100vw, 155px);
+        height: clamp(56px, 56 / 320 * 100vw, 89px);
+        
+        &:last-of-type { display: none; }
+      }
+    }
 
     &-dots {
       @extend %flex-between-center;
       position: absolute;
-      bottom: -40px;
+      bottom: calc(-1 * clamp(30px, 30 / 320 * 100vw, 40px));
       left: calc(50% - 16px);
     }
 
@@ -345,6 +377,7 @@
   &__info-title {
     @extend .caption__title;
     text-align: left;
+    font-size: clamp(14px, 14 / 320 * 100vw, 20px);
 
     .paragraph + & { margin-top: 13px; }
   }
