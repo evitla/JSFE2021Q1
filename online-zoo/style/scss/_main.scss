@@ -367,11 +367,38 @@
   padding: 60px 0 100px;
 }
 
-.map__paragraph { margin: 20px 209px 54px; }
+.map__title {
+  font-size: clamp(24px, 48 / 640 * 100vw, 48px);
+}
+
+.map__paragraph {
+  max-width: 790px;
+  margin: 20px auto 54px;
+  font-size: clamp(12px, 14 / 640 * 100vw, 14px);
+}
 
 .map-marker_pointer {
   position: absolute;
 
   .map-marker-svg path:hover,
   .map__round-img:hover { cursor: pointer; }
+}
+
+.map-page__img {
+  position: relative;
+}
+
+@for $i from 1 through length($marker-positions) {
+  $positions: nth($marker-positions, $i);
+  $positions-639: nth($marker-positions-639, $i);
+
+  .map-page-marker-#{$i} {
+    top: calc(#{map-get($positions, "top")} - 210px);
+    left: map-get($positions, "left");
+
+    @media (max-width: 639px) {
+      top: calc(#{map-get($positions-639, "top")} - 120px);
+      left: map-get($positions-639, "left");
+    }
+  }
 }
