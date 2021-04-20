@@ -35,7 +35,7 @@ body {
 }
 
 .wrapper {
-  max-width: clamp(62.5%, 93.75%, 900px);
+  max-width: clamp(62.5vw, 93.75vw, 900px);
   margin: 100px auto;
 }
 
