@@ -92,8 +92,6 @@ header {
 
 .header-wrapper {
   margin: 0 auto;
-  padding-right: calc(min(20 / 640 * 100vw, 150px));
-  padding-left: calc(min(20 / 640 * 100vw, 150px));
   height: 94px;
 }
 

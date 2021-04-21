@@ -11,8 +11,6 @@ header {
 .header-wrapper {
   @extend %flex-between-center;
   margin: 0 auto;
-  padding-right: calc(min(20 / 640 * 100vw, 150px));
-  padding-left: calc(min(20 / 640 * 100vw, 150px));
   height: 94px;
   
   @media (min-width: 1920px) { max-width: 1620px; }
