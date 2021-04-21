@@ -75,29 +75,31 @@ html.transition *::after {
           align-items: center;
 }
 
-.header-wrapper {
+header {
   position: fixed;
+  width: 100vw;
+  -webkit-box-shadow: 0px 4px 8px rgba(44, 101, 77, 0.08);
+          box-shadow: 0px 4px 8px rgba(44, 101, 77, 0.08);
   background-color: var(--primary-bg-color);
-  margin: 0;
+  z-index: 1;
+}
+
+@media (min-width: 1200px) {
+  header {
+    position: initial;
+  }
+}
+
+.header-wrapper {
+  margin: 0 auto;
   padding-right: calc(min(20 / 640 * 100vw, 150px));
   padding-left: calc(min(20 / 640 * 100vw, 150px));
   height: 94px;
-  max-width: 100%;
-  width: 100%;
-  z-index: 1;
 }
 
 @media (min-width: 1920px) {
   .header-wrapper {
-    position: initial;
     max-width: 1620px;
-  }
-}
-
-@media (min-width: 641px) {
-  .header-wrapper {
-    padding-right: clamp(20px, 12.5vw, 150px);
-    padding-left: clamp(20px, 12.5vw, 150px);
   }
 }
 
@@ -171,11 +173,6 @@ html.transition *::after {
   -webkit-box-shadow: 0 2px var(--primary-text-color);
           box-shadow: 0 2px var(--primary-text-color);
   font-weight: 900;
-}
-
-.zoo__header {
-  -webkit-box-shadow: 0px 4px 8px rgba(44, 101, 77, 0.08);
-          box-shadow: 0px 4px 8px rgba(44, 101, 77, 0.08);
 }
 
 @media (max-width: 640px) {
@@ -404,7 +401,7 @@ main {
   padding-top: 94px;
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1200px) {
   main {
     padding-top: 0;
   }
@@ -549,7 +546,7 @@ main {
 
 @media (max-width: 640px) {
   .how__footer-wrapper {
-    max-width: calc(640px + 287px - 100vw);
+    width: calc(640px + 287px - 100vw);
   }
 }
 
@@ -791,12 +788,18 @@ main {
 
 .zoo__main {
   background: var(--tertiary-bg-color);
-  padding: clamp(35px, 10.9375vw, 60px) 0;
+  padding: calc(clamp(35px, 35 / 320 * 100vw, 60px) + 94px) 0;
   position: relative;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: minmax(75px, 10.9375%) 1fr;
       grid-template-columns: minmax(75px, 10.9375%) 1fr;
+}
+
+@media (min-width: 1200px) {
+  .zoo__main {
+    padding: clamp(35px, 10.9375vw, 60px) 0;
+  }
 }
 
 .zoo__wrapper {
@@ -811,8 +814,14 @@ main {
 
 .zoo__title {
   position: absolute;
-  top: clamp(31px, 9.6875vw, 56px);
+  top: calc(clamp(31px, 31 / 320 * 100vw, 56px) + 94px);
   font-size: clamp(24px, 7.5vw, 48px);
+}
+
+@media (min-width: 1200px) {
+  .zoo__title {
+    top: clamp(31px, 9.6875vw, 56px) 0;
+  }
 }
 
 .zoo__content {
