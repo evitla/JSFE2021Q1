@@ -1,7 +1,7 @@
 main {
   padding-top: 94px;
 
-  @media (min-width: 1920px) { padding-top: 0; }
+  @media (min-width: 1200px) { padding-top: 0; }
 }
 
 .watch {
@@ -100,7 +100,7 @@ main {
       padding: calc(min(100px, 50 / 320 * 100vw)) 0;
       padding-bottom: calc(max(100px, 132 / 1920 * 100vw));
 
-      @media (max-width: 640px) { max-width: calc(640px + 287px - 100vw); }
+      @media (max-width: 640px) { width: calc(640px + 287px - 100vw); }
     }
 
     &-info {
@@ -276,10 +276,12 @@ main {
 // =========================== ZOOS PAGES =========================== //
 .zoo__main {
   background: var(--tertiary-bg-color);
-  padding: clamp(35px, 35 / 320 * 100vw, 60px) 0;
+  padding: calc(clamp(35px, 35 / 320 * 100vw, 60px) + 94px) 0;
   position: relative;
   display: grid;
   grid-template-columns: minmax(75px, (210px / 1920px) * 100%) 1fr;
+
+  @media (min-width: 1200px) { padding: clamp(35px, 35 / 320 * 100vw, 60px) 0; }
 }
 
 .zoo {
@@ -291,8 +293,10 @@ main {
 
   &__title {
     position: absolute;
-    top: clamp(31px, 31 / 320 * 100vw, 56px);
+    top: calc(clamp(31px, 31 / 320 * 100vw, 56px) + 94px);
     font-size: clamp(24px, 24 / 320 * 100vw, 48px);
+
+    @media (min-width: 1200px) { top: clamp(31px, 31 / 320 * 100vw, 56px) 0; }
   }
 
   &__content {
