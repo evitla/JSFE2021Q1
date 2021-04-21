@@ -1,3 +1,9 @@
+main {
+  padding-top: 94px;
+
+  @media (min-width: 1920px) { padding-top: 0; }
+}
+
 .watch {
   position: relative;
   background: url("../assets/images/main-bg.png") no-repeat center;
@@ -156,7 +162,7 @@
   &__arrow {
     width: clamp(40px, 48 / 1200 * 100vw, 107px);
     height: 95px;
-    background: url("../../assets/images/right-arrow-grad.svg") no-repeat right;
+    background: url("../assets/images/right-arrow-grad.svg") no-repeat right;
 
     @media (min-width: 1920px) { width: 107px; }
 

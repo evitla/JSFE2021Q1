@@ -1,10 +1,24 @@
 .header-wrapper {
+  position: fixed;
   @extend %flex-between-center;
   background-color: var(--primary-bg-color);
-  margin: 0 auto;
+  margin: 0;
+  padding-right: calc(min(20 / 640 * 100vw, 150px));
+  padding-left: calc(min(20 / 640 * 100vw, 150px));
   height: 94px;
+  max-width: 100%;
+  width: 100%;
+  z-index: 1;
   
-  @media (min-width: 1920px) { max-width: 1620px; }
+  @media (min-width: 1920px) {
+    position: initial;
+    max-width: 1620px;
+  }
+
+  @media (min-width: 641px) {
+    padding-right: clamp(20px, 150 / 1200 * 100vw, 150px);
+    padding-left: clamp(20px, 150 / 1200 * 100vw, 150px);
+  }
 }
 
 .logo {
