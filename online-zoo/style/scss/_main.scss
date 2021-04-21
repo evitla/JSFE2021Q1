@@ -184,7 +184,6 @@ main {
   background: var(--secondary-bg-color);
 
   &-wrapper {
-    position: relative;
     margin-bottom: 0px;
     padding: clamp(50px, 50 / 320 * 100vw, 100px) 0
              clamp(60px, 80 / 640 * 100vw, 100px);
@@ -192,6 +191,7 @@ main {
   }
 
   &__img {
+    position: relative;
     margin: clamp(30px, 50 / 640 * 100vw, 60px) auto
             clamp(30px, 30 / 320 * 100vw, 35px);
   }
@@ -220,15 +220,15 @@ main {
 
 @for $i from 1 through length($marker-positions) {
   $positions: nth($marker-positions, $i);
-  $positions-639: nth($marker-positions-639, $i);
+  $positions-640: nth($marker-positions-640, $i);
 
   .map-marker-#{$i} {
-    top: map-get($positions, "top");
+    bottom: map-get($positions, "bottom");
     left: map-get($positions, "left");
 
-    @media (max-width: 639px) {
-      top: map-get($positions-639, "top");
-      left: map-get($positions-639, "left");
+    @media (max-width: 640px) {
+      bottom: map-get($positions-640, "bottom");
+      left: map-get($positions-640, "left");
     }
   }
 }
@@ -432,23 +432,4 @@ main {
 
   .map-marker-svg path:hover,
   .map__round-img:hover { cursor: pointer; }
-}
-
-.map-page__img {
-  position: relative;
-}
-
-@for $i from 1 through length($marker-positions) {
-  $positions: nth($marker-positions, $i);
-  $positions-639: nth($marker-positions-639, $i);
-
-  .map-page-marker-#{$i} {
-    top: calc(#{map-get($positions, "top")} - 210px);
-    left: map-get($positions, "left");
-
-    @media (max-width: 639px) {
-      top: calc(#{map-get($positions-639, "top")} - 120px);
-      left: map-get($positions-639, "left");
-    }
-  }
 }

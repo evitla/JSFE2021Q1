@@ -56,37 +56,37 @@ html[data-theme='dark'] {
 
 $marker-positions:
   (
-    top: clamp(213px, 270 / 1200 * 100vw, 290px),
-    left: clamp(39px, 83 / 1200 * 100vw, 121px)
+    bottom: clamp(189px, 288 / 1200 * 100vw, 330px),
+    left: clamp(39 / 600 * 100%, 85 / 900 * 100%, 121 / 1200 * 100%)
   ),
   (
-    top: clamp(222px, 283 / 1200 * 100vw, 318px),
-    left: clamp(103px, 175 / 1200 * 100vw, 243px)
+    bottom: clamp(180px, 275 / 1200 * 100vw, 302px),
+    left: clamp(103 / 600 * 100%, 178 / 900 * 100%, 243 / 1200 * 100%)
   ),
   (
-    top: clamp(275px, 370 / 1200 * 100vw, 405px),
-    left: clamp(268px, 420 / 1200 * 100vw, 572px)
+    bottom: clamp(127px, 188 / 1200 * 100vw, 215px),
+    left: clamp(268 / 600 * 100%, 423 / 900 * 100%, 572 / 1200 * 100%)
   ),
   (
-    top: clamp(218px, 284 / 1200 * 100vw, 306px),
-    left: clamp(427px, 656 / 1200 * 100vw, 893px)
+    bottom: clamp(184px, 274 / 1200 * 100vw, 314px),
+    left: clamp(427 / 600 * 100%, 660 / 900 * 100%, 893 / 1200 * 100%)
   );
 
 
-$marker-positions-639:
+$marker-positions-640:
   (
-    top: clamp(124px, 213 / 640 * 100vw, 213px),
+    bottom: clamp(97px, 189 / 640 * 100vw, 189px),
     left: clamp(25px, 39 / 640 * 100vw, 39px)
   ),
   (
-    top: clamp(132px, 222 / 640 * 100vw, 222px),
+    bottom: clamp(88px, 180 / 640 * 100vw, 180px),
     left: clamp(51px, 103 / 640 * 100vw, 103px)
   ),
   (
-    top: clamp(158px, 275 / 640 * 100vw, 275px),
+    bottom: clamp(63px, 127 / 640 * 100vw, 127px),
     left: clamp(134px, 268 / 640 * 100vw, 268px)
   ),
   (
-    top: clamp(130px, 218 / 640 * 100vw, 218px),
+    bottom: clamp(91px, 184 / 640 * 100vw, 184px),
     left: clamp(216px, 427 / 640 * 100vw, 427px)
   );
