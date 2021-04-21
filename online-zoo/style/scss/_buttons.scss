@@ -132,24 +132,24 @@ button { cursor: pointer; }
 }
 
 .footer__btn {
-  position: absolute;
-  width: 279px;
-  right: 0;
+  width: 275px;
+  margin-top: 40px;
   
-  @media (max-width: 1919px) {
-    left: -170px;
-    bottom: -85px;
+  @media (min-width: 1920px) {
+    position: absolute;
+    margin: 0;
+    top: clamp(50px, 15.625vw, 100px);;
+    right: 0;
   }
 
-  @media (max-width: 1199px) {
-    left: -90px;
-    top: 0;
+  @media (max-width: 885px) and (min-width: 401px) {
+    position: absolute;
+    margin: 0;
+    top: clamp(50px, 15.625vw, 100px);;
+    right: 0;
   }
 
-  @media (max-width: 639px) {
-    left: -300px;
-    top: 825px;
-  }
+  @media (max-width: 400px) { margin: 45px clamp(13px, 13 / 320 * 100vw, 55px) 0; }
 }
 
 .zoo__btn {
