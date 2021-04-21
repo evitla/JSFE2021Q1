@@ -813,15 +813,8 @@ main {
 }
 
 .zoo__title {
-  position: absolute;
-  top: calc(clamp(31px, 31 / 320 * 100vw, 56px) + 94px);
+  text-align: left;
   font-size: clamp(24px, 7.5vw, 48px);
-}
-
-@media (min-width: 1200px) {
-  .zoo__title {
-    top: clamp(31px, 9.6875vw, 56px) 0;
-  }
 }
 
 .zoo__content {
@@ -834,14 +827,7 @@ main {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: clamp(60px, 18.75vw, 90px) clamp(20px, 1.5625vw, 30px);
-  padding: 90px 0;
-}
-
-@media (max-width: 955px) {
-  .zoo__content {
-    padding-top: clamp(55px, 17.1875vw, 110px);
-    padding-bottom: clamp(25px, 7.03125vw, 45px);
-  }
+  padding: clamp(20px, 5.46875vw, 40px) 0;
 }
 
 .zoo__video {
@@ -887,7 +873,7 @@ main {
   position: relative;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  margin-top: 30px;
+  margin-top: clamp(5px, 1.5625vw, 27px);
 }
 
 .zoo__carousel-slide {

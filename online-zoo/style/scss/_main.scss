@@ -292,11 +292,8 @@ main {
   }
 
   &__title {
-    position: absolute;
-    top: calc(clamp(31px, 31 / 320 * 100vw, 56px) + 94px);
+    text-align: left;
     font-size: clamp(24px, 24 / 320 * 100vw, 48px);
-
-    @media (min-width: 1200px) { top: clamp(31px, 31 / 320 * 100vw, 56px) 0; }
   }
 
   &__content {
@@ -305,12 +302,7 @@ main {
     flex-wrap: wrap;
     gap: clamp(60px, 60 / 320 * 100vw, 90px)
          clamp(20px, 30 / 1920 * 100vw, 30px);
-    padding: 90px 0;
-
-    @media (max-width: 955px) {
-      padding-top: clamp(55px, 110 / 640 * 100vw, 110px);
-      padding-bottom: clamp(25px, 45 / 640 * 100vw, 45px);
-    }
+    padding: clamp(20px, 35 / 640 * 100vw, 40px) 0;
   }
 
   &__video {
@@ -340,7 +332,7 @@ main {
     position: relative;
     @extend %flex-between-center;
     flex-wrap: wrap;
-    margin-top: 30px;
+    margin-top: clamp(5px, 10 / 640 * 100vw, 27px);
 
     &-slide {
       width: clamp(155px, 164 / 1200 * 100vw, 246px);
