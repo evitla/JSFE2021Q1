@@ -76,14 +76,28 @@ html.transition *::after {
 }
 
 .header-wrapper {
+  position: fixed;
   background-color: var(--primary-bg-color);
-  margin: 0 auto;
+  margin: 0;
+  padding-right: calc(min(20 / 640 * 100vw, 150px));
+  padding-left: calc(min(20 / 640 * 100vw, 150px));
   height: 94px;
+  max-width: 100%;
+  width: 100%;
+  z-index: 1;
 }
 
 @media (min-width: 1920px) {
   .header-wrapper {
+    position: initial;
     max-width: 1620px;
+  }
+}
+
+@media (min-width: 641px) {
+  .header-wrapper {
+    padding-right: clamp(20px, 12.5vw, 150px);
+    padding-left: clamp(20px, 12.5vw, 150px);
   }
 }
 
@@ -386,6 +400,16 @@ button {
   }
 }
 
+main {
+  padding-top: 94px;
+}
+
+@media (min-width: 1920px) {
+  main {
+    padding-top: 0;
+  }
+}
+
 .watch {
   position: relative;
   background: url("../assets/images/main-bg.png") no-repeat center;
@@ -601,7 +625,7 @@ button {
 .pay__arrow {
   width: clamp(40px, 4vw, 107px);
   height: 95px;
-  background: url("../../assets/images/right-arrow-grad.svg") no-repeat right;
+  background: url("../assets/images/right-arrow-grad.svg") no-repeat right;
 }
 
 @media (min-width: 1920px) {
