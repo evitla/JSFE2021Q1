@@ -2,6 +2,8 @@ const filters = document.querySelector(".filters");
 const photo = document.querySelector("img");
 const btnContainer = document.querySelector(".btn-container");
 const buttons = btnContainer.querySelectorAll(".btn");
+const nextBtn = btnContainer.querySelector(".btn-next");
+const fileInput = btnContainer.querySelector(".btn-load--input");
 
 function updateFilter(input) {
   // input and output have the same parent
@@ -80,3 +82,13 @@ function changeImage() {
   nextBtn.disabled = true;
   setTimeout(() => nextBtn.disabled = false, 1000);
 }
+
+function readFile(event) {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+  reader.onload = () => photo.src = reader.result;
+  reader.readAsDataURL(file);
+  event.target.value = "";
+}
+
+fileInput.addEventListener('change', readFile);
