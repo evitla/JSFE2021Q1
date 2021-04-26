@@ -1,7 +1,7 @@
 const filters = document.querySelector(".filters");
 const photo = document.querySelector("img");
-const resetBtn = document.querySelector(".btn-reset");
-const nextBtn = document.querySelector(".btn-next");
+const btnContainer = document.querySelector(".btn-container");
+const buttons = btnContainer.querySelectorAll(".btn");
 
 function updateFilter(input) {
   // input and output have the same parent
@@ -18,6 +18,35 @@ function updateHandler(event) {
   const input = event.target;
   updateFilter(input);
 }
+
+filters.addEventListener("input", updateHandler);
+
+function btnClick(event) {
+  buttons.forEach(btn => {
+    if (btn.classList.contains("btn-active")) {
+      btn.classList.remove("btn-active");
+    }
+  });
+
+  if (event.target.tagName !== "BUTTON") {
+    event.target.parentNode.classList.add("btn-active");
+    return;
+  }
+
+  event.target.classList.add("btn-active");
+
+  if (event.target.classList.contains("btn-reset")) {
+    resetHandler();
+    return;
+  }
+
+  if (event.target.classList.contains("btn-next")) {
+    changeImage();
+    return;
+  }
+}
+
+btnContainer.addEventListener("click", btnClick);
 
 function resetHandler() {
   const inputs = filters.querySelectorAll("input");
@@ -51,7 +80,3 @@ function changeImage() {
   nextBtn.disabled = true;
   setTimeout(() => nextBtn.disabled = false, 1000);
 }
-
-filters.addEventListener("input", updateHandler);
-resetBtn.addEventListener("click", resetHandler);
-nextBtn.addEventListener("click", changeImage);
