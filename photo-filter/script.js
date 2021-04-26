@@ -1,18 +1,48 @@
 const filters = document.querySelector(".filters");
-const photo = document.querySelector("img");
 const btnContainer = document.querySelector(".btn-container");
 const buttons = btnContainer.querySelectorAll(".btn");
 const nextBtn = btnContainer.querySelector(".btn-next");
 const fileInput = btnContainer.querySelector(".btn-load--input");
+const canvas = document.getElementById("canvas");
+
+const img = new Image();
+img.setAttribute("crossOrigin", "anonymous");
+
+const filterValues = {
+  "blur": 0,
+  "invert": 0,
+  "sepia": 0,
+  "saturate": 100,
+  "hue": 0,
+};
+
+function drawImage(src, filterValues) {
+  img.src = src;
+  img.onload = () => {
+    canvas.width = img.width;
+    canvas.height = img.height;
+    const ctx = canvas.getContext("2d");
+    if (filterValues) {
+      const filterStr = Object.keys(filterValues).reduce((acc, name) => {
+        if (name === "blur") return acc += `blur(${filterValues[name]*1.8}px)`;
+        return acc += (name === "hue") ? `hue-rotate(${filterValues[name]}deg)`
+                                      : `${name}(${filterValues[name]}%)`;
+      }, "");
+      console.log(filterStr);
+      ctx.filter = filterStr;
+    }
+    ctx.drawImage(img, 0, 0);
+  }
+}
+drawImage("assets/img/img.jpg");
 
 function updateFilter(input) {
   // input and output have the same parent
   const output = input.parentNode.querySelector("output");
   const unit = input.dataset.sizing;
+  filterValues[input.name] = input.value;
   
-  document.documentElement.style.setProperty(
-    `--${input.name}`, input.value + unit
-  );
+  drawImage(img.src, filterValues);
   output.value = input.value;
 }
 
@@ -46,6 +76,11 @@ function btnClick(event) {
     changeImage();
     return;
   }
+
+  if (event.target.classList.contains("btn-save")) {
+    saveImage();
+    return;
+  }
 }
 
 btnContainer.addEventListener("click", btnClick);
@@ -75,10 +110,7 @@ function getSrc() {
 }
 
 function changeImage() {
-  const imageSrc = getSrc();
-  const img = new Image();
-  img.src = imageSrc;
-  img.onload = () => photo.src = imageSrc;
+  drawImage(getSrc(), filterValues);
   nextBtn.disabled = true;
   setTimeout(() => nextBtn.disabled = false, 1000);
 }
@@ -86,9 +118,17 @@ function changeImage() {
 function readFile(event) {
   const file = event.target.files[0];
   const reader = new FileReader();
-  reader.onload = () => photo.src = reader.result;
+  reader.onload = () => drawImage(reader.result, filterValues);
   reader.readAsDataURL(file);
   event.target.value = "";
 }
 
 fileInput.addEventListener('change', readFile);
+
+function saveImage() {
+  const link = document.createElement('a');
+  link.download = 'download.png';
+  link.href = canvas.toDataURL();
+  link.click();
+  link.delete;
+}
