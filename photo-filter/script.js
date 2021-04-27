@@ -4,6 +4,7 @@ const buttons = btnContainer.querySelectorAll(".btn");
 const nextBtn = btnContainer.querySelector(".btn-next");
 const fileInput = btnContainer.querySelector(".btn-load--input");
 const canvas = document.getElementById("canvas");
+const fullScreenBtn = document.querySelector(".fullscreen");
 
 const img = new Image();
 img.setAttribute("crossOrigin", "anonymous");
@@ -54,13 +55,15 @@ function updateHandler(event) {
 filters.addEventListener("input", updateHandler);
 
 function btnClick(event) {
+  if (!event.target.classList.contains("btn")) return;
+
   buttons.forEach(btn => {
     if (btn.classList.contains("btn-active")) {
       btn.classList.remove("btn-active");
     }
   });
 
-  if (event.target.tagName !== "BUTTON") {
+  if (event.target.tagName === "INPUT") {
     event.target.parentNode.classList.add("btn-active");
     return;
   }
@@ -132,3 +135,13 @@ function saveImage() {
   link.click();
   link.delete;
 }
+
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+}
+
+fullScreenBtn.onclick = toggleFullscreen;
