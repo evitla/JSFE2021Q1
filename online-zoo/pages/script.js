@@ -76,3 +76,6 @@ class Carousel {
 const watchCarousel = new Carousel("watch__carousel");
 watchCarousel.element.addEventListener("input", watchCarousel.moveSlidesByInput);
 watchCarousel.element.addEventListener("click", watchCarousel.moveSlidesByClick);
+
+const howCarousel = new Carousel("how__carousel");
+howCarousel.element.addEventListener("input", howCarousel.moveSlidesByInput);

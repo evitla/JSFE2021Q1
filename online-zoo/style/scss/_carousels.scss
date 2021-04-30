@@ -36,7 +36,7 @@
 
 .carousel__container { overflow: hidden; }
 
-.carousel__slides {
+.watch__carousel-slides {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   gap: clamp(9px, 30 / 640 * 100vw, 30px);
@@ -120,7 +120,7 @@
   }
 }
 
-.carousel__slide {
+.watch__carousel-slide {
   width: clamp(113px, 180 / 640 * 100vw, 180px);
   
   @media (min-width: 1920px) { width: 140px; }
@@ -145,17 +145,19 @@
   }
 }
 
-.carousel__slide_active {
+.watch__carousel-slide_active {
   position: relative;
   width: calc(min(140 / 320 * 100vw, 245px));
   padding-bottom: 20px;
   figcaption { display: block; }
 }
 
-
 .how__carousel-slides {
-  @extend %flex-between-center;
-  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  place-items: center;
+  transition: transform .5s;
 }
 
 .how__carousel-slide img {
