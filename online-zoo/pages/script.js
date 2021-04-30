@@ -24,53 +24,55 @@ const trans = () => {
   }, 1000);
 }
 
-// =============== WATCH CAROUSEL =============== //
-const watchCarousel = document.querySelector(".watch__carousel");
-const watchCarouselSlides = watchCarousel.querySelectorAll(".carousel__slide");
-const watchInput = watchCarousel.querySelector(".watch__carousel-range");
-const watchPagination = watchCarousel.querySelector(".pagination");
-const watchPage = watchPagination.querySelector(".page");
+// =============== CAROUSEL =============== //
 
-function changePage(slideNumber) {
-  console.log(page);
-  page.innerHTML = `0${slideNumber}/`;
-}
+class Carousel {
+  constructor(className) {
+    this.className = className;
+    this.element = document.querySelector("." + className);
+    this.slidesContainer = this.element.querySelector(".carousel__slides");
+    this.slides = this.slidesContainer.querySelectorAll(".carousel__slide");
+    this.inputRange = this.element.querySelector(".input-range");
+    this.slidePagination = this.element.querySelector(".pagination");
+    this.slidePage = this.slidePagination.querySelector(".page");
+    this.defaultActiveSlidePage = this.inputRange.value;
+    this.activeSlidePage = this.inputRange.value;
+  }
 
-let activePage = watchInput.value;
-function moveSlides(targetSlide) {
-  const carouselSlides = watchCarousel.querySelector(".carousel__slides");
-  const activeSlide = watchCarouselSlides[activePage - 1];
-  const slideWidth = targetSlide.getBoundingClientRect().width;
-  const gapProperty = window.getComputedStyle(carouselSlides).getPropertyValue("gap");
-  const gapValue = Number(gapProperty.match(/\d+/)[0]);
+  moveSlides = (targetSlide) => {
+    const activeSlide = this.slides[this.activeSlidePage - 1];
+    const targetSlideWidth = targetSlide.getBoundingClientRect().width;
+    const gapProperty = window.getComputedStyle(this.slidesContainer).getPropertyValue("gap");
+    const gapValue = Number(gapProperty.replace("px", ""));
+    const targetSlidePage = targetSlide.dataset.number;
+    const moveAmount = (this.defaultActiveSlidePage - targetSlidePage) * (targetSlideWidth + gapValue);
 
-  targetSlide.classList.add("carousel__slide_active");
-  activeSlide.classList.remove("carousel__slide_active");
-  watchPage.innerHTML = `0${targetSlide.dataset.number}/`;
+    targetSlide.classList.add(this.className + "-slide_active");
+    activeSlide.classList.remove(this.className + "-slide_active");
+    this.slidePage.innerHTML = `0${targetSlidePage}/`;
 
-  // we use 2 because second slide is active by default
-  const moveAmount = (2 - targetSlide.dataset.number) * (slideWidth + gapValue);
+    this.slidesContainer.style.transform = `translateX(${moveAmount}px)`;
+    this.activeSlidePage = targetSlidePage;
+  }
 
-  carouselSlides.style.transform = `translateX(${moveAmount}px)`;
-  activePage = targetSlide.dataset.number;
-}
+  moveSlidesByInput = (event) => {
+    const targetInput = event.target;
+    const targetSlide = this.slides[targetInput.value - 1];
+    
+    this.moveSlides(targetSlide);
+  }
 
-function moveSlidesByInput(event) {
-  const targetInput = event.target;
-  const targetSlide = watchCarouselSlides[targetInput.value - 1];
+  moveSlidesByClick = (event) => {
+    if (!event.target.closest("img")) return;
+    const targetSlide = event.target.parentNode;
+    if (targetSlide.classList.contains(this.className + "-slide_active")) return;
   
-  moveSlides(targetSlide);
+    this.moveSlides(targetSlide);
+    this.activeSlidePage = targetSlide.dataset.number;
+    this.inputRange.value = targetSlide.dataset.number;
+  }
 }
 
-function moveSlidesByClick(event) {
-  if (!event.target.closest("img")) return;
-  const targetSlide = event.target.parentNode;
-  if (targetSlide.classList.contains("carousel__slide_active")) return;
-
-  moveSlides(targetSlide);
-  activePage = targetSlide.dataset.number;
-  watchInput.value = activePage;
-}
-
-watchCarousel.addEventListener("input", moveSlidesByInput);
-watchCarousel.addEventListener("click", moveSlidesByClick);
+const watchCarousel = new Carousel("watch__carousel");
+watchCarousel.element.addEventListener("input", watchCarousel.moveSlidesByInput);
+watchCarousel.element.addEventListener("click", watchCarousel.moveSlidesByClick);
