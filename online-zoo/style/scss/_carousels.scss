@@ -251,10 +251,8 @@
 .testimonials__carousel {
   position: relative;
   @extend %flex-between-center;
-  padding: 35px 0 120px;
+  padding: calc(min(35px, 25 / 320 * 100vw)) 0 120px;
   gap: 0;
-
-  @media (max-width: 640px) { margin-top: calc(min(35px, 25 / 320 * 100vw)); }
 }
 
 .testimonials__carousel-slides {
@@ -262,6 +260,7 @@
   grid-template-columns: repeat(16, 1fr);
   gap: 30px;
   margin: 11px 17px 19px 13px;
+  @media (max-width: 639px) { margin-left: 0; }
 }
 
 .testimonials__carousel-slide {
@@ -269,8 +268,6 @@
   width: clamp(440px, 585 / 1920 * 100vw, 585px);
 
   @media (max-width: 1199px) { width: calc(min(585px, 300 / 320 * 100vw)); }
-  
-  @media (max-width: 639px) { margin-left: 0; }
 }
 
 .testimonials__carousel-slide-wrapper {
