@@ -36,12 +36,15 @@
 
 .carousel__container { overflow: hidden; }
 
-.watch__carousel-slides {
+.carousel__slides {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  gap: clamp(9px, 30 / 640 * 100vw, 30px);
   place-items: center;
   transition: transform .5s;
+}
+
+.watch__carousel-slides {
+  grid-template-columns: repeat(8, 1fr);
+  gap: clamp(9px, 30 / 640 * 100vw, 30px);
 
   @media (min-width: 1920px) { gap: 46px; }
   @media (max-width: 320px) { gap: 9px; }
@@ -120,12 +123,7 @@
   }
 }
 
-.watch__carousel-slide {
-  width: clamp(113px, 180 / 640 * 100vw, 180px);
-  
-  @media (min-width: 1920px) { width: 140px; }
-
-  img { width: 100%; }
+.carousel__slide {
   img:hover { cursor: pointer; }
 
   figcaption {
@@ -145,6 +143,14 @@
   }
 }
 
+.watch__carousel-slide {
+  width: clamp(113px, 180 / 640 * 100vw, 180px);
+  
+  @media (min-width: 1920px) { width: 140px; }
+
+  img { width: 100%; }
+}
+
 .watch__carousel-slide_active {
   position: relative;
   width: calc(min(140 / 320 * 100vw, 245px));
@@ -153,11 +159,8 @@
 }
 
 .how__carousel-slides {
-  display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0;
-  place-items: center;
-  transition: transform .5s;
 }
 
 .how__carousel-slide img {
@@ -173,17 +176,16 @@
 }
 
 .pets__carousel {
+  position: relative;
   @extend %flex-between-center;
-  margin-top: 35px;
+  padding: 35px 0 120px;
   gap: 15px;
 }
 
 .pets__carousel-slides {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  gap: calc(max(20px, 30 / 1920 * 100vw));
-  place-items: center;
-  overflow: hidden;
+  width: 1920px;
+  grid-template-columns: repeat(32, 1fr);
+  gap: calc(max(24px, 28 / 1920 * 100vw));
 
   @media (max-width: 640px) { gap: calc(max(16px, 20 / 640 * 100vw)); }
 }
@@ -191,6 +193,8 @@
 .pets__carousel-slide {
   position: relative;
   width: calc(max(210px, 278 / 1920 * 100vw));
+
+  img { width: 100%; }
 
   &::after {
     cursor: pointer;
@@ -232,7 +236,10 @@
 }
 
 .pets__pagination {
-  margin-bottom: 48px;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
 
   &::before {
     max-width: calc(245px / 8);

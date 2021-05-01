@@ -27,8 +27,9 @@ const trans = () => {
 // =============== CAROUSEL =============== //
 
 class Carousel {
-  constructor(className) {
+  constructor(className, numOfSlidesToMove=1) {
     this.className = className;
+    this.numOfSlidesToMove = numOfSlidesToMove
     this.element = document.querySelector("." + className);
     this.slidesContainer = this.element.querySelector(".carousel__slides");
     this.slides = this.slidesContainer.querySelectorAll(".carousel__slide");
@@ -41,12 +42,11 @@ class Carousel {
 
   moveSlides = (targetSlide) => {
     const activeSlide = this.slides[this.activeSlidePage - 1];
-    const targetSlideWidth = targetSlide.getBoundingClientRect().width;
+    const targetSlideWidth = targetSlide.offsetWidth;
     const gapProperty = window.getComputedStyle(this.slidesContainer).getPropertyValue("gap");
     const gapValue = Number(gapProperty.replace("px", ""));
     const targetSlidePage = targetSlide.dataset.number;
-    const moveAmount = (this.defaultActiveSlidePage - targetSlidePage) * (targetSlideWidth + gapValue);
-
+    const moveAmount = (this.defaultActiveSlidePage - targetSlidePage) * (targetSlideWidth + gapValue) * this.numOfSlidesToMove;
     targetSlide.classList.add(this.className + "-slide_active");
     activeSlide.classList.remove(this.className + "-slide_active");
     this.slidePage.innerHTML = `0${targetSlidePage}/`;
@@ -57,7 +57,7 @@ class Carousel {
 
   moveSlidesByInput = (event) => {
     const targetInput = event.target;
-    const targetSlide = this.slides[targetInput.value - 1];
+    const targetSlide = this.slides[(targetInput.value - 1) * this.numOfSlidesToMove];
     
     this.moveSlides(targetSlide);
   }
@@ -71,6 +71,27 @@ class Carousel {
     this.activeSlidePage = targetSlide.dataset.number;
     this.inputRange.value = targetSlide.dataset.number;
   }
+
+  moveSlidesByClickArrowButtons = (event) => {
+    if (!event.target.closest("svg") && !event.target.closest("path")) return;
+    const arrowButton = event.target.closest("svg");
+
+    const targetSlideIndex = () => {
+      if (arrowButton.classList.contains("next-btn-svg")) {
+        if (this.inputRange.value === this.inputRange.max) return 0;
+        return this.inputRange.value * this.numOfSlidesToMove;
+      }
+      
+      if (this.inputRange.value - 2 < 0) return (this.inputRange.max - 1) * this.numOfSlidesToMove;
+      return (this.inputRange.value - 2) * this.numOfSlidesToMove;
+    }
+    
+    const targetSlide = this.slides[targetSlideIndex()];
+    
+    this.moveSlides(targetSlide);
+    this.activeSlidePage = targetSlide.dataset.number;
+    this.inputRange.value = targetSlide.dataset.number;
+  }
 }
 
 const watchCarousel = new Carousel("watch__carousel");
@@ -79,3 +100,7 @@ watchCarousel.element.addEventListener("click", watchCarousel.moveSlidesByClick)
 
 const howCarousel = new Carousel("how__carousel");
 howCarousel.element.addEventListener("input", howCarousel.moveSlidesByInput);
+
+const petsCarousel = new Carousel("pets__carousel", numOfSlidesToMove=4);
+petsCarousel.element.addEventListener("input", petsCarousel.moveSlidesByInput);
+petsCarousel.element.addEventListener("click", petsCarousel.moveSlidesByClickArrowButtons);
