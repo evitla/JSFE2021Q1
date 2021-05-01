@@ -249,22 +249,22 @@
 }
 
 .testimonials__carousel {
+  position: relative;
   @extend %flex-between-center;
-  margin-top: calc(min(50px, 35 / 640 * 100vw));
+  padding: 35px 0 120px;
+  gap: 0;
 
   @media (max-width: 640px) { margin-top: calc(min(35px, 25 / 320 * 100vw)); }
 }
 
 .testimonials__carousel-slides {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  place-items: center;
-  overflow: hidden;
-  width: 100%;
+  width: 1920px;
+  grid-template-columns: repeat(16, 1fr);
+  gap: 30px;
+  margin: 11px 17px 19px 13px;
 }
 
 .testimonials__carousel-slide {
-  margin: 11px 17px 19px 13px;
   flex: 0 1 calc((641px - 100vw) * 999);
   width: clamp(440px, 585 / 1920 * 100vw, 585px);
 
@@ -299,6 +299,11 @@
 }
 
 .testimonials__pagination {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
   &::before {
     max-width: calc(245px / 8);
     left: calc(50% - 245px / (2 + 0.65));

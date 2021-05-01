@@ -43,10 +43,11 @@ class Carousel {
   moveSlides = (targetSlide) => {
     const activeSlide = this.slides[this.activeSlidePage - 1];
     const targetSlideWidth = targetSlide.offsetWidth;
-    const gapProperty = window.getComputedStyle(this.slidesContainer).getPropertyValue("gap");
-    const gapValue = Number(gapProperty.replace("px", ""));
+    const gapValue = parseFloat(window.getComputedStyle(this.slidesContainer).gap);
     const targetSlidePage = targetSlide.dataset.number;
-    const moveAmount = (this.defaultActiveSlidePage - targetSlidePage) * (targetSlideWidth + gapValue) * this.numOfSlidesToMove;
+    const moveAmount = (this.defaultActiveSlidePage - targetSlidePage)
+                       * (targetSlideWidth + gapValue)
+                       * this.numOfSlidesToMove;
     targetSlide.classList.add(this.className + "-slide_active");
     activeSlide.classList.remove(this.className + "-slide_active");
     this.slidePage.innerHTML = `0${targetSlidePage}/`;
@@ -104,3 +105,7 @@ howCarousel.element.addEventListener("input", howCarousel.moveSlidesByInput);
 const petsCarousel = new Carousel("pets__carousel", numOfSlidesToMove=4);
 petsCarousel.element.addEventListener("input", petsCarousel.moveSlidesByInput);
 petsCarousel.element.addEventListener("click", petsCarousel.moveSlidesByClickArrowButtons);
+
+const testimonialsCarousel = new Carousel("testimonials__carousel", numOfSlidesToMove=2);
+testimonialsCarousel.element.addEventListener("input", testimonialsCarousel.moveSlidesByInput);
+testimonialsCarousel.element.addEventListener("click", testimonialsCarousel.moveSlidesByClickArrowButtons);
