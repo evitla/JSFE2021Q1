@@ -316,7 +316,7 @@
   &-slides {
     @extend %flex-between-center;
     flex-direction: column;
-    width: 100%;
+    width: clamp(90px, 120 / 1200 * 100vw, 157px);
     height: clamp(330px, 438 / 1200 * 100vw, 515px);
     margin: clamp(5px, 10 / 640 * 100vw, 10px) auto;
     gap: clamp(5px, 7 / 640 * 100vw, 7px) 27px;
@@ -329,7 +329,11 @@
     }
   }
 
-  &-slide img { width: clamp(70px, 96 / 1200 * 100vw, 108px); }
+  &-slide img {
+    width: clamp(70px, 96 / 1200 * 100vw, 108px);
+
+    @media (max-width: 639px) { width: clamp(40px, 40 / 320 * 100vw, 70px); }
+  }
 }
 
 .zoo__sidebar-carousel-slide_active,
@@ -338,8 +342,8 @@
   margin: 4px -20px;
 
   img {
-    width: clamp(78px, 137 / 1200 * 100vw, 151px);
-    border: clamp(3.5px, 5 / 1200 * 100vw, 7px) solid var(--tertiary-bg-color);
+    width: clamp(78px, 110 / 1200 * 100vw, 151px);
+    border: clamp(3.5px, 6 / 1200 * 100vw, 7px) solid var(--tertiary-bg-color);
     border-radius: 100%;
 
     @media (max-width: 639px) { width: clamp(55px, 55 / 320 * 100vw, 78px); }
@@ -352,8 +356,8 @@
     content: "";
     background: linear-gradient(106.89deg,#07eee0, #df496d);
     border-radius: 100%;
-    width: clamp(84px, 143 / 1200 * 100vw, 157px);
-    height: clamp(84px, 143 / 1200 * 100vw, 157px);
+    width: clamp(84px, 116 / 1200 * 100vw, 157px);
+    height: clamp(84px, 116 / 1200 * 100vw, 157px);
     z-index: -1;
     @media (max-width: 639px) {
       width: clamp(61px, 61 / 320 * 100vw, 84px);
