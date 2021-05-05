@@ -61,7 +61,7 @@
           resources of this planet, and deserve a life of dignity and compassion.As a voice for wildlife, we are
           devastated by the impact of the 2020 Australian bushfires on precious species and their habitat.
         </p>
-        <div class="zoo__sidebar-carousel map__carousel">
+        <div class="map__carousel">
           <svg class="prev-btn-svg map-prev-btn-svg" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M6.6663 16.1706L20.0167 29.5207C20.3255 29.8298 20.7376 30 21.1772 30C21.6167 30 22.0289
                 29.8298 22.3376 29.5207L23.3208 28.5378C23.9605 27.8973 23.9605 26.8564 23.3208 26.2169L12.1102
@@ -70,31 +70,33 @@
                 0.479263L6.6663 13.8416C6.35679 14.1516 6.18679 14.5655 6.18777 15.0055C6.18679 15.4472 6.35679 15.8608
                 6.6663 16.1706Z" fill="#828282"/>
           </svg>
-          <div class="zoo__sidebar-carousel-slides map__carousel-slides">
-            <figure class="zoo__sidebar-carousel-slide">
-              <a href="#"><img src="../../assets/images/round-img-1.png" alt=""></a>
-            </figure>
-            <figure class="zoo__sidebar-carousel-slide zoo__sidebar-carousel-slide_active">
-              <a href="#"><img src="../../assets/images/round-img-2.png" alt=""></a>
-            </figure>
-            <figure class="zoo__sidebar-carousel-slide">
-              <a href="#"><img src="../../assets/images/round-img-3.png" alt=""></a>
-            </figure>
-            <figure class="zoo__sidebar-carousel-slide">
-              <a href="#"><img src="../../assets/images/round-img-4.png" alt=""></a>
-            </figure>
-            <figure class="zoo__sidebar-carousel-slide">
-              <a href="#"><img src="../../assets/images/round-img-5.png" alt=""></a>
-            </figure>
-            <figure class="zoo__sidebar-carousel-slide">
-              <a href="#"><img src="../../assets/images/round-img-6.png" alt=""></a>
-            </figure>
-            <figure class="zoo__sidebar-carousel-slide">
-              <a href="#"><img src="../../assets/images/round-img-7.png" alt=""></a>
-            </figure>
-            <figure class="zoo__sidebar-carousel-slide">
-              <a href="#"><img src="../../assets/images/round-img-8.png" alt=""></a>
-            </figure>
+          <div class="carousel__container">
+            <div class="carousel__slides zoo__sidebar-carousel-slides map__carousel-slides">
+              <figure class="carousel__slide zoo__sidebar-carousel-slide" data-number="1" data-animal="gorilla">
+                <img src="../../assets/images/round-img-1.png" alt=""></figure>
+              </figure>
+              <figure class="carousel__slide zoo__sidebar-carousel-slide map__carousel-slide_active" data-number="2" data-animal="panda">
+                <img src="../../assets/images/round-img-2.png" alt=""></figure>
+              </figure>
+              <figure class="carousel__slide zoo__sidebar-carousel-slide" data-number="3" data-animal="alligator">
+                <img src="../../assets/images/round-img-3.png" alt=""></figure>
+              </figure>
+              <figure class="carousel__slide zoo__sidebar-carousel-slide" data-number="4" data-animal="eagle">
+                <img src="../../assets/images/round-img-4.png" alt=""></figure>
+              </figure>
+              <figure class="carousel__slide zoo__sidebar-carousel-slide" data-number="5">
+                <img src="../../assets/images/round-img-5.png" alt=""></figure>
+              </figure>
+              <figure class="carousel__slide zoo__sidebar-carousel-slide" data-number="6">
+                <img src="../../assets/images/round-img-6.png" alt=""></figure>
+              </figure>
+              <figure class="carousel__slide zoo__sidebar-carousel-slide" data-number="7">
+                <img src="../../assets/images/round-img-7.png" alt=""></figure>
+              </figure>
+              <figure class="carousel__slide zoo__sidebar-carousel-slide" data-number="8">
+                <img src="../../assets/images/round-img-8.png" alt=""></figure>
+              </figure>
+            </div>
           </div>
           <svg class="next-btn-svg map-next-btn-svg" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M23.3337 13.8294L9.98332 0.479264C9.67454 0.170243 9.26235 0 8.82284 0C8.38334 0 7.97114
@@ -104,10 +106,10 @@
                 29.5207L23.3337 16.1584C23.6432 15.8484 23.8132 15.4345 23.8122 14.9945C23.8132 14.5528 23.6432 14.1392
                 23.3337 13.8294Z" fill="#828282"/>
           </svg>
-        </div>
-        <div class="pagination">
-          <span class="page">02/</span><span class="all-pages">08</span>
-          <input type="range" min="1" max="8" value="2" class="input-range">
+          <div class="pagination map__pagination">
+            <span class="page">02/</span><span class="all-pages">08</span>
+            <input type="range" min="1" max="8" value="2" class="input-range">
+          </div>
         </div>
         <div class="map__img">
           <img id="map-img" src="../../assets/images/map-light.svg" alt="">
@@ -159,13 +161,13 @@
             </svg>
             <img class="map__round-img" src="../../assets/images/round-img-1.png" alt="">
           </div>
-          <div class="map-marker_pointer map-marker-4" title="Panda">
+          <div class="map-marker_pointer map-marker-4  map-marker-red" title="Panda">
             <svg class="map-marker-svg" width="67" height="94" viewBox="0 0 67 94" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M33.6913 0.150391C15.4582 0.150391 0.625 14.9853 0.625 33.2206C0.625 50.8607 30.8554 91.051 32.1431 92.7551C32.5049
                 93.2415 33.0846 93.5254 33.6915 93.5254C34.2983 93.5254 34.878 93.2415 35.2398 92.7551C36.5274 91.051 66.7579 50.8609 66.7579
                 33.2206C66.7576 14.9853 51.9244 0.150391 33.6913 0.150391ZM33.6913 50.7285C24.0398 50.7285 16.1856 42.8733 16.1856 33.2206C16.1856
                 23.568 24.0398 15.7128 33.6913 15.7128C43.3428 15.7128 51.197 23.568 51.197 33.2206C51.197 42.8733 43.3428 50.7285 33.6913 50.7285Z"
-                fill="#eb5757"/>
+                fill="#49d6df"/>
             </svg>
             <img class="map__round-img" src="../../assets/images/round-img-2.png" alt="">
           </div>
@@ -252,6 +254,6 @@
       <p><span title="Rolling Scopes School">&copy;RSSchool</span> and <span title="Yem Digital">&copy;Yem Digital - 2021</span></p>
     </div>
   </footer>
-  <script src="../script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
