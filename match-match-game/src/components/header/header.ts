@@ -4,7 +4,7 @@ import { Button } from '../button/button';
 import { Navigation } from './navbar/navbar';
 
 export class Header extends BaseComponent {
-  button = new Button('Start Game', ['primary-btn']);
+  button = new Button('Start Game', ['primary-btn'], '/#/');
 
   constructor(userImg: string) {
     super('header', ['header']);
@@ -15,7 +15,8 @@ export class Header extends BaseComponent {
   private render() {
     const logo = document.createElement('div');
     logo.classList.add('logo');
-    logo.innerHTML = '<a href="/"><h1 class="logo__title">Match Match</h1></a>';
+    logo.innerHTML =
+      '<a href="/#/"><h1 class="logo__title">Match Match</h1></a>';
 
     const navbar = new Navigation();
 
