@@ -1,6 +1,7 @@
 import { delay } from '../../shared/delay';
 import { Card } from '../card/card';
 import { CardsField } from '../cards-field/cards-field';
+import { GameWinWindow } from '../modal-windows/game-win/game-win';
 import { Timer } from '../timer/timer';
 
 const FLIP_DELAY = 500;
@@ -14,9 +15,16 @@ export class Game {
 
   private isAnimation = false;
 
-  timeInterval = 0;
+  private timeInterval = 0;
 
-  constructor(private readonly timer: Timer) {
+  private totalCards = 0;
+
+  private foundCards = 0;
+
+  constructor(
+    private readonly timer: Timer,
+    private readonly gameWinWindow: GameWinWindow
+  ) {
     this.cardsField = new CardsField();
     this.element = this.cardsField.element;
   }
@@ -32,14 +40,22 @@ export class Game {
     });
 
     await this.cardsField.addCards(cards);
+    this.totalCards = images.length;
 
     this.timeInterval = this.timer.updateTime();
   }
 
   stopGame() {
+    this.foundCards = 0;
     clearInterval(this.timeInterval);
     this.timer.clear();
     this.cardsField.clear();
+  }
+
+  private finishGame() {
+    this.gameWinWindow.render(this.timer.renderText());
+    this.gameWinWindow.element.classList.add('visible');
+    clearInterval(this.timeInterval);
   }
 
   private async cardHandler(card: Card) {
@@ -62,7 +78,10 @@ export class Game {
     } else {
       this.activeCard.matchCard.element.classList.add('card__match_green');
       card.matchCard.element.classList.add('card__match_green');
+      this.foundCards += 1;
     }
+
+    if (this.foundCards === this.totalCards) this.finishGame();
 
     this.activeCard = undefined;
     this.isAnimation = false;

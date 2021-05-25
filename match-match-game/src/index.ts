@@ -1,9 +1,13 @@
 import './styles/style.scss';
-import imgSrc from './assets/images/card-back.png';
+import userImg from './assets/images/default-user-image.png';
+import { App } from './app';
+import { Header } from './components/header/header';
 
 window.onload = () => {
-  document.body.innerHTML = '<h1>Hello, World!</h1>';
-  const img = new Image();
-  img.src = imgSrc;
-  document.body.appendChild(img);
+  const header = new Header(userImg);
+  const main = document.createElement('main');
+  document.body.appendChild(header.element);
+  document.body.appendChild(main);
+
+  new App(main, header.button.element).start();
 };
