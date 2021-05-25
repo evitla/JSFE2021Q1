@@ -11,7 +11,7 @@ export class Navigation extends BaseComponent {
     super('nav', ['nav']);
 
     const linkNames = ['About Game', 'Best Score', 'Game Settings'];
-    const links = ['about', 'score', 'settings'];
+    const links = ['', 'score', 'settings'];
     const imgs = [img1, img2, img3];
 
     linkNames.forEach((name, index) =>

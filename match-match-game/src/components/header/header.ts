@@ -4,7 +4,7 @@ import { Button } from '../button/button';
 import { Navigation } from './navbar/navbar';
 
 export class Header extends BaseComponent {
-  button = new Button('Start Game', ['primary-btn'], '/#/');
+  button = new Button('Start Game', ['primary-btn'], '#/game');
 
   constructor(userImg: string) {
     super('header', ['header']);
