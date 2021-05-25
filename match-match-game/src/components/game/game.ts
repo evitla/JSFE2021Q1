@@ -1,6 +1,7 @@
 import { delay } from '../../shared/delay';
 import { Card } from '../card/card';
 import { CardsField } from '../cards-field/cards-field';
+import { Timer } from '../timer/timer';
 
 const FLIP_DELAY = 500;
 
@@ -13,7 +14,9 @@ export class Game {
 
   private isAnimation = false;
 
-  constructor() {
+  timeInterval = 0;
+
+  constructor(private readonly timer: Timer) {
     this.cardsField = new CardsField();
     this.element = this.cardsField.element;
   }
@@ -29,9 +32,13 @@ export class Game {
     });
 
     await this.cardsField.addCards(cards);
+
+    this.timeInterval = this.timer.updateTime();
   }
 
-  stopGame(): void {
+  stopGame() {
+    clearInterval(this.timeInterval);
+    this.timer.clear();
     this.cardsField.clear();
   }
 
