@@ -6,7 +6,7 @@ import { ImageCategoryModel } from './models/image-category-model';
 export class App {
   private readonly timer: Timer;
 
-  private readonly game: Game;
+  readonly game: Game;
 
   private readonly gameWinWindow: GameWinWindow;
 
@@ -17,13 +17,13 @@ export class App {
     this.timer = new Timer();
     this.gameWinWindow = new GameWinWindow();
     this.game = new Game(this.timer, this.gameWinWindow);
-
-    this.rootElement.appendChild(this.timer.element);
-    this.rootElement.appendChild(this.game.element);
-    this.rootElement.appendChild(this.gameWinWindow.element);
   }
 
   async start() {
+    this.rootElement.appendChild(this.timer.element);
+    this.rootElement.appendChild(this.game.element);
+    this.rootElement.appendChild(this.gameWinWindow.element);
+
     const res = await fetch('./images.json');
     const categories: ImageCategoryModel[] = await res.json();
     const category = categories[0];
