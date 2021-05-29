@@ -1,13 +1,20 @@
 import './registration-form.scss';
-import { BaseComponent } from '../base-component';
+import { Form } from '../form';
+import { Input } from '../input';
 
-export class RegistrationForm extends BaseComponent {
-  cancelButton: HTMLInputElement;
+export class RegistrationForm extends Form {
+  submitButton: Input;
+  cancelButton: Input;
 
   constructor() {
-    super('form', ['form']);
+    super(['form']);
 
-    this.cancelButton = this.renderSubmitInput('Cancel', [
+    this.submitButton = new Input({ type: 'submit', value: 'Add User' }, [
+      'btn',
+      'secondary-btn',
+      'form__submit',
+    ]);
+    this.cancelButton = new Input({ type: 'submit', value: 'Cancel' }, [
       'btn',
       'primary-btn',
       'form__submit',
@@ -15,115 +22,64 @@ export class RegistrationForm extends BaseComponent {
   }
 
   render() {
-    const firstNameInput = this.renderInput('First Name', {
-      type: 'text',
-      id: 'first-name',
-      name: 'first-name',
-      validation: 'user-name',
-      validationLength: '1-30',
-      error: 'Invalid name',
-      isRequired: true,
-    });
+    const firstNameInput = new Input(
+      {
+        type: 'text',
+        id: 'first-name',
+        name: 'first-name',
+        errorMessage: 'Invalid name',
+        isRequired: true,
+      },
+      ['form__input']
+    );
+    const firstNameContainer = firstNameInput.containerElement('First Name');
 
-    const lastNameInput = this.renderInput('Last Name', {
-      type: 'text',
-      id: 'last-name',
-      name: 'last-name',
-      validation: 'user-name',
-      validationLength: '1-30',
-      error: 'Invalid name',
-      isRequired: true,
-    });
+    const lastNameInput = new Input(
+      {
+        type: 'text',
+        id: 'last-name',
+        name: 'last-name',
+        errorMessage: 'Invalid name',
+        isRequired: true,
+      },
+      ['form__input']
+    );
+    const lastNameContainer = lastNameInput.containerElement('Last Name');
 
-    const emailInput = this.renderInput('E-mail', {
-      type: 'email',
-      id: 'email',
-      name: 'email',
-      validation: 'email',
-      validationLength: '1-30',
-      error: 'Invalid email address',
-      isRequired: true,
-    });
+    const emailInput = new Input(
+      {
+        type: 'email',
+        id: 'email',
+        name: 'email',
+        errorMessage: 'Invalid email address',
+        isRequired: true,
+      },
+      ['form__input']
+    );
+    const emailInputContainer = emailInput.containerElement('E-mail');
 
-    const passwordInput = this.renderInput('Password', {
-      type: 'password',
-      id: 'password',
-      name: 'password',
-      validation: 'length',
-      validationLength: '8-30',
-      error: 'Password must contain 8-30 characters',
-      isRequired: true,
-    });
-
-    const addUserInput = this.renderSubmitInput('Add User', [
-      'btn',
-      'secondary-btn',
-      'form__submit',
-    ]);
+    const passwordInput = new Input(
+      {
+        type: 'password',
+        id: 'password',
+        name: 'password',
+        errorMessage: 'Password must contain 8-30 characters',
+        isRequired: true,
+      },
+      ['form__input']
+    );
+    const passwordInputContainer = passwordInput.containerElement('Password');
 
     const row = document.createElement('div');
     row.classList.add('form__row');
 
-    row.appendChild(addUserInput);
-    row.appendChild(this.cancelButton);
+    row.appendChild(this.submitButton.element);
+    row.appendChild(this.cancelButton.element);
 
-    this.element.appendChild(firstNameInput);
-    this.element.appendChild(lastNameInput);
-    this.element.appendChild(emailInput);
-    this.element.appendChild(passwordInput);
+    this.element.appendChild(firstNameContainer);
+    this.element.appendChild(lastNameContainer);
+    this.element.appendChild(emailInputContainer);
+    this.element.appendChild(passwordInputContainer);
     this.element.appendChild(row);
-  }
-
-  clear() {
-    this.element.innerText = '';
-  }
-
-  private renderInput(
-    content: string,
-    inputData: {
-      type: string;
-      id: string;
-      name: string;
-      validation: string;
-      validationLength: string;
-      error: string;
-      isRequired: boolean;
-    }
-  ) {
-    const row = document.createElement('div');
-    row.classList.add('form__row');
-
-    const input: HTMLInputElement = document.createElement('input');
-    input.classList.add('form__input');
-    input.type = inputData.type;
-    input.id = inputData.id;
-    input.name = inputData.name;
-    input.setAttribute('data-validation', inputData.validation);
-    input.setAttribute('data-validation-length', inputData.validationLength);
-    input.setAttribute('data-error', inputData.error);
-    input.required = inputData.isRequired;
-
-    const bar = document.createElement('span');
-    bar.classList.add('form__bar');
-    const label: HTMLLabelElement = document.createElement('label');
-    label.classList.add('form__label');
-    label.htmlFor = inputData.id;
-    label.innerText = content;
-
-    row.appendChild(input);
-    row.appendChild(bar);
-    row.appendChild(label);
-
-    return row;
-  }
-
-  private renderSubmitInput(content: string, styles: string[]) {
-    const input: HTMLInputElement = document.createElement('input');
-    input.classList.add(...styles);
-    input.type = 'submit';
-    input.value = content;
-    input.style.fontSize = '0.875rem';
-
-    return input;
   }
 }

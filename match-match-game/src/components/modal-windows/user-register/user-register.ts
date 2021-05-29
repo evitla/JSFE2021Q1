@@ -19,7 +19,7 @@ export class UserRegisterWindow extends BaseComponent {
 
     this.form.render();
 
-    this.form.cancelButton.addEventListener('click', () => {
+    this.form.cancelButton.element.addEventListener('click', () => {
       this.element.classList.remove('visible');
       this.form.clear();
     });
