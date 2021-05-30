@@ -9,6 +9,7 @@ $colors: (
   'neutral': (
     100: #ffffff,
     200: #f2f9fe,
+    500: #333333,
     600: rgba(0, 0, 0, 0.05),
     700: rgba(0, 0, 0, 0.4),
     800: rgba(0, 0, 0, 0.5),
@@ -25,6 +26,7 @@ $neutral-colors: map-get($colors, 'neutral');
   --primary-color-700: #{map-get($primary-colors, 700)};
   --neutral-color-100: #{map-get($neutral-colors, 100)};
   --neutral-color-200: #{map-get($neutral-colors, 200)};
+  --neutral-color-500: #{map-get($neutral-colors, 500)};
   --neutral-color-600: #{map-get($neutral-colors, 600)};
   --neutral-color-700: #{map-get($neutral-colors, 700)};
   --neutral-color-690: #{map-get($neutral-colors, 800)};
