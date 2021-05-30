@@ -15,14 +15,15 @@ export class App {
 
   constructor(
     private readonly rootElement: HTMLElement,
-    private readonly button: HTMLElement
+    private readonly button: HTMLElement,
+    database: Database
   ) {
     this.timer = new Timer();
     this.gameWinWindow = new GameWinWindow();
-    this.game = new Game(this.timer, this.gameWinWindow);
+    this.game = new Game(this.timer, this.gameWinWindow, database);
   }
 
-  async start() {
+  async start(currentUserEmail: string) {
     this.rootElement.appendChild(this.timer.element);
     this.rootElement.appendChild(this.game.element);
     this.rootElement.appendChild(this.gameWinWindow.element);
@@ -41,7 +42,7 @@ export class App {
 
         if (isStartButton) {
           this.button.innerText = 'Stop Game';
-          this.game.startGame(images);
+          this.game.startGame(images, currentUserEmail);
         } else {
           if (this.timer.currentTime === 0) return;
           this.button.innerText = 'Start Game';

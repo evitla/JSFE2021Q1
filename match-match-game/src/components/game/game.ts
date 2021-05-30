@@ -1,3 +1,4 @@
+import { Database } from '../../database';
 import { delay } from '../../shared/delay';
 import { Card } from '../card/card';
 import { CardsField } from '../cards-field/cards-field';
@@ -23,20 +24,23 @@ export class Game {
 
   constructor(
     private readonly timer: Timer,
-    private readonly gameWinWindow: GameWinWindow
+    private readonly gameWinWindow: GameWinWindow,
+    private readonly database: Database
   ) {
     this.cardsField = new CardsField();
     this.element = this.cardsField.element;
   }
 
-  async startGame(images: string[]) {
+  async startGame(images: string[], currentUserEmail: string) {
     const cards = images
       .concat(images)
       .map((url) => new Card(url))
       .sort(() => Math.random() - 0.5);
 
     cards.forEach((card) => {
-      card.element.addEventListener('click', () => this.cardHandler(card));
+      card.element.addEventListener('click', () =>
+        this.cardHandler(card, currentUserEmail)
+      );
     });
 
     await this.cardsField.addCards(cards);
@@ -52,13 +56,16 @@ export class Game {
     this.cardsField.clear();
   }
 
-  private finishGame() {
+  private async finishGame(currentUserEmail: string) {
     this.gameWinWindow.render(this.timer.renderText());
     this.gameWinWindow.element.classList.add('visible');
     clearInterval(this.timeInterval);
+    /* TODO */
+    const score = 100;
+    await this.database.updateScore(currentUserEmail, score);
   }
 
-  private async cardHandler(card: Card) {
+  private async cardHandler(card: Card, currentUserEmail: string) {
     if (this.isAnimation || card.isFlippedToFront) return;
     this.isAnimation = true;
 
@@ -81,7 +88,7 @@ export class Game {
       this.foundCards += 1;
     }
 
-    if (this.foundCards === this.totalCards) this.finishGame();
+    if (this.foundCards === this.totalCards) this.finishGame(currentUserEmail);
 
     this.activeCard = undefined;
     this.isAnimation = false;
