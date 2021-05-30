@@ -1,6 +1,7 @@
 import { Game } from './components/game/game';
 import { GameWinWindow } from './components/modal-windows/game-win/game-win';
 import { Timer } from './components/timer/timer';
+import { Database } from './database';
 import { ImageCategoryModel } from './models/image-category-model';
 
 export class App {
@@ -9,6 +10,8 @@ export class App {
   readonly game: Game;
 
   private readonly gameWinWindow: GameWinWindow;
+
+  private isEventAdded = false;
 
   constructor(
     private readonly rootElement: HTMLElement,
@@ -31,18 +34,22 @@ export class App {
       (name) => `${category.category}/${name}`
     );
 
-    this.button.addEventListener('click', () => {
-      const isStartButton =
-        this.button.innerText.toLowerCase() === 'start game';
+    if (!this.isEventAdded) {
+      this.button.addEventListener('click', () => {
+        const isStartButton =
+          this.button.innerText.toLowerCase() === 'start game';
 
-      if (isStartButton) {
-        this.button.innerText = 'Stop Game';
-        this.game.startGame(images);
-      } else {
-        if (this.timer.currentTime === 0) return;
-        this.button.innerText = 'Start Game';
-        this.game.stopGame();
-      }
-    });
+        if (isStartButton) {
+          this.button.innerText = 'Stop Game';
+          this.game.startGame(images);
+        } else {
+          if (this.timer.currentTime === 0) return;
+          this.button.innerText = 'Start Game';
+          this.game.stopGame();
+        }
+      });
+    }
+
+    this.isEventAdded = true;
   }
 }
