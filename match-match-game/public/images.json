@@ -7,7 +7,35 @@
       "lion.png",
       "penguin.png",
       "tiger.png",
-      "wolf.png"
+      "wolf.png",
+      "turtle.jpg",
+      "deer.jpg"
+    ]
+  },
+  {
+    "category": "music",
+    "images": [
+      "guitar.jpg",
+      "piano.jpg",
+      "viola.jpg",
+      "drums.jpg",
+      "harp.jpg",
+      "trumpet.jpg",
+      "banjo.jpg",
+      "saxophone.jpg"
+    ]
+  },
+  {
+    "category": "cars",
+    "images": [
+      "red.jpg",
+      "blue.jpg",
+      "yellow.jpg",
+      "green.jpg",
+      "old.jpg",
+      "classic.jpg",
+      "black.jpg",
+      "white.jpg"
     ]
   }
 ]
