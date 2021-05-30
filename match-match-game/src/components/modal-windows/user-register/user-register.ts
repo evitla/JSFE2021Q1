@@ -1,13 +1,22 @@
 import '../modal-window.scss';
 import { BaseComponent } from '../../base-component';
 import { RegistrationForm } from '../../registration-form/registration-form';
+import { DatabaseRecordModel } from '../../../models/database-record-model';
+import { Database } from '../../../database';
 
 export class UserRegisterWindow extends BaseComponent {
-  private readonly form: RegistrationForm;
+  userData: DatabaseRecordModel | null = null;
 
-  constructor() {
+  readonly form: RegistrationForm;
+
+  constructor(database: Database) {
     super('div', ['modal']);
     this.form = new RegistrationForm();
+
+    this.form.submitButton.element.addEventListener('click', async (event) => {
+      const data = this.form.getData(event);
+      this.userData = await database.write(data);
+    });
   }
 
   render() {

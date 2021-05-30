@@ -2,20 +2,21 @@ import registerImageSrc from './assets/images/register-card.png';
 import settingsImageSrc from './assets/images/settings-card.png';
 import gameImageSrc from './assets/images/game-card.png';
 import { UserRegisterWindow } from './components/modal-windows/user-register/user-register';
+import { Database } from './database';
 
 export class AboutGame {
-  content: HTMLElement;
+  private readonly content: HTMLElement;
 
   private readonly title: HTMLElement;
 
-  private readonly userRegister: UserRegisterWindow;
+  readonly userRegister: UserRegisterWindow;
 
-  constructor(private readonly rootElement: HTMLElement) {
+  constructor(private readonly rootElement: HTMLElement, database: Database) {
     this.title = document.createElement('h2');
     this.title.classList.add('section__title');
     this.content = document.createElement('div');
     this.content.classList.add('about__content');
-    this.userRegister = new UserRegisterWindow();
+    this.userRegister = new UserRegisterWindow(database);
   }
 
   render() {
