@@ -8,6 +8,8 @@ import { GameSettings } from './game-settings';
 import { Database } from './database';
 import { BestScore } from './best-score';
 
+const ROOT_URL =
+  'https://rolling-scopes-school.github.io/evitla-JSFE2021Q1/match-match-game';
 const NUM_USERS_TO_SHOW = 10;
 
 window.onload = () => {
@@ -23,7 +25,7 @@ window.onload = () => {
 
   document.body.appendChild(header.element);
   document.body.appendChild(main);
-  const router = new Router({ mode: 'hash', root: '/' });
+  const router = new Router({ mode: 'hash', root: ROOT_URL });
 
   const stopGameAndClearMain = () => {
     app.game.stopGame();
