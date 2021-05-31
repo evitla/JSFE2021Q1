@@ -1,4 +1,6 @@
 import { Database } from '../../database';
+import { GameSettings } from '../../game-settings';
+import { ImageCategoryModel } from '../../models/image-category-model';
 import { delay } from '../../shared/delay';
 import { Card } from '../card/card';
 import { CardsField } from '../cards-field/cards-field';
@@ -22,16 +24,28 @@ export class Game {
 
   private foundCards = 0;
 
+  private numOfMatch = 0;
+
+  private numOfIncorrectMatch = 0;
+
   constructor(
     private readonly timer: Timer,
     private readonly gameWinWindow: GameWinWindow,
+    private readonly gameSettings: GameSettings,
     private readonly database: Database
   ) {
     this.cardsField = new CardsField();
     this.element = this.cardsField.element;
   }
 
-  async startGame(images: string[], currentUserEmail: string) {
+  async startGame(categories: ImageCategoryModel[], currentUserEmail: string) {
+    const targetIndex = categories.findIndex(
+      (item) => item.category === this.gameSettings.cardsType
+    );
+    const category = categories[targetIndex];
+    const images = category.images
+      .map((name) => `${category.category}/${name}`)
+      .slice(0, this.gameSettings.numOfUniqueCards);
     const cards = images
       .concat(images)
       .map((url) => new Card(url))
@@ -51,6 +65,8 @@ export class Game {
 
   stopGame() {
     this.foundCards = 0;
+    this.numOfMatch = 0;
+    this.numOfIncorrectMatch = 0;
     clearInterval(this.timeInterval);
     this.timer.clear();
     this.cardsField.clear();
@@ -60,9 +76,19 @@ export class Game {
     this.gameWinWindow.render(this.timer.renderText());
     this.gameWinWindow.element.classList.add('visible');
     clearInterval(this.timeInterval);
-    /* TODO */
-    const score = 100;
+    const score = await this.calculateScore(currentUserEmail);
     await this.database.updateScore(currentUserEmail, score);
+  }
+
+  private async calculateScore(currentUserEmail: string) {
+    const currentScore = (
+      await this.database.getFiltered((item) => item.email === currentUserEmail)
+    )[0].score;
+
+    const score =
+      (this.numOfMatch - this.numOfIncorrectMatch) * 100 -
+      this.timer.currentTime * 10;
+    return score > currentScore ? score : currentScore;
   }
 
   private async cardHandler(card: Card, currentUserEmail: string) {
@@ -78,6 +104,7 @@ export class Game {
     }
 
     if (this.activeCard.image !== card.image) {
+      this.numOfIncorrectMatch++;
       this.activeCard.matchCard.element.classList.add('card__match_red');
       card.matchCard.element.classList.add('card__match_red');
       await delay(FLIP_DELAY);
@@ -87,6 +114,8 @@ export class Game {
       card.matchCard.element.classList.add('card__match_green');
       this.foundCards += 1;
     }
+
+    this.numOfMatch++;
 
     if (this.foundCards === this.totalCards) this.finishGame(currentUserEmail);
 

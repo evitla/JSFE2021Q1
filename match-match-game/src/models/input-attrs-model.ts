@@ -5,5 +5,4 @@ export interface InputAttrsModel {
   value?: string;
   errorMessage?: string;
   isRequired?: boolean;
-  onValidate?: () => {};
 }
