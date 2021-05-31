@@ -1,0 +1,46 @@
+.header {
+  display: grid;
+  grid-template-columns: 0.25fr 1fr 0.2fr 0.025fr;
+  align-items: center;
+  background-color: var(--primary-color-500);
+  margin: 0 auto;
+  padding: 0.65rem 1.375rem;
+}
+
+.logo {
+  width: 5rem;
+  height: -moz-fit-content;
+  height: fit-content;
+
+  &__title {
+    position: relative;
+    color: var(--neutral-color-100);
+    font-size: 0.688rem;
+    letter-spacing: 0.078rem;
+    line-height: 1.1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+
+    &::after {
+      position: absolute;
+      content: 'Match';
+      width: 100%;
+      color: var(--primary-color-500);
+      background-color: var(--neutral-color-100);
+      bottom: 0;
+      left: 0;
+    }
+  }
+}
+
+.user-image {
+  width: 2.5rem;
+  height: 2.5rem;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}

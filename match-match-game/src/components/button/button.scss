@@ -1,0 +1,27 @@
+.btn {
+  display: block;
+  margin: 0 auto;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.25rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.078rem;
+  padding: 0.7em 1em 0.55em;
+}
+
+.btn.primary-btn {
+  background-color: var(--neutral-color-200);
+  color: var(--primary-color-500);
+  box-shadow: 0 0 0.125rem rgba(0, 0, 0, 0.12),
+    0 0.125rem 0.125rem rgba(0, 0, 0, 0.24);
+}
+
+.btn.secondary-btn {
+  background-color: var(--primary-color-500);
+  color: var(--neutral-color-100);
+  box-shadow: 0 0 0.125rem rgba(0, 0, 0, 0.12),
+    0 0.125rem 0.125rem rgba(0, 0, 0, 0.24);
+}
