@@ -2,7 +2,7 @@ import './button.scss';
 import { BaseComponent } from '../base-component';
 
 export class Button extends BaseComponent {
-  constructor(content: string, styles: string[] = [], link: string = '') {
+  constructor(content: string, styles: string[] = [], link = '') {
     super(link ? 'a' : 'button', ['btn']);
 
     if (link) this.element.setAttribute('href', link);

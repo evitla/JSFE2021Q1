@@ -25,20 +25,9 @@ export class AboutGame {
     this.rootElement.appendChild(this.content);
     this.title.innerText = 'How to play?';
 
-    const registerImage = this.renderClickableImage(registerImageSrc, [
-      'register-card',
-    ]);
-    const settingsImage = this.renderClickableImage(
-      settingsImageSrc,
-      ['settings-card'],
-      '#/settings'
-    );
-    const gameImage = this.renderClickableImage(
-      gameImageSrc,
-      ['game-card'],
-      '#/game'
-    );
-    const images = [registerImage, settingsImage, gameImage];
+    const images = [registerImageSrc, settingsImageSrc, gameImageSrc];
+    const imageStyles = [['register-card'], ['settings-card'], ['game-card']];
+    const imageHrefs = ['', '#/settings', '#/game'];
     const texts = [
       'Register new player in game',
       'Configure your game settings',
@@ -53,26 +42,17 @@ export class AboutGame {
         <p>${texts[i]}</p>
       `;
       this.content.appendChild(numberedCard);
-      this.content.appendChild(images[i]);
+      this.renderClickableImage(images[i], imageStyles[i], imageHrefs[i]);
     }
 
     this.content.appendChild(this.userRegister.element);
-
-    registerImage.addEventListener('click', () => {
-      this.userRegister.render();
-      this.userRegister.element.classList.add('visible');
-    });
   }
 
   private clear() {
     this.content.innerText = '';
   }
 
-  private renderClickableImage(
-    src: string,
-    styles: string[] = [],
-    href: string = ''
-  ) {
+  private renderClickableImage(src: string, styles: string[] = [], href = '') {
     const figure = document.createElement('figure');
     figure.classList.add('about__card');
     const img = new Image();
@@ -87,6 +67,12 @@ export class AboutGame {
     } else {
       figure.appendChild(img);
     }
-    return figure;
+    this.content.appendChild(figure);
+    if (src === registerImageSrc) {
+      figure.addEventListener('click', () => {
+        this.userRegister.render();
+        this.userRegister.element.classList.add('visible');
+      });
+    }
   }
 }

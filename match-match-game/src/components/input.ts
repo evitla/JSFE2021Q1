@@ -15,7 +15,7 @@ export class Input {
     if (attrs.isRequired) this.element.required = attrs.isRequired;
   }
 
-  containerElement(content: string = ''): HTMLElement {
+  containerElement(content = ''): HTMLElement {
     const row = document.createElement('div');
     const bar = document.createElement('span');
     const label: HTMLLabelElement = document.createElement('label');

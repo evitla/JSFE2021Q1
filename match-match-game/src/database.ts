@@ -12,7 +12,7 @@ export class Database {
   }
 
   init() {
-    let openRequest = window.indexedDB.open(this.dbName, this.dbVersion);
+    const openRequest = window.indexedDB.open(this.dbName, this.dbVersion);
 
     openRequest.onupgradeneeded = () => {
       this.db = openRequest.result;
@@ -32,10 +32,10 @@ export class Database {
 
   write(data: DatabaseRecordModel): Promise<DatabaseRecordModel> {
     return new Promise((resolve) => {
-      let transaction = this.db?.transaction(this.store, 'readwrite');
-      let store = transaction?.objectStore(this.store);
+      const transaction = this.db?.transaction(this.store, 'readwrite');
+      const store = transaction?.objectStore(this.store);
 
-      let request = store?.put(data);
+      const request = store?.put(data);
 
       if (request) {
         request.onsuccess = () => {
@@ -57,9 +57,9 @@ export class Database {
 
   updateScore(email: string, score: number): Promise<DatabaseRecordModel> {
     return new Promise((resolve) => {
-      let transaction = this.db?.transaction(this.store, 'readwrite');
-      let store = transaction?.objectStore(this.store);
-      let request = store?.index('email').openCursor(null, 'next');
+      const transaction = this.db?.transaction(this.store, 'readwrite');
+      const store = transaction?.objectStore(this.store);
+      const request = store?.index('email').openCursor(null, 'next');
       if (request) {
         request.onsuccess = () => {
           const cursor = request?.result;
@@ -81,9 +81,9 @@ export class Database {
 
   getAll(): Promise<DatabaseRecordModel[]> {
     return new Promise((resolve) => {
-      let transaction = this.db?.transaction(this.store, 'readonly');
-      let store = transaction?.objectStore(this.store);
-      let request = store?.getAll();
+      const transaction = this.db?.transaction(this.store, 'readonly');
+      const store = transaction?.objectStore(this.store);
+      const request = store?.getAll();
 
       if (transaction) {
         transaction.oncomplete = () => {
@@ -97,12 +97,12 @@ export class Database {
     filter: (item: DatabaseRecordModel) => boolean
   ): Promise<DatabaseRecordModel[]> {
     return new Promise((resolve) => {
-      let transaction = this.db?.transaction(this.store, 'readonly');
-      let store = transaction?.objectStore(this.store);
+      const transaction = this.db?.transaction(this.store, 'readonly');
+      const store = transaction?.objectStore(this.store);
       const result: DatabaseRecordModel[] = [];
 
       if (store) {
-        let request = store?.index('score').openCursor(null, 'prev');
+        const request = store?.index('score').openCursor(null, 'prev');
 
         if (request) {
           request.onsuccess = () => {

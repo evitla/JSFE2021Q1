@@ -25,6 +25,7 @@ export default class Router {
         return this;
       }
     }
+    return undefined;
   };
 
   flush = () => {

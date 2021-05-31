@@ -15,7 +15,7 @@ export class Navigation extends BaseComponent {
     const imgs = [img1, img2, img3];
 
     linkNames.forEach((name, index) =>
-      this.renderListItem(name, '#/' + links[index], imgs[index])
+      this.renderListItem(name, `#/${links[index]}`, imgs[index])
     );
 
     this.element.appendChild(this.list.element);

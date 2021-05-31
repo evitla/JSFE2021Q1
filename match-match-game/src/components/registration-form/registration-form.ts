@@ -4,6 +4,7 @@ import { Input } from '../input';
 
 export class RegistrationForm extends Form {
   submitButton: Input;
+
   cancelButton: Input;
 
   constructor() {
