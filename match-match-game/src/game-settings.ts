@@ -1,7 +1,7 @@
 export class GameSettings {
-  cardsType: string = '';
+  cardsType = 'animals';
 
-  difficulty: string = '';
+  numOfUniqueCards = 6;
 
   private readonly content: HTMLElement;
 
@@ -21,7 +21,7 @@ export class GameSettings {
     });
 
     this.difficultyInput.addEventListener('input', () => {
-      this.difficulty = this.difficultyInput.value;
+      this.numOfUniqueCards = +this.difficultyInput.value[0];
     });
   }
 
@@ -31,7 +31,7 @@ export class GameSettings {
     this.renderList(
       this.cardsTypeInput,
       'Game cards',
-      ['animals', 'cars', 'cities'],
+      ['animals', 'cars', 'music'],
       'cards',
       'cards',
       'cards-list',

@@ -1,4 +1,6 @@
 import { Database } from '../../database';
+import { GameSettings } from '../../game-settings';
+import { ImageCategoryModel } from '../../models/image-category-model';
 import { delay } from '../../shared/delay';
 import { Card } from '../card/card';
 import { CardsField } from '../cards-field/cards-field';
@@ -25,13 +27,21 @@ export class Game {
   constructor(
     private readonly timer: Timer,
     private readonly gameWinWindow: GameWinWindow,
+    private readonly gameSettings: GameSettings,
     private readonly database: Database
   ) {
     this.cardsField = new CardsField();
     this.element = this.cardsField.element;
   }
 
-  async startGame(images: string[], currentUserEmail: string) {
+  async startGame(categories: ImageCategoryModel[], currentUserEmail: string) {
+    const targetIndex = categories.findIndex(
+      (item) => item.category === this.gameSettings.cardsType
+    );
+    const category = categories[targetIndex];
+    const images = category.images
+      .map((name) => `${category.category}/${name}`)
+      .slice(0, this.gameSettings.numOfUniqueCards);
     const cards = images
       .concat(images)
       .map((url) => new Card(url))
