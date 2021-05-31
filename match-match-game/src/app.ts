@@ -30,10 +30,10 @@ export class App {
     );
   }
 
-  async start(rootUrl: string, currentUserEmail: string) {
+  async start(currentUserEmail: string) {
     if (!currentUserEmail) {
       const message = document.createElement('p');
-      message.innerHTML = `Please, <a class="register-link" href="${rootUrl}/#/">register</a> to play`;
+      message.innerHTML = `Please, <a class="register-link" href="#/">register</a> to play`;
       this.rootElement.appendChild(message);
       return;
     }
