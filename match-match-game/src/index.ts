@@ -4,46 +4,49 @@ import { App } from './app';
 import { Header } from './components/header/header';
 import Router from './router';
 import { AboutGame } from './about-game';
+import { GameSettings } from './game-settings';
+import { Database } from './database';
+import { BestScore } from './best-score';
+
+const NUM_USERS_TO_SHOW = 10;
 
 window.onload = () => {
   const header = new Header(userImg);
   const main = document.createElement('main');
-  const app = new App(main, header.button.element);
-  const about = new AboutGame(main);
+  const gameSettings = new GameSettings(main);
+  const database = new Database('evitla', 'user-data');
+  database.init();
+  const bestScore = new BestScore(main);
+  const app = new App(main, header.button.element, gameSettings, database);
+  const about = new AboutGame(main, database);
   about.render();
 
   document.body.appendChild(header.element);
   document.body.appendChild(main);
-
   const router = new Router({ mode: 'hash', root: '/' });
+
+  const stopGameAndClearMain = () => {
+    app.game.stopGame();
+    header.button.element.innerText = 'Start Game';
+    main.innerText = '';
+  };
 
   router
     .add(/score/, () => {
-      /* TODO */
-      app.game.stopGame();
-      header.button.element.innerText = 'Start Game';
-      main.innerText = '';
-      const title = document.createElement('h1');
-      title.innerText = 'Hello, Score!';
-      main.appendChild(title);
+      stopGameAndClearMain();
+      bestScore.render(database, NUM_USERS_TO_SHOW);
     })
     .add(/settings/, () => {
-      /* TODO */
-      app.game.stopGame();
-      header.button.element.innerText = 'Start Game';
-      main.innerText = '';
-      const title = document.createElement('h1');
-      title.innerText = 'Hello, Settings!';
-      main.appendChild(title);
+      stopGameAndClearMain();
+      gameSettings.render();
     })
     .add(/game/, () => {
       main.innerText = '';
-      app.start();
+      const currentUserEmail = window.localStorage.getItem('email') || '';
+      app.start(currentUserEmail);
     })
     .add('', () => {
-      app.game.stopGame();
-      header.button.element.innerText = 'Start Game';
-      main.innerText = '';
+      stopGameAndClearMain();
       about.render();
     });
 };
