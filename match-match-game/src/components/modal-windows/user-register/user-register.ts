@@ -14,6 +14,7 @@ export class UserRegisterWindow extends BaseComponent {
     this.form = new RegistrationForm();
 
     this.form.submitButton.element.addEventListener('click', async (event) => {
+      if (!this.form.areInputsValid()) return;
       const data = this.form.getData(event);
       this.userData = await database.write(data);
       window.localStorage.setItem('email', this.userData.email);

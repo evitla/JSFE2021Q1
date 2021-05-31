@@ -111,6 +111,27 @@ export class RegistrationForm extends Form {
     this.element.appendChild(row);
   }
 
+  areInputsValid() {
+    const inputs = [
+      this.firstNameInput,
+      this.lastNameInput,
+      this.emailInput,
+      this.passwordInput,
+    ];
+    return inputs.every((input) => RegistrationForm.isInputValid(input));
+  }
+
+  private static isInputValid(input: Input) {
+    if (
+      !input.element.value ||
+      input.element.parentElement?.classList.contains('invalid')
+    ) {
+      input.element.parentElement?.classList.add('invalid');
+      return false;
+    }
+    return true;
+  }
+
   clearInputs() {
     this.firstNameInput.element.value = '';
     this.lastNameInput.element.value = '';
