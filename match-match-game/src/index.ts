@@ -12,7 +12,7 @@ const ROOT_URL = 'evitla-JSFE2021Q1/match-match-game';
 const NUM_USERS_TO_SHOW = 10;
 
 window.onload = () => {
-  const header = new Header(ROOT_URL, userImg);
+  const header = new Header(userImg);
   const main = document.createElement('main');
   const gameSettings = new GameSettings(main);
   const database = new Database('evitla', 'user-data');
@@ -44,7 +44,7 @@ window.onload = () => {
     .add(/game/, () => {
       main.innerText = '';
       const currentUserEmail = window.localStorage.getItem('email') || '';
-      app.start(ROOT_URL, currentUserEmail);
+      app.start(currentUserEmail);
     })
     .add('', () => {
       stopGameAndClearMain();
