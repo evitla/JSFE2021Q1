@@ -17,6 +17,13 @@ export class UserRegisterWindow extends BaseComponent {
       const data = this.form.getData(event);
       this.userData = await database.write(data);
       window.localStorage.setItem('email', this.userData.email);
+      this.element.classList.remove('visible');
+    });
+
+    this.form.cancelButton.element.addEventListener('click', () => {
+      this.element.classList.remove('visible');
+      this.form.clearInputs();
+      this.form.clear();
     });
   }
 
@@ -28,11 +35,6 @@ export class UserRegisterWindow extends BaseComponent {
     title.innerText = 'Register New Player';
 
     this.form.render();
-
-    this.form.cancelButton.element.addEventListener('click', () => {
-      this.element.classList.remove('visible');
-      this.form.clear();
-    });
 
     this.element.appendChild(contentContainer);
     contentContainer.appendChild(title);

@@ -110,4 +110,11 @@ export class RegistrationForm extends Form {
     this.element.appendChild(passwordInputContainer);
     this.element.appendChild(row);
   }
+
+  clearInputs() {
+    this.firstNameInput.element.value = '';
+    this.lastNameInput.element.value = '';
+    this.emailInput.element.value = '';
+    this.passwordInput.element.value = '';
+  }
 }
