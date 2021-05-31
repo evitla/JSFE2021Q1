@@ -34,18 +34,7 @@ export class Database {
     return new Promise((resolve) => {
       const transaction = this.db?.transaction(this.store, 'readwrite');
       const store = transaction?.objectStore(this.store);
-
-      const request = store?.put(data);
-
-      if (request) {
-        request.onsuccess = () => {
-          console.log('success', request?.result);
-        };
-
-        request.onerror = () => {
-          console.log('error', request?.error);
-        };
-      }
+      store?.put(data);
 
       if (transaction) {
         transaction.oncomplete = () => {

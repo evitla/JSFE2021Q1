@@ -7,6 +7,14 @@ export class RegistrationForm extends Form {
 
   cancelButton: Input;
 
+  private readonly firstNameInput: Input;
+
+  private readonly lastNameInput: Input;
+
+  private readonly emailInput: Input;
+
+  private readonly passwordInput: Input;
+
   constructor() {
     super(['form']);
 
@@ -20,10 +28,8 @@ export class RegistrationForm extends Form {
       'primary-btn',
       'form__submit',
     ]);
-  }
 
-  render() {
-    const firstNameInput = new Input(
+    this.firstNameInput = new Input(
       {
         type: 'text',
         id: 'first-name',
@@ -33,9 +39,12 @@ export class RegistrationForm extends Form {
       },
       ['form__input']
     );
-    const firstNameContainer = firstNameInput.containerElement('First Name');
+    this.firstNameInput.element.addEventListener(
+      'input',
+      this.firstNameInput.validate
+    );
 
-    const lastNameInput = new Input(
+    this.lastNameInput = new Input(
       {
         type: 'text',
         id: 'last-name',
@@ -45,9 +54,12 @@ export class RegistrationForm extends Form {
       },
       ['form__input']
     );
-    const lastNameContainer = lastNameInput.containerElement('Last Name');
+    this.lastNameInput.element.addEventListener(
+      'input',
+      this.lastNameInput.validate
+    );
 
-    const emailInput = new Input(
+    this.emailInput = new Input(
       {
         type: 'email',
         id: 'email',
@@ -57,19 +69,34 @@ export class RegistrationForm extends Form {
       },
       ['form__input']
     );
-    const emailInputContainer = emailInput.containerElement('E-mail');
+    this.emailInput.element.addEventListener('input', this.emailInput.validate);
 
-    const passwordInput = new Input(
+    this.passwordInput = new Input(
       {
         type: 'password',
         id: 'password',
         name: 'password',
-        errorMessage: 'Password must contain 8-30 characters',
+        errorMessage: 'Password must contain at least 8 characters',
         isRequired: true,
       },
       ['form__input']
     );
-    const passwordInputContainer = passwordInput.containerElement('Password');
+    this.passwordInput.element.addEventListener(
+      'input',
+      this.passwordInput.validate
+    );
+  }
+
+  render() {
+    const firstNameContainer =
+      this.firstNameInput.containerElement('First Name');
+
+    const lastNameContainer = this.lastNameInput.containerElement('Last Name');
+
+    const emailInputContainer = this.emailInput.containerElement('E-mail');
+
+    const passwordInputContainer =
+      this.passwordInput.containerElement('Password');
 
     const row = document.createElement('div');
     row.classList.add('form__row');
