@@ -1,6 +1,7 @@
 import { Button } from '../button/button';
 import { Form } from './form';
 import { Input } from '../input/input';
+import { CarModel } from '../../models/car-model';
 
 export class CarForm extends Form {
   modelInput: Input;
@@ -15,7 +16,17 @@ export class CarForm extends Form {
     this.render(content, isDisabled);
   }
 
-  clear(): void {
+  listen(): Promise<CarModel> {
+    return new Promise((resolve) => {
+      this.submitButton.element.addEventListener('click', (event) => {
+        const formData = this.getData(event);
+        resolve(formData);
+        this.clear();
+      });
+    });
+  }
+
+  private clear() {
     this.modelInput.element.value = '';
     this.colorInput.element.value = '#ffffff';
   }
