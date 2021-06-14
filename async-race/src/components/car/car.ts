@@ -2,6 +2,9 @@ import './car.scss';
 import { BaseComponent } from '../base-component';
 import { Button } from '../button/button';
 import { CarModel } from '../../models/car-model';
+import { animation } from './utils';
+
+const CAR_WIDTH = 100;
 
 export class Car extends BaseComponent {
   id: number;
@@ -18,7 +21,11 @@ export class Car extends BaseComponent {
 
   private readonly name = document.createElement('span');
 
-  constructor(carModel: CarModel) {
+  private readonly controlPanel = document.createElement('div');
+
+  private animationState: { id: number };
+
+  constructor(carModel: CarModel, private engine: string) {
     super('div', ['car']);
 
     this.id = carModel.id;
@@ -32,14 +39,56 @@ export class Car extends BaseComponent {
     this.renderRoad();
     this.renderImage(carModel.color);
 
-    this.startEngineButton.element.addEventListener('click', () => {
-      this.startEngineButton.element.disabled = true;
-      this.stopEngineButton.element.disabled = false;
+    this.startEngineButton.element.addEventListener('click', async () => {
+      await this.startDriving();
     });
-    this.stopEngineButton.element.addEventListener('click', () => {
-      this.startEngineButton.element.disabled = false;
-      this.stopEngineButton.element.disabled = true;
+
+    this.stopEngineButton.element.addEventListener('click', async () => {
+      await this.stopDriving();
     });
+  }
+
+  private async startDriving() {
+    this.startEngineButton.element.disabled = true;
+    this.stopEngineButton.element.disabled = false;
+
+    const { velocity, distance } = await this.startEngine();
+    const time = Math.round(distance / velocity);
+    const htmlDistance =
+      this.track.getBoundingClientRect().width -
+      this.controlPanel.getBoundingClientRect().width -
+      CAR_WIDTH;
+
+    this.animationState = animation(this.element, htmlDistance, time);
+
+    const { success } = await this.drive();
+    if (!success) window.cancelAnimationFrame(this.animationState.id);
+  }
+
+  private async stopDriving() {
+    this.startEngineButton.element.disabled = false;
+    this.stopEngineButton.element.disabled = true;
+    await this.stopEngine();
+    this.element.style.transform = `translate(0, 4px)`;
+    if (this.animationState)
+      window.cancelAnimationFrame(this.animationState.id);
+  }
+
+  private async startEngine() {
+    return (await fetch(`${this.engine}/?id=${this.id}&status=started`)).json();
+  }
+
+  private async stopEngine() {
+    return (await fetch(`${this.engine}/?id=${this.id}&status=stopped`)).json();
+  }
+
+  private async drive() {
+    const response = await fetch(
+      `${this.engine}?id=${this.id}&status=drive`
+    ).catch();
+    return response.status !== 200
+      ? { success: false }
+      : { ...(await response.json()) };
   }
 
   private renderGeneralButtons() {
@@ -57,11 +106,10 @@ export class Car extends BaseComponent {
   }
 
   private renderControlPanel(parentNode: HTMLElement) {
-    const controlPanel = document.createElement('div');
-    controlPanel.className = 'control-panel';
-    controlPanel.appendChild(this.startEngineButton.element);
-    controlPanel.appendChild(this.stopEngineButton.element);
-    parentNode.appendChild(controlPanel);
+    this.controlPanel.className = 'control-panel';
+    this.controlPanel.appendChild(this.startEngineButton.element);
+    this.controlPanel.appendChild(this.stopEngineButton.element);
+    parentNode.appendChild(this.controlPanel);
   }
 
   private renderRoad() {
@@ -79,7 +127,7 @@ export class Car extends BaseComponent {
           xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://web.resource.org/cc/"
           xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
           xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-          xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="100" height="42"
+          xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="${CAR_WIDTH}" height="42"
           version="1.0">
         <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1" transform="translate(-8.835034,-24.54683)">
           <path style="opacity:1;fill:white;fill-opacity:1;fill-rule:evenodd;stroke:black;stroke-width:9;stroke-linecap:butt;

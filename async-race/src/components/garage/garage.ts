@@ -14,7 +14,7 @@ export class Garage extends BaseComponent {
 
   constructor(
     rootElement: HTMLElement,
-    private garageURL: string,
+    private url: { garage: string; engine: string },
     private garageController: GarageController
   ) {
     super('div', ['garage']);
@@ -29,12 +29,12 @@ export class Garage extends BaseComponent {
   }
 
   getCar = async (id: number): Promise<CarModel> => {
-    return (await fetch(`${this.garageURL}/${id}`)).json();
+    return (await fetch(`${this.url.garage}/${id}`)).json();
   };
 
   async createCar(body: CarModel): Promise<void> {
     const carModel = (
-      await fetch(this.garageURL, {
+      await fetch(this.url.garage, {
         method: 'POST',
         body: JSON.stringify(body),
         headers: { 'Content-Type': 'application/json' },
@@ -53,7 +53,7 @@ export class Garage extends BaseComponent {
     this.renderTitle();
 
     return (
-      await fetch(`${this.garageURL}/${car.id}`, { method: 'DELETE' })
+      await fetch(`${this.url.garage}/${car.id}`, { method: 'DELETE' })
     ).json();
   }
 
@@ -62,7 +62,7 @@ export class Garage extends BaseComponent {
     car.renderImage(newCarModel.color);
 
     return (
-      await fetch(`${this.garageURL}/${car.id}`, {
+      await fetch(`${this.url.garage}/${car.id}`, {
         method: 'PUT',
         body: JSON.stringify(newCarModel),
         headers: { 'Content-Type': 'application/json' },
@@ -86,7 +86,7 @@ export class Garage extends BaseComponent {
     limit: number
   ): Promise<{ models: CarModel[]; count: string }> {
     const response = await fetch(
-      `${this.garageURL}?_page=${page}&_limit=${limit}`
+      `${this.url.garage}?_page=${page}&_limit=${limit}`
     );
 
     return {
@@ -96,7 +96,7 @@ export class Garage extends BaseComponent {
   }
 
   private renderCar(carModel: CarModel) {
-    const car = new Car(carModel);
+    const car = new Car(carModel, this.url.engine);
 
     car.selectButton.element.addEventListener('click', async () => {
       car.removeButton.element.disabled = true;
