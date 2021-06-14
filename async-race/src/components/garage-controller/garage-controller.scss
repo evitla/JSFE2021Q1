@@ -1,0 +1,46 @@
+.garage-controller {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+
+  .primary-btn {
+    width: 4.875rem;
+  }
+}
+
+.form {
+  display: flex;
+
+  * + * {
+    margin-left: 0.25rem;
+  }
+}
+
+.text-input {
+  font-family: inherit;
+  padding: 0.15rem;
+  width: 10rem;
+  border-radius: 0.25rem;
+  border: 0.1rem solid var(--primary-color-300);
+  font-weight: 500;
+
+  &:focus,
+  &:active {
+    box-shadow: inset 0 0 0 0.05rem var(--primary-color-300);
+    outline: none;
+  }
+
+  &:disabled:focus,
+  &:disabled:active {
+    box-shadow: none;
+  }
+}
+
+.color-input {
+  border-radius: 0.25rem;
+  width: 3.15em;
+  height: 1.56rem;
+  background: none;
+  border: 0.1rem solid var(--primary-color-300);
+}
