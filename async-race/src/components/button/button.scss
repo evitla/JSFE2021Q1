@@ -1,0 +1,46 @@
+.btn {
+  text-transform: uppercase;
+  cursor: pointer;
+  color: var(--neutral-color-100);
+  border: 0.1em solid var(--neutral-color-400);
+  border-radius: 0.25em;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  &:disabled {
+    pointer-events: none;
+    filter: brightness(70%);
+  }
+
+  & .front {
+    display: block;
+    padding: 0.25em 1em;
+    border-radius: 0.25em;
+    transform: translateY(-0.3em);
+  }
+
+  &:active .front {
+    transform: translateY(-0.1em);
+  }
+
+  & + & {
+    margin-left: 0.25rem;
+  }
+}
+
+.btn.primary-btn {
+  background-color: var(--primary-color-300);
+
+  & .front {
+    background-color: var(--primary-color-200);
+  }
+}
+
+.btn.secondary-btn {
+  background-color: var(--primary-color-500);
+
+  & .front {
+    background-color: var(--primary-color-400);
+  }
+}
