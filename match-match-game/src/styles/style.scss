@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+@import './variables.scss';
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $primary-font;
+  background-color: var(--neutral-color-100);
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+main {
+  margin: 2rem auto;
+  padding: 1.75rem;
+  background-color: var(--neutral-color-600);
+  border-radius: 0.313rem;
+  width: 70%;
+}
+
+.section__title {
+  font-size: 1.25rem;
+  margin-bottom: 1.3rem;
+}
+
+.about__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem 6rem;
+  width: 80%;
+}
+
+.about__numbered-card {
+  display: grid;
+  grid-template-columns: 0.1fr 1fr;
+  width: 22.5rem;
+  padding: 1rem;
+  padding-bottom: 6rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  letter-spacing: 0.02rem;
+  background-color: var(--neutral-color-100);
+
+  &::before {
+    display: grid;
+    content: attr(data-order);
+    font-size: 1.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 1rem;
+    justify-items: center;
+    align-items: center;
+    color: var(--neutral-color-100);
+    background-color: var(--primary-color-500);
+    border-radius: 50%;
+    box-shadow: 0 0.063rem 0.3rem rgba(0, 0, 0, 0.2),
+      0 0.19rem 0.25rem rgba(0, 0, 0, 0.12),
+      0 0.125rem 0.25rem rgba(0, 0, 0, 0.14);
+  }
+}
+
+.about__card {
+  width: 100%;
+  text-align: right;
+
+  img {
+    cursor: pointer;
+  }
+}
+
+.register-card {
+  width: 18.75rem;
+}
+
+.settings-card {
+  width: 7.25rem;
+}
+
+.game-card {
+  width: 20.625rem;
+}
+
+.best-score__row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem;
+  border-bottom: 1px solid rgba(33, 33, 33, 0.08);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--neutral-color-500);
+
+  & + & {
+    margin-top: 1rem;
+  }
+
+  &_right {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.best-score__user-name {
+  line-height: 1.25rem;
+}
+
+.best-score__user-email {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 400;
+}
+
+.best-score__user-score span {
+  color: var(--primary-color-500);
+  margin-left: 0.25rem;
+}
+
+.settings__container {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(33, 33, 33, 0.08);
+  width: 30%;
+  padding: 0.5rem;
+
+  & + & {
+    margin-top: 1rem;
+  }
+
+  label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  input {
+    border: none;
+    background-color: inherit;
+  }
+}
+
+.register-link {
+  color: var(--primary-color-500);
+  font-weight: 500;
+}

@@ -1,0 +1,81 @@
+.form {
+  padding: 1.5rem;
+  padding-top: 0;
+}
+
+.form__row {
+  position: relative;
+  display: flex;
+  margin-top: 2.5rem;
+}
+
+.form__input {
+  width: 100%;
+  padding: 0.25rem 0;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--primary-color-500);
+
+  &:focus,
+  &:active {
+    outline: 0;
+  }
+
+  &:focus ~ .form__label,
+  &:active ~ .form__label,
+  &:valid ~ .form__label {
+    bottom: 2rem;
+    font-size: 0.7em;
+  }
+
+  &:focus ~ .form__bar,
+  &:active ~ .form__bar {
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+}
+
+.form__bar {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  right: 50%;
+  display: block;
+  width: 0;
+  height: 0.125rem;
+  background-color: var(--primary-color-500);
+  transition: all 0.3s;
+}
+
+.form__label {
+  position: absolute;
+  bottom: 0.25rem;
+  left: 0;
+  width: 100%;
+  color: var(--neutral-color-800);
+  transition: all 0.3s;
+  pointer-events: none;
+}
+
+.form__row.invalid {
+  position: relative;
+
+  .form__input {
+    background-color: rgba(red, 0.1);
+    border-bottom: 1px solid red;
+  }
+
+  .form__bar {
+    background-color: red;
+  }
+
+  &::after {
+    position: absolute;
+    content: attr(data-error);
+    bottom: -1rem;
+    left: 0;
+    font-size: 0.8em;
+    color: red;
+  }
+}

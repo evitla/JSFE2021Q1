@@ -25,13 +25,6 @@ button { cursor: pointer; }
     box-shadow: 2px 4px 15px rgba(5,12,70,.15);
     transition: .4s ease-in-out;
   }
-
-  &:hover::before {
-    transform: translateX(2px);
-    transition: .4s ease-in-out;
-    background: #{map-get($colors-neutral, 300)};
-    box-shadow: 2px 0 10px #9b9b9b;
-  }
 }
 
 .theme-toggle:checked + .theme-label {
@@ -43,13 +36,6 @@ button { cursor: pointer; }
     box-shadow: 0 3px 3px rgba(0,0,0,.3);
     background: #{map-get($colors-neutral, 900)};
     transition: .4s ease-in-out;
-  }
-
-  &:hover::before {
-    transform: translateX(-2px);
-    transition: .4s ease-in-out;
-    background: #{map-get($colors-neutral, 800)};
-    box-shadow: -2px 0 10px #8d8d8d;
   }
 }
 
