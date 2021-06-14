@@ -16,9 +16,14 @@ export class Garage extends BaseComponent {
   ) {
     super('div', ['garage']);
 
-    this.garageController.carFormToCreate
-      .listen()
-      .then((carModel) => this.createCar(carModel));
+    this.garageController.carFormToCreate.submitButton.element.addEventListener(
+      'click',
+      async (event) => {
+        const formData = this.garageController.carFormToCreate.getData(event);
+        await this.createCar(formData);
+        this.garageController.carFormToCreate.clear();
+      }
+    );
 
     this.pagination.listen(async () => {
       this.element.innerHTML = '';
@@ -73,12 +78,12 @@ export class Garage extends BaseComponent {
   async render(): Promise<void> {
     this.element.innerHTML = '';
     const cars = await this.getCars(store.carsPage, store.carsPerPage);
-    this.pagination.updateState(this.count);
 
     this.count = +cars.count;
     this.garageController.renderTitle(this.count);
 
     cars.models.forEach((model) => this.renderCar(model));
+    this.pagination.updateState(this.count);
   }
 
   private async getCars(

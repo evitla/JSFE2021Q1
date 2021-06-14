@@ -26,7 +26,7 @@ export class CarForm extends Form {
     });
   }
 
-  private clear() {
+  clear(): void {
     this.modelInput.element.value = '';
     this.colorInput.element.value = '#ffffff';
   }
