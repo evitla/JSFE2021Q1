@@ -1,0 +1,51 @@
+.track {
+  margin-top: 1rem;
+}
+
+.general-buttons,
+.control-panel {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.btn.start-engine-btn {
+  background-color: var(--secondary-color-700);
+
+  & .front {
+    padding: 0.25em 0.8em;
+    background-color: var(--secondary-color-600);
+  }
+}
+
+.btn.stop-engine-btn {
+  background-color: var(--secondary-color-500);
+  margin-right: 0.75rem;
+
+  & .front {
+    padding: 0.25em 0.8em;
+    background-color: var(--secondary-color-400);
+  }
+}
+
+.road {
+  position: relative;
+  display: flex;
+  border-bottom: 3px dashed var(--primary-color-400);
+  height: 3rem;
+
+  &::after {
+    position: absolute;
+    content: url('../../assets/images/flag-icon.svg');
+    right: 6.25rem;
+    bottom: -0.875rem;
+  }
+}
+
+.car {
+  transform: translateY(0.25rem);
+}
+
+.car-model {
+  margin-left: 1rem;
+  font-weight: 700;
+}
