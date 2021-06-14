@@ -1,7 +1,6 @@
 import { GarageController } from '../components/garage-controller/garage-controller';
 import { Garage } from '../components/garage/garage';
 import { Pagination } from '../components/pagination/pagination';
-import store from '../shared/store';
 
 export class GarageView {
   element: HTMLElement;
@@ -18,9 +17,7 @@ export class GarageView {
     const garage = new Garage(rootElement, url, garageContoller, pagination);
 
     garageContoller.render();
-    garage.render(store.carsPage, store.carsPerPage).then(() => {
-      pagination.updateState(garage.count);
-    });
+    garage.render();
 
     this.element.appendChild(garageContoller.element);
     this.element.appendChild(garage.element);

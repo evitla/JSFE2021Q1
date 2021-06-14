@@ -2,6 +2,7 @@ import './garage-controller.scss';
 import { BaseComponent } from '../base-component';
 import { CarForm } from '../forms/car-form';
 import { Button } from '../button/button';
+import store from '../../shared/store';
 
 export class GarageController extends BaseComponent {
   carFormToCreate = new CarForm('create');
@@ -39,8 +40,8 @@ export class GarageController extends BaseComponent {
     this.element.appendChild(this.pageTitle);
   }
 
-  renderTitle(count: number, page: number): void {
+  renderTitle(count: number): void {
     this.title.innerText = `Race(${count})`;
-    this.pageTitle.innerText = `Page ${page}`;
+    this.pageTitle.innerText = `Page ${store.carsPage}`;
   }
 }

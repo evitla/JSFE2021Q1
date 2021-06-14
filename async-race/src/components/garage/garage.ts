@@ -8,8 +8,6 @@ import store from '../../shared/store';
 export class Garage extends BaseComponent {
   count: number;
 
-  private page: number;
-
   constructor(
     rootElement: HTMLElement,
     private url: { garage: string; engine: string },
@@ -24,17 +22,12 @@ export class Garage extends BaseComponent {
 
     this.pagination.listen(async () => {
       this.element.innerHTML = '';
-      await this.render(store.carsPage, store.carsPerPage);
-      this.garageController.renderTitle(this.count, this.page);
-      this.pagination.updateState(this.count);
+      await this.render();
+      this.garageController.renderTitle(this.count);
     });
 
     rootElement.appendChild(this.element);
   }
-
-  getCar = async (id: number): Promise<CarModel> => {
-    return (await fetch(`${this.url.garage}/${id}`)).json();
-  };
 
   async createCar(body: CarModel): Promise<void> {
     const carModel = (
@@ -46,19 +39,22 @@ export class Garage extends BaseComponent {
     ).json();
 
     this.count++;
-    this.garageController.renderTitle(this.count, this.page);
-    this.renderCar(await carModel);
+    this.garageController.renderTitle(this.count);
+    this.render();
+
+    return carModel;
   }
 
   async removeCar(car: Car): Promise<CarModel> {
-    this.element.removeChild(car.track);
-
-    this.count--;
-    this.garageController.renderTitle(this.count, this.page);
-
-    return (
+    const carModel = (
       await fetch(`${this.url.garage}/${car.id}`, { method: 'DELETE' })
     ).json();
+
+    this.count--;
+    this.garageController.renderTitle(this.count);
+    this.render();
+
+    return carModel;
   }
 
   async updateCar(car: Car, newCarModel: CarModel): Promise<CarModel> {
@@ -74,13 +70,13 @@ export class Garage extends BaseComponent {
     ).json();
   }
 
-  async render(page: number, limit: number): Promise<void> {
-    const cars = await this.getCars(page, limit);
+  async render(): Promise<void> {
+    this.element.innerHTML = '';
+    const cars = await this.getCars(store.carsPage, store.carsPerPage);
+    this.pagination.updateState(this.count);
 
     this.count = +cars.count;
-    this.page = page;
-
-    this.garageController.renderTitle(this.count, this.page);
+    this.garageController.renderTitle(this.count);
 
     cars.models.forEach((model) => this.renderCar(model));
   }
