@@ -1,0 +1,32 @@
+$primary-font: 'Mali', cursive;
+$colors: (
+  'primary': (
+    100: #e0fbfc,
+    200: hsl(190, 38%, 68%),
+    300: hsl(190, 38%, 55%),
+    400: hsl(210deg, 83%, 31%),
+    500: hsl(210deg, 83%, 20%),
+  ),
+  'secondary': (
+    400: hsl(12deg, 85%, 50%),
+    500: hsl(12deg, 85%, 40%),
+    600: hsl(142deg, 85%, 46%),
+    700: hsl(142deg, 85%, 36%),
+  ),
+);
+
+$primary-colors: map-get($colors, 'primary');
+
+$secondary-colors: map-get($colors, 'secondary');
+
+:root {
+  --primary-color-100: #{map-get($primary-colors, 100)};
+  --primary-color-200: #{map-get($primary-colors, 200)};
+  --primary-color-300: #{map-get($primary-colors, 300)};
+  --primary-color-400: #{map-get($primary-colors, 400)};
+  --primary-color-500: #{map-get($primary-colors, 500)};
+  --secondary-color-400: #{map-get($secondary-colors, 400)};
+  --secondary-color-500: #{map-get($secondary-colors, 500)};
+  --secondary-color-600: #{map-get($secondary-colors, 600)};
+  --secondary-color-700: #{map-get($secondary-colors, 700)};
+}
