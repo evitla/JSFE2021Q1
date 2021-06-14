@@ -14,6 +14,10 @@ export class GarageController extends BaseComponent {
 
   generateCarsButton = new Button('Generate cars', ['btn', 'secondary-btn']);
 
+  private title = document.createElement('h1');
+
+  private pageTitle = document.createElement('h2');
+
   constructor(rootElement: HTMLElement) {
     super('div', ['garage-controller']);
 
@@ -22,7 +26,7 @@ export class GarageController extends BaseComponent {
 
   render(): void {
     const buttonsContainer = document.createElement('div');
-    buttonsContainer.className = 'garage-controller_buttons';
+    buttonsContainer.className = 'garage-controller__buttons';
 
     this.element.appendChild(this.carFormToCreate.element);
     this.element.appendChild(this.carFormToUpdate.element);
@@ -30,5 +34,13 @@ export class GarageController extends BaseComponent {
     buttonsContainer.appendChild(this.resetRaceButton.element);
     buttonsContainer.appendChild(this.generateCarsButton.element);
     this.element.appendChild(buttonsContainer);
+
+    this.element.appendChild(this.title);
+    this.element.appendChild(this.pageTitle);
+  }
+
+  renderTitle(count: number, page: number): void {
+    this.title.innerText = `Race(${count})`;
+    this.pageTitle.innerText = `Page ${page}`;
   }
 }

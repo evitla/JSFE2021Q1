@@ -2,20 +2,19 @@ import { BaseComponent } from '../base-component';
 import { CarModel } from '../../models/car-model';
 import { Car } from '../car/car';
 import { GarageController } from '../garage-controller/garage-controller';
+import { Pagination } from '../pagination/pagination';
+import store from '../../shared/store';
 
 export class Garage extends BaseComponent {
-  private title = document.createElement('h1');
-
-  private pageTitle = document.createElement('h2');
-
-  private count: number;
+  count: number;
 
   private page: number;
 
   constructor(
     rootElement: HTMLElement,
     private url: { garage: string; engine: string },
-    private garageController: GarageController
+    private garageController: GarageController,
+    private pagination: Pagination
   ) {
     super('div', ['garage']);
 
@@ -23,8 +22,13 @@ export class Garage extends BaseComponent {
       .listen()
       .then((carModel) => this.createCar(carModel));
 
-    this.element.appendChild(this.title);
-    this.element.appendChild(this.pageTitle);
+    this.pagination.listen(async () => {
+      this.element.innerHTML = '';
+      await this.render(store.carsPage, store.carsPerPage);
+      this.garageController.renderTitle(this.count, this.page);
+      this.pagination.updateState(this.count);
+    });
+
     rootElement.appendChild(this.element);
   }
 
@@ -42,7 +46,7 @@ export class Garage extends BaseComponent {
     ).json();
 
     this.count++;
-    this.renderTitle();
+    this.garageController.renderTitle(this.count, this.page);
     this.renderCar(await carModel);
   }
 
@@ -50,7 +54,7 @@ export class Garage extends BaseComponent {
     this.element.removeChild(car.track);
 
     this.count--;
-    this.renderTitle();
+    this.garageController.renderTitle(this.count, this.page);
 
     return (
       await fetch(`${this.url.garage}/${car.id}`, { method: 'DELETE' })
@@ -76,7 +80,7 @@ export class Garage extends BaseComponent {
     this.count = +cars.count;
     this.page = page;
 
-    this.renderTitle();
+    this.garageController.renderTitle(this.count, this.page);
 
     cars.models.forEach((model) => this.renderCar(model));
   }
@@ -114,10 +118,5 @@ export class Garage extends BaseComponent {
     });
 
     this.element.appendChild(car.track);
-  }
-
-  private renderTitle() {
-    this.title.innerText = `Race(${this.count})`;
-    this.pageTitle.innerText = `Page ${this.page}`;
   }
 }

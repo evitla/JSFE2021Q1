@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 
   .primary-btn {
     width: 4.875rem;
@@ -43,4 +43,8 @@
   height: 1.56rem;
   background: none;
   border: 0.1rem solid var(--primary-color-300);
+}
+
+.garage-controller__buttons {
+  margin-bottom: 2rem;
 }
