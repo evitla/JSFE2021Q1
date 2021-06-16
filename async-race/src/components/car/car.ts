@@ -9,6 +9,8 @@ const CAR_WIDTH = 100;
 export class Car extends BaseComponent {
   id: number;
 
+  carModel: CarModel;
+
   readonly track = document.createElement('div');
 
   readonly selectButton = new Button('select', ['secondary-btn', 'select-btn']);
@@ -25,8 +27,10 @@ export class Car extends BaseComponent {
 
   private animationState: { id: number };
 
-  constructor(private carModel: CarModel, private engine = '') {
+  constructor(carModel: CarModel, private engine = '') {
     super('div', ['car']);
+
+    this.carModel = carModel;
   }
 
   render(): void {

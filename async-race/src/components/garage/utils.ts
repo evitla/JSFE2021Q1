@@ -50,3 +50,14 @@ export const generateRandomCars = (count = 100): CarModel[] => {
   }
   return result;
 };
+
+export const renderMessage = (name: string, time: string): HTMLElement => {
+  const element = document.createElement('div');
+  element.className = 'modal';
+  element.innerHTML = `
+    <div class="modal-content">
+      The winner is ${name}. Time: ${time} seconds.
+    </div>
+  `;
+  return element;
+};

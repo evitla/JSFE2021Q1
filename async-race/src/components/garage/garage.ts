@@ -4,9 +4,11 @@ import { Car } from '../car/car';
 import { GarageController } from '../garage-controller/garage-controller';
 import { Pagination } from '../pagination/pagination';
 import store from '../../shared/store';
-import { generateRandomCars } from './utils';
+import { generateRandomCars, renderMessage } from './utils';
+import { delay } from '../../shared/delay';
 
 const RANDOM_CARS_COUNT = 100;
+const MESSAGE_SHOW_TIME = 3000;
 
 export class Garage extends BaseComponent {
   cars: Car[] = [];
@@ -58,6 +60,11 @@ export class Garage extends BaseComponent {
       promises,
       cars.map((car) => car.id)
     );
+
+    const message = renderMessage(winner.car.carModel.name, winner.time);
+    this.element.appendChild(message);
+    await delay(MESSAGE_SHOW_TIME);
+    this.element.removeChild(message);
 
     return winner;
   }
