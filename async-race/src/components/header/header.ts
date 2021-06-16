@@ -2,6 +2,10 @@ import { BaseComponent } from '../base-component';
 import { Button } from '../button/button';
 
 export class Header extends BaseComponent {
+  raceButton = new Button('Race', ['btn', 'primary-btn']);
+
+  winnersButton = new Button('Winners', ['btn', 'primary-btn']);
+
   constructor(rootElement: HTMLElement) {
     super('header', ['header']);
 
@@ -9,10 +13,7 @@ export class Header extends BaseComponent {
   }
 
   render(): void {
-    const raceButton = new Button('Race', ['btn', 'primary-btn']);
-    const winnersButton = new Button('Winners', ['btn', 'primary-btn']);
-
-    this.element.appendChild(raceButton.element);
-    this.element.appendChild(winnersButton.element);
+    this.element.appendChild(this.raceButton.element);
+    this.element.appendChild(this.winnersButton.element);
   }
 }

@@ -18,11 +18,15 @@ export class CarForm extends Form {
 
   listen(): Promise<CarModel> {
     return new Promise((resolve) => {
-      this.submitButton.element.addEventListener('click', (event) => {
-        const formData = this.getData(event);
-        resolve(formData);
-        this.clear();
-      });
+      this.submitButton.element.addEventListener(
+        'click',
+        (event) => {
+          const formData = this.getData(event);
+          resolve(formData);
+          this.clear();
+        },
+        { once: true }
+      );
     });
   }
 

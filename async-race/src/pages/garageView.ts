@@ -6,20 +6,17 @@ export class GarageView {
   element: HTMLElement;
 
   constructor(
-    rootElement: HTMLElement,
-    url: { garage: string; engine: string }
+    garage: Garage,
+    garageController: GarageController,
+    pagination: Pagination
   ) {
     this.element = document.createElement('div');
     this.element.id = 'garage-view';
 
-    const garageContoller = new GarageController(rootElement);
-    const pagination = new Pagination();
-    const garage = new Garage(rootElement, url, garageContoller, pagination);
-
-    garageContoller.render();
+    garageController.render();
     garage.render();
 
-    this.element.appendChild(garageContoller.element);
+    this.element.appendChild(garageController.element);
     this.element.appendChild(garage.element);
     this.element.appendChild(pagination.element);
   }
