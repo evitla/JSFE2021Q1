@@ -49,7 +49,11 @@ export class Car extends BaseComponent {
     });
   }
 
-  async startDriving(): Promise<void> {
+  async startDriving(): Promise<{
+    success: boolean;
+    id: number;
+    time: number;
+  }> {
     this.startEngineButton.element.disabled = true;
     this.stopEngineButton.element.disabled = false;
 
@@ -64,6 +68,8 @@ export class Car extends BaseComponent {
 
     const { success } = await this.drive();
     if (!success) window.cancelAnimationFrame(this.animationState.id);
+
+    return { success, id: this.id, time };
   }
 
   async stopDriving(): Promise<void> {

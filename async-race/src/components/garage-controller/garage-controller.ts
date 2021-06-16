@@ -11,7 +11,7 @@ export class GarageController extends BaseComponent {
 
   startRaceButton = new Button('Start', ['btn', 'primary-btn']);
 
-  resetRaceButton = new Button('Reset', ['btn', 'primary-btn']);
+  resetRaceButton = new Button('Reset', ['btn', 'primary-btn'], true);
 
   generateCarsButton = new Button('Generate cars', ['btn', 'secondary-btn']);
 

@@ -15,7 +15,7 @@ export class Garage extends BaseComponent {
 
   constructor(
     rootElement: HTMLElement,
-    private url: { garage: string; engine: string },
+    private url: { garage: string; engine: string; winners: string },
     private garageController: GarageController,
     private pagination: Pagination
   ) {
@@ -37,20 +37,6 @@ export class Garage extends BaseComponent {
       }
     );
 
-    this.garageController.startRaceButton.element.addEventListener(
-      'click',
-      async () => {
-        await Promise.all(this.cars.map((car) => car.startDriving()));
-      }
-    );
-
-    this.garageController.resetRaceButton.element.addEventListener(
-      'click',
-      async () => {
-        await Promise.all(this.cars.map((car) => car.stopDriving()));
-      }
-    );
-
     this.garageController.generateCarsButton.element.addEventListener(
       'click',
       async () => {
@@ -63,8 +49,42 @@ export class Garage extends BaseComponent {
     this.pagination.listen(async () => {
       this.element.innerHTML = '';
       await this.render();
-      this.garageController.renderTitle(this.count);
-    });
+    }, true);
+  }
+
+  async startRace(cars: Car[]): Promise<{ car: Car; time: string }> {
+    const promises = this.cars.map((car) => car.startDriving());
+    const winner = await this.raceAll(
+      promises,
+      cars.map((car) => car.id)
+    );
+
+    return winner;
+  }
+
+  private async raceAll(
+    promises: Promise<{ success: boolean; id: number; time: number }>[],
+    ids: number[]
+  ): Promise<{ car: Car; time: string }> {
+    const { success, id, time } = await Promise.race(promises);
+
+    if (!success) {
+      const failedIndex = ids.findIndex((i) => i === id);
+      const restPromises = [
+        ...promises.slice(0, failedIndex),
+        ...promises.slice(failedIndex + 1, promises.length),
+      ];
+      const restIds = [
+        ...ids.slice(0, failedIndex),
+        ...ids.slice(failedIndex + 1, ids.length),
+      ];
+      return this.raceAll(restPromises, restIds);
+    }
+
+    return {
+      car: this.cars.find((car) => car.id === id),
+      time: (time / 1000).toFixed(2),
+    };
   }
 
   async createCar(body: CarModel): Promise<void> {
@@ -76,8 +96,6 @@ export class Garage extends BaseComponent {
       })
     ).json();
 
-    this.count++;
-
     return carModel;
   }
 
@@ -86,8 +104,6 @@ export class Garage extends BaseComponent {
       await fetch(`${this.url.garage}/${car.id}`, { method: 'DELETE' })
     ).json();
 
-    this.count--;
-    this.garageController.renderTitle(this.count);
     await this.render();
 
     return carModel;
@@ -115,7 +131,7 @@ export class Garage extends BaseComponent {
     this.garageController.renderTitle(this.count);
 
     cars.models.forEach((model) => this.renderCar(model));
-    this.pagination.updateState(this.count);
+    this.pagination.updateState(store.carsPage, store.carsPerPage, this.count);
   }
 
   getCar = async (id: number): Promise<CarModel> => {
@@ -136,6 +152,10 @@ export class Garage extends BaseComponent {
     };
   }
 
+  private async deleteWinner(id: number): Promise<void> {
+    (await fetch(`${this.url.winners}/${id}`, { method: 'DELETE' })).json();
+  }
+
   private renderCar(carModel: CarModel) {
     const car = new Car(carModel, this.url.engine);
     car.render();
@@ -154,6 +174,7 @@ export class Garage extends BaseComponent {
 
     car.removeButton.element.addEventListener('click', async () => {
       await this.removeCar(car);
+      await this.deleteWinner(car.id);
     });
 
     this.element.appendChild(car.track);
