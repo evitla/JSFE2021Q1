@@ -1,4 +1,6 @@
 export default {
   carsPage: 1,
-  carsPerPage: 6,
+  carsPerPage: 7,
+  winnersPage: 1,
+  winnersPerPage: 10,
 };

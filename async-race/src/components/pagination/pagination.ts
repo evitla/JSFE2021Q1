@@ -14,26 +14,34 @@ export class Pagination extends BaseComponent {
     this.element.appendChild(this.nextButton.element);
   }
 
-  async listen(eventFunction: () => void): Promise<void> {
+  async listen(eventFunction: () => void, isGarage: boolean): Promise<void> {
     this.nextButton.element.addEventListener('click', async () => {
-      store.carsPage++;
+      if (isGarage) {
+        store.carsPage++;
+      } else {
+        store.winnersPage++;
+      }
       eventFunction();
     });
 
     this.prevButton.element.addEventListener('click', async () => {
-      store.carsPage--;
+      if (isGarage) {
+        store.carsPage--;
+      } else {
+        store.winnersPage--;
+      }
       eventFunction();
     });
   }
 
-  updateState(count: number): void {
-    if (store.carsPerPage * store.carsPage < count) {
+  updateState(page: number, limit: number, count: number): void {
+    if (page * limit < count) {
       this.nextButton.element.disabled = false;
     } else {
       this.nextButton.element.disabled = true;
     }
 
-    if (store.carsPage > 1) {
+    if (page > 1) {
       this.prevButton.element.disabled = false;
     } else {
       this.prevButton.element.disabled = true;
