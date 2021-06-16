@@ -21,3 +21,25 @@ a {
 li {
   list-style: none;
 }
+
+.header {
+  margin: 1.5rem auto;
+  width: 90%;
+
+  .primary-btn {
+    width: 4.875rem;
+
+    .front {
+      padding: 0.25em;
+    }
+  }
+}
+
+main {
+  margin: 2rem auto;
+  width: 90%;
+}
+
+.pagination {
+  margin-top: 3rem;
+}
