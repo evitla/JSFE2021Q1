@@ -25,19 +25,20 @@ export class Car extends BaseComponent {
 
   private animationState: { id: number };
 
-  constructor(carModel: CarModel, private engine: string) {
+  constructor(private carModel: CarModel, private engine = '') {
     super('div', ['car']);
+  }
 
-    this.id = carModel.id;
-
+  render(): void {
+    this.id = this.carModel.id;
     this.track.className = 'track';
     this.name.className = 'car-model';
 
     this.renderGeneralButtons();
-    this.renderName(carModel.name);
+    this.renderName(this.carModel.name);
     this.track.appendChild(this.name);
     this.renderRoad();
-    this.renderImage(carModel.color);
+    this.renderImage(this.carModel.color);
 
     this.startEngineButton.element.addEventListener('click', async () => {
       await this.startDriving();
@@ -48,7 +49,7 @@ export class Car extends BaseComponent {
     });
   }
 
-  private async startDriving() {
+  async startDriving(): Promise<void> {
     this.startEngineButton.element.disabled = true;
     this.stopEngineButton.element.disabled = false;
 
@@ -65,7 +66,7 @@ export class Car extends BaseComponent {
     if (!success) window.cancelAnimationFrame(this.animationState.id);
   }
 
-  private async stopDriving() {
+  async stopDriving(): Promise<void> {
     this.startEngineButton.element.disabled = false;
     this.stopEngineButton.element.disabled = true;
     await this.stopEngine();
@@ -120,8 +121,8 @@ export class Car extends BaseComponent {
     this.track.appendChild(road);
   }
 
-  renderImage(color: string): void {
-    this.element.innerHTML = `
+  renderImage(color: string): string {
+    const image = `
       <?xml version="1.0" encoding="UTF-8" standalone="no"?>
       <svg viewBox="0 0 720 720" preserveAspectRatio="xMidYMin slice"
           xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://web.resource.org/cc/"
@@ -259,5 +260,7 @@ export class Car extends BaseComponent {
         </g>
       </svg>
     `;
+    this.element.innerHTML = image;
+    return image;
   }
 }

@@ -9,6 +9,8 @@ import { generateRandomCars } from './utils';
 const RANDOM_CARS_COUNT = 100;
 
 export class Garage extends BaseComponent {
+  cars: Car[] = [];
+
   count: number;
 
   constructor(
@@ -32,6 +34,20 @@ export class Garage extends BaseComponent {
         await this.createCar(formData);
         await this.render();
         this.garageController.carFormToCreate.clear();
+      }
+    );
+
+    this.garageController.startRaceButton.element.addEventListener(
+      'click',
+      async () => {
+        await Promise.all(this.cars.map((car) => car.startDriving()));
+      }
+    );
+
+    this.garageController.resetRaceButton.element.addEventListener(
+      'click',
+      async () => {
+        await Promise.all(this.cars.map((car) => car.stopDriving()));
       }
     );
 
@@ -92,6 +108,7 @@ export class Garage extends BaseComponent {
 
   async render(): Promise<void> {
     this.element.innerHTML = '';
+    this.cars = [];
     const cars = await this.getCars(store.carsPage, store.carsPerPage);
 
     this.count = +cars.count;
@@ -122,6 +139,7 @@ export class Garage extends BaseComponent {
   private renderCar(carModel: CarModel) {
     const car = new Car(carModel, this.url.engine);
     car.render();
+    this.cars.push(car);
 
     car.selectButton.element.addEventListener('click', async () => {
       car.removeButton.element.disabled = true;
