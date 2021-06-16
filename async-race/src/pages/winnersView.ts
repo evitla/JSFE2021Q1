@@ -9,6 +9,8 @@ export class WinnersView {
     this.element.id = 'winners-view';
     this.element.style.display = 'none';
 
+    winners.listen();
+
     this.element.appendChild(winners.element);
     this.element.appendChild(pagination.element);
   }

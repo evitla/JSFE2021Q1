@@ -25,7 +25,12 @@ export class Winners extends BaseComponent {
 
   async render(): Promise<void> {
     this.element.innerHTML = '';
-    const cars = await this.getWinners(store.winnersPage, store.winnersPerPage);
+    const cars = await this.getWinners(
+      store.winnersPage,
+      store.winnersPerPage,
+      store.sortBy,
+      store.sortOrder
+    );
 
     this.count = +cars.count;
     this.renderTitle();
@@ -35,6 +40,28 @@ export class Winners extends BaseComponent {
       store.winnersPerPage,
       this.count
     );
+  }
+
+  listen(): void {
+    const getSortedWinners = async (sort: string) => {
+      store.sortBy = sort;
+      store.sortOrder = store.sortOrder === 'ASC' ? 'DESC' : 'ASC';
+      const winners = await this.getWinners(
+        store.winnersPage,
+        store.winnersPerPage,
+        store.sortBy,
+        store.sortOrder
+      );
+      this.table.renderBody(winners);
+    };
+
+    this.table.winsHead.addEventListener('click', async () => {
+      await getSortedWinners('wins');
+    });
+
+    this.table.bestTimeHead.addEventListener('click', async () => {
+      await getSortedWinners('time');
+    });
   }
 
   async saveWinner(id: number, time: number): Promise<void> {
@@ -53,9 +80,16 @@ export class Winners extends BaseComponent {
     });
   }
 
-  private async getWinners(page: number, limit: number) {
+  private async getWinners(
+    page: number,
+    limit: number,
+    sort: string,
+    order: string
+  ) {
+    const sortOrder = sort && order ? `&_sort=${sort}&_order=${order}` : '';
+
     const response = await fetch(
-      `${this.winnersURL}?_page=${page}&_limit=${limit}`
+      `${this.winnersURL}?_page=${page}&_limit=${limit}${sortOrder}`
     );
 
     const items: WinnerModel[] = await response.json();

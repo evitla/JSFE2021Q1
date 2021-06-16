@@ -3,4 +3,6 @@ export default {
   carsPerPage: 7,
   winnersPage: 1,
   winnersPerPage: 10,
+  sortBy: null,
+  sortOrder: null,
 };

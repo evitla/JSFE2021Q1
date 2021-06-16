@@ -8,8 +8,13 @@ export class WinnersTable extends BaseComponent {
 
   bestTimeHead = document.createElement('th');
 
+  body = document.createElement('tbody');
+
   constructor() {
     super('table', ['winners-table']);
+
+    this.winsHead.className = 'winners-table__wins';
+    this.bestTimeHead.className = 'winners-table__time';
   }
 
   render(
@@ -19,6 +24,7 @@ export class WinnersTable extends BaseComponent {
     this.element.innerHTML = '';
     this.renderHead();
     this.renderBody(winners);
+    this.element.appendChild(this.body);
     rootElement.appendChild(this.element);
   }
 
@@ -39,9 +45,8 @@ export class WinnersTable extends BaseComponent {
     this.element.appendChild(head);
   }
 
-  private renderBody(winners: { items: WinnerModel[]; count: number }): void {
-    const body = document.createElement('tbody');
-
+  renderBody(winners: { items: WinnerModel[]; count: number }): void {
+    this.body.innerHTML = '';
     winners.items.forEach((winner, index) => {
       const row = document.createElement('tr');
       row.innerHTML = `
@@ -52,9 +57,7 @@ export class WinnersTable extends BaseComponent {
         <td>${winner.time}</td>
       `;
 
-      body.appendChild(row);
+      this.body.appendChild(row);
     });
-
-    this.element.appendChild(body);
   }
 }
