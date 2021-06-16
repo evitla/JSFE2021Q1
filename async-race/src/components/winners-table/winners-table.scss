@@ -1,0 +1,20 @@
+.winners-table {
+  margin-top: 1rem;
+  width: 50%;
+
+  td,
+  th {
+    padding: 0.5rem;
+  }
+
+  th {
+    padding: 0.75rem 0.5rem;
+    background-color: var(--primary-color-200);
+    color: var(--primary-color-500);
+    text-align: left;
+  }
+
+  tbody {
+    font-weight: 500;
+  }
+}
